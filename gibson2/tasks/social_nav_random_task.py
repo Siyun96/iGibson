@@ -5,8 +5,8 @@ from gibson2.objects.pedestrian import Pedestrian
 from gibson2.termination_conditions.pedestrian_collision import PedestrianCollision
 from gibson2.utils.utils import l2_distance
 from gibson2.sgan.sgan.models import TrajectoryGenerator
-from gibson2.sgan.sgan.utils import relative_to_abs, get_dset_path
-import sgan_ped
+# from gibson2.sgan.sgan.utils import relative_to_abs, get_dset_path
+from gibson2.tasks.sgan_ped import gen_ped_data
 from collections import defaultdict
 import pybullet as p
 import numpy as np
@@ -127,7 +127,15 @@ class SocialNavRandomTask(PointNavRandomTask):
             self.orca_max_speed)
 
         # Threshold of pedestrians reaching the next waypoint
-        self.pedestrian_goal_thresh = \.utils import relative_to_abs, get_dset_path
+        self.pedestrian_goal_thresh = \
+            self.config.get('pedestrian_goal_thresh', 0.3)
+        
+        self.pedestrians, self.orca_pedestrians = self.load_pedestrians(env)
+        # Visualize pedestrians' next goals for debugging purposes
+        # DO NOT use them during training
+        # self.pedestrian_goals = self.load_pedestrian_goals(env)
+        self.load_obstacles(env)
+
         self.personal_space_violation_steps = 0
 
         self.offline_eval = self.config.get(
@@ -421,19 +429,20 @@ class SocialNavRandomTask(PointNavRandomTask):
 
 ##################################################SHIT BELOW#######################################################################
 
-            if len(self.history_trajs[ped] < 8):
-                desired_vel = next_goal - current_pos[0:2]
-                desired_vel = desired_vel / \
-                    np.linalg.norm(desired_vel) * self.orca_max_speed
-                self.orca_sim.setAgentPrefVelocity(ped_id, tuple(desired_vel))
+            if len(self.history_trajs[ped]) < 8:
+                ped_next_goals.append(next_goal)
+                # desired_vel = next_goal - current_pos[0:2]
+                # desired_vel = desired_vel / \
+                #     np.linalg.norm(desired_vel) * self.orca_max_speed
+                # self.orca_sim.setAgentPrefVelocity(ped_id, tuple(desired_vel))
             else:
                 ped_next_goals.append(next_goal)
                 self.start_sgan = True
-        
-        if self.start_sgan:
-            sgan_suc = False
 
-            ped_pos_dict = gen_ped_data(self.generator, self.ped_dict, self.num_samples, ped_next_goals)
+        sgan_suc = False
+        if self.start_sgan:
+
+            ped_pos_dict = gen_ped_data(self.generator, self.history_trajs, self.num_samples, ped_next_goals)
 
             for sample_idx in range(0, self.num_samples):
                 #TODO: check orca_ped is pedestrain id
@@ -476,7 +485,7 @@ class SocialNavRandomTask(PointNavRandomTask):
             next_goal = waypoints[0]
             if np.linalg.norm(next_goal - np.array(pos_xyz[:2])) \
                 <= self.pedestrian_goal_thresh:
-            waypoints.pop(0)
+                waypoints.pop(0)
         else:
             for ped_id in range(0, self.num_pedestrians):
                 desired_vel = ped_next_goals[ped_id] - current_pos[0:2]

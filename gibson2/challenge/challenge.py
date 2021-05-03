@@ -6,6 +6,22 @@ from gibson2.envs.igibson_env import iGibsonEnv
 import logging
 logging.getLogger().setLevel(logging.WARNING)
 
+ACTION_DIM = 2
+LINEAR_VEL_DIM = 0
+ANGULAR_VEL_DIM = 1
+
+
+class RandomAgent:
+    def __init__(self):
+        pass
+
+    def reset(self):
+        pass
+
+    def act(self, observations):
+        action = np.random.uniform(low=-1, high=1, size=(ACTION_DIM,))
+        return action
+
 
 class Challenge:
     def __init__(self):
@@ -16,6 +32,7 @@ class Challenge:
             'EVAL_EPISODES_PER_SCENE', 100)
 
     def submit(self, agent):
+        agent = RandomAgent()
         env_config = parse_config(self.config_file)
 
         task = env_config['task']
