@@ -4,7 +4,10 @@ from gibson2.objects.visual_marker import VisualMarker
 from gibson2.objects.pedestrian import Pedestrian
 from gibson2.termination_conditions.pedestrian_collision import PedestrianCollision
 from gibson2.utils.utils import l2_distance
-
+from gibson2.sgan.sgan.models import TrajectoryGenerator
+from gibson2.sgan.sgan.utils import relative_to_abs, get_dset_path
+import sgan_ped
+from collections import defaultdict
 import pybullet as p
 import numpy as np
 import rvo2
@@ -16,7 +19,7 @@ class SocialNavRandomTask(PointNavRandomTask):
     The goal is to navigate to a random goal position, in the presence of pedestrians
     """
 
-    def __init__(self, env):
+    def __init__(self, env, generator=None, num_samples = 1):
         super(SocialNavRandomTask, self).__init__(env)
 
         # Detect pedestrian collision
@@ -30,6 +33,16 @@ class SocialNavRandomTask(PointNavRandomTask):
         self.num_pedestrians = max(1, int(
             num_sqrt_meter / self.num_sqrt_meter_per_ped))
 
+        # TODO: add image to generator
+        self.num_samples = num_samples
+        self.generator = generator
+        self.start_sgan = False
+        # key: ped_id
+        # val: trajectory
+        self.history_trajs = defaultdict(list)
+        for i in range(0, self.num_pedestrians):
+            self.history_trajs[i] = []
+
         """
         Parameters for our mechanism of preventing pedestrians to back up.
         Instead, stop them and then re-sample their goals.
@@ -42,7 +55,9 @@ class SocialNavRandomTask(PointNavRandomTask):
         neighbor_stop_radius   Maximum distance to be considered a nearby
                                a new waypoint.
         backoff_radian_thresh  If the angle (in radian) between the pedestrian's
-                               orientation and the next direction of the next
+                     s
+        waypoints.append(valid_waypoint)
+        waypoints.append(shortest_path[-          orientation and the next direction of the next
                                goal is greater than the backoffRadianThresh,
                                then the pedestrian is considered backing off.
         """
@@ -112,13 +127,7 @@ class SocialNavRandomTask(PointNavRandomTask):
             self.orca_max_speed)
 
         # Threshold of pedestrians reaching the next waypoint
-        self.pedestrian_goal_thresh = \
-            self.config.get('pedestrian_goal_thresh', 0.3)
-        self.pedestrians, self.orca_pedestrians = self.load_pedestrians(env)
-        # Visualize pedestrians' next goals for debugging purposes
-        # DO NOT use them during training
-        # self.pedestrian_goals = self.load_pedestrian_goals(env)
-        self.load_obstacles(env)
+        self.pedestrian_goal_thresh = \.utils import relative_to_abs, get_dset_path
         self.personal_space_violation_steps = 0
 
         self.offline_eval = self.config.get(
@@ -382,23 +391,26 @@ class SocialNavRandomTask(PointNavRandomTask):
         self.orca_sim.setAgentPosition(
             self.robot_orca_ped,
             tuple(env.robots[0].get_position()[0:2]))
+        
+        ped_next_goals = []
 
-        for i, (ped, orca_ped, waypoints) in \
+        for ped_id, (ped, orca_ped, waypoints) in \
                 enumerate(zip(self.pedestrians,
                               self.orca_pedestrians,
                               self.pedestrian_waypoints)):
             current_pos = np.array(ped.get_position())
+            self.history_trajs[ped].append(current_pos[0:2])
 
             # Sample new waypoints if empty OR
             # if the pedestrian has stopped for self.num_steps_stop_thresh steps
             if len(waypoints) == 0 or \
-                    self.num_steps_stop[i] >= self.num_steps_stop_thresh:
+                    self.num_steps_stop[ped_id] >= self.num_steps_stop_thresh:
                 if self.offline_eval:
-                    waypoints = self.sample_new_target_pos(env, current_pos, i)
+                    waypoints = self.sample_new_target_pos(env, current_pos, ped_id)
                 else:
                     waypoints = self.sample_new_target_pos(env, current_pos)
-                self.pedestrian_waypoints[i] = waypoints
-                self.num_steps_stop[i] = 0
+                self.pedestrian_waypoints[ped_id] = waypoints
+                self.num_steps_stop[ped_id] = 0
 
             next_goal = waypoints[0]
             # self.pedestrian_goals[i].set_position(
@@ -406,35 +418,96 @@ class SocialNavRandomTask(PointNavRandomTask):
             yaw = np.arctan2(next_goal[1] - current_pos[1],
                              next_goal[0] - current_pos[0])
             ped.set_yaw(yaw)
-            desired_vel = next_goal - current_pos[0:2]
-            desired_vel = desired_vel / \
-                np.linalg.norm(desired_vel) * self.orca_max_speed
-            self.orca_sim.setAgentPrefVelocity(orca_ped, tuple(desired_vel))
 
-        self.orca_sim.doStep()
+##################################################SHIT BELOW#######################################################################
 
-        next_peds_pos_xyz, next_peds_stop_flag = \
-            self.update_pos_and_stop_flags()
-
-        # Update the pedestrian position in PyBullet if it does not stop
-        # Otherwise, revert back the position in RVO2 simulator
-        for i, (ped, orca_pred, waypoints) in \
-                enumerate(zip(self.pedestrians,
-                              self.orca_pedestrians,
-                              self.pedestrian_waypoints)):
-            pos_xyz = next_peds_pos_xyz[i]
-            if next_peds_stop_flag[i] is True:
-                # revert back ORCA sim pedestrian to the previous time step
-                self.num_steps_stop[i] += 1
-                self.orca_sim.setAgentPosition(orca_pred, pos_xyz[:2])
+            if len(self.history_trajs[ped] < 8):
+                desired_vel = next_goal - current_pos[0:2]
+                desired_vel = desired_vel / \
+                    np.linalg.norm(desired_vel) * self.orca_max_speed
+                self.orca_sim.setAgentPrefVelocity(ped_id, tuple(desired_vel))
             else:
-                # advance pybullet pedstrian to the current time step
-                self.num_steps_stop[i] = 0
-                ped.set_position(pos_xyz)
-                next_goal = waypoints[0]
-                if np.linalg.norm(next_goal - np.array(pos_xyz[:2])) \
-                        <= self.pedestrian_goal_thresh:
-                    waypoints.pop(0)
+                ped_next_goals.append(next_goal)
+                self.start_sgan = True
+        
+        if self.start_sgan:
+            sgan_suc = False
+
+            ped_pos_dict = gen_ped_data(self.generator, self.ped_dict, self.num_samples, ped_next_goals)
+
+            for sample_idx in range(0, self.num_samples):
+                #TODO: check orca_ped is pedestrain id
+                for ped_id in range(0, self.num_pedestrians):
+                    assert(len(ped_pos_dict[sample_idx][ped_id]) == 2)
+                    desired_vel = ped_pos_dict[sample_idx][ped_id] - current_pos[0:2]
+                    desired_vel = desired_vel / \
+                        np.linalg.norm(desired_vel) * self.orca_max_speed
+                    self.orca_sim.setAgentPrefVelocity(ped_id, tuple(desired_vel))
+                
+                self.orca_sim.doStep()
+
+                next_peds_pos_xyz, next_peds_stop_flag = \
+                    self.update_pos_and_stop_flags()
+                
+                suc_flag = True
+                # Update the pedestrian position in PyBullet if it does not stop
+                # Otherwise, revert back the position in RVO2 simulator
+                for i, (ped, orca_pred, waypoints) in \
+                        enumerate(zip(self.pedestrians,
+                                    self.orca_pedestrians,
+                                    self.pedestrian_waypoints)):
+                    pos_xyz = next_peds_pos_xyz[i]
+                    if next_peds_stop_flag[i] is True:
+                        suc_flag = False
+                        # revert back ORCA sim pedestrian to the previous time step
+                        self.num_steps_stop[i] += 1
+                        self.orca_sim.setAgentPosition(orca_pred, pos_xyz[:2])
+                        # if some pedestrain fails, don't go to next pedestrain
+                        break
+
+                if suc_flag:
+                    sgan_suc = True
+                    break
+
+        if sgan_suc:
+            # advance pybullet pedstrian to the current time step
+            self.num_steps_stop[i] = 0
+            ped.set_position(pos_xyz)
+            next_goal = waypoints[0]
+            if np.linalg.norm(next_goal - np.array(pos_xyz[:2])) \
+                <= self.pedestrian_goal_thresh:
+            waypoints.pop(0)
+        else:
+            for ped_id in range(0, self.num_pedestrians):
+                desired_vel = ped_next_goals[ped_id] - current_pos[0:2]
+                desired_vel = desired_vel / \
+                    np.linalg.norm(desired_vel) * self.orca_max_speed
+                self.orca_sim.setAgentPrefVelocity(ped_id, tuple(desired_vel))
+            
+            self.orca_sim.doStep()
+            next_peds_pos_xyz, next_peds_stop_flag = \
+                self.update_pos_and_stop_flags()
+
+            # Update the pedestrian position in PyBullet if it does not stop
+            # Otherwise, revert back the position in RVO2 simulator
+            for i, (ped, orca_pred, waypoints) in \
+                    enumerate(zip(self.pedestrians,
+                                self.orca_pedestrians,
+                                self.pedestrian_waypoints)):
+                pos_xyz = next_peds_pos_xyz[i]
+                if next_peds_stop_flag[i] is True:
+                    # revert back ORCA sim pedestrian to the previous time step
+                    self.num_steps_stop[i] += 1
+                    self.orca_sim.setAgentPosition(orca_pred, pos_xyz[:2])
+                else:
+                    # advance pybullet pedstrian to the current time step
+                    self.num_steps_stop[i] = 0
+                    ped.set_position(pos_xyz)
+                    next_goal = waypoints[0]
+                    if np.linalg.norm(next_goal - np.array(pos_xyz[:2])) \
+                            <= self.pedestrian_goal_thresh:
+                        waypoints.pop(0)
+###########################################################################SHIT ABOVE###########################################
 
         # Detect robot's personal space violation
         personal_space_violation = False
