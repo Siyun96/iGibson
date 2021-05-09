@@ -532,13 +532,15 @@ def check_accuracy(
             loss_mask, seq_start_end) = new_batch
 
             base_path = get_dset_path('_','load')
-            data_name = batch[-1]
-            grid_map = []
-            for d_name in data_name:
-                grid_path = os.path.join(base_path, d_name)
-                grid_map.append(torch.load(grid_path+'.pt'))
+            # data_name = batch[-1]
+            # grid_map = []
+            # for d_name in data_name:
+            #     grid_path = os.path.join(base_path, d_name)
+            #     grid_map.append(torch.load(grid_path+'.pt'))
             
-            grid_map = torch.FloatTensor(grid_map) # batch*img
+            # grid_map = torch.FloatTensor(grid_map) # batch*img
+
+            data_name = batch[-1]
 
             grid_path = os.path.join(base_path, data_name[0])
             res = torch.load(grid_path+'.pt')
