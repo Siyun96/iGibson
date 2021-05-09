@@ -37,6 +37,7 @@ class iGibsonEnv(BaseEnv):
         device_idx=0,
         render_to_tensor=False,
         automatic_reset=False,
+        social_nav_generator=None,
     ):
         """
         :param config_file: config_file path
@@ -56,6 +57,7 @@ class iGibsonEnv(BaseEnv):
                                          device_idx=device_idx,
                                          render_to_tensor=render_to_tensor)
         self.automatic_reset = automatic_reset
+        self.social_nav_generator = social_nav_generator
 
     def load_task_setup(self):
         """
@@ -460,12 +462,29 @@ if __name__ == '__main__':
                         choices=['headless', 'gui', 'iggui'],
                         default='headless',
                         help='which mode for simulation (default: headless)')
+    #TODO: make generic
+    parser.add_argument('--generator',
+                        '-g',
+                        default=None,
+                        help='path to generator model to use')
     args = parser.parse_args()
 
-    env = iGibsonEnv(config_file=args.config,
-                     mode=args.mode,
-                     action_timestep=1.0 / 10.0,
-                     physics_timestep=1.0 / 40.0)
+    if args.generator is not None:
+        generator = torch.load(args.generator)
+        # for now, only run inference in ig
+        generator.eval()
+
+        env = iGibsonEnv(config_file=args.config,
+                        mode=args.mode,
+                        action_timestep=1.0 / 10.0,
+                        physics_timestep=1.0 / 40.0,
+                        social_nav_generator=generator)
+
+    else:
+        env = iGibsonEnv(config_file=args.config,
+                        mode=args.mode,
+                        action_timestep=1.0 / 10.0,
+                        physics_timestep=1.0 / 40.0)
 
     step_time_list = []
     for episode in range(100):

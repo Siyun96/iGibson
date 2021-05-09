@@ -35,13 +35,24 @@ class SocialNavRandomTask(PointNavRandomTask):
 
         # TODO: add image to generator
         self.num_samples = num_samples
-        self.generator = generator
+        self.generator = env.social_nav_generator
         self.start_sgan = False
         # key: ped_id
         # val: trajectory
         self.history_trajs = defaultdict(list)
         for i in range(0, self.num_pedestrians):
             self.history_trajs[i] = []
+
+        # image of floor plan (convert from (0, 255) to (0, 1))
+        floorplan = env.scene.floor_map[0] // 255
+        print("Sanity check: floor map is an array")
+        print("Floor plan shape:", floorplan.shape)
+        print(floorplan)
+
+        self.generator.set_map(floorplan)
+
+        #TODO: Convert from image space to world space?
+
 
         """
         Parameters for our mechanism of preventing pedestrians to back up.
@@ -442,7 +453,7 @@ class SocialNavRandomTask(PointNavRandomTask):
         sgan_suc = False
         if self.start_sgan:
 
-            ped_pos_dict = gen_ped_data(self.generator, self.history_trajs, self.num_samples, ped_next_goals)
+            ped_pos_dict = gen_ped_data(self.generator, self.history_trajs, self.num_samples, ped_next_goals, self.floorplan)
 
             for sample_idx in range(0, self.num_samples):
                 #TODO: check orca_ped is pedestrain id
