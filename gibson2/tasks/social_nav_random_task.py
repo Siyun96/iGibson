@@ -6,6 +6,7 @@ from gibson2.termination_conditions.pedestrian_collision import PedestrianCollis
 from gibson2.utils.utils import l2_distance
 from gibson2.sgan.sgan.models import TrajectoryGenerator
 # from gibson2.sgan.sgan.utils import relative_to_abs, get_dset_path
+
 from gibson2.tasks.sgan_ped import gen_ped_data
 from collections import defaultdict
 import pybullet as p
@@ -35,13 +36,23 @@ class SocialNavRandomTask(PointNavRandomTask):
 
         # TODO: add image to generator
         self.num_samples = num_samples
-        self.generator = generator
+        self.generator = env.social_nav_generator
         self.start_sgan = False
         # key: ped_id
         # val: trajectory
         self.history_trajs = defaultdict(list)
         for i in range(0, self.num_pedestrians):
             self.history_trajs[i] = []
+
+        # image of floor plan (convert from (0, 255) to (0, 1))
+        floorplan = env.scene.floor_map[0] // 255
+        print("Sanity check: floor map is an array")
+        print("Floor plan shape:", floorplan.shape)
+        print(floorplan)
+
+        self.generator.set_map(floorplan)
+
+        #TODO: Convert from image space to world space?
 
         """
         Parameters for our mechanism of preventing pedestrians to back up.
@@ -442,7 +453,7 @@ class SocialNavRandomTask(PointNavRandomTask):
         sgan_suc = False
         if self.start_sgan:
 
-            ped_pos_dict = gen_ped_data(self.generator, self.history_trajs, self.num_samples, ped_next_goals)
+            ped_pos_dict = gen_ped_data(self.generator, self.history_trajs, self.num_samples, ped_next_goals, self.floorplan)
 
             for sample_idx in range(0, self.num_samples):
                 #TODO: check orca_ped is pedestrain id
@@ -528,6 +539,12 @@ class SocialNavRandomTask(PointNavRandomTask):
                 break
         if personal_space_violation:
             self.personal_space_violation_steps += 1
+
+
+        #TODO: Add logging to collect data for fine-tuning and visualization
+        for i, ped in enumerate(self.pedestrians):
+            env.logger.log(f'Ped ID: {}, location: ({}, {})', i, ped.get_positions()[0], ped.get_positions()[1])
+
 
     def update_pos_and_stop_flags(self):
         """
