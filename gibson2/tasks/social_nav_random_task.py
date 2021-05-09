@@ -6,6 +6,7 @@ from gibson2.termination_conditions.pedestrian_collision import PedestrianCollis
 from gibson2.utils.utils import l2_distance
 from gibson2.sgan.sgan.models import TrajectoryGenerator
 # from gibson2.sgan.sgan.utils import relative_to_abs, get_dset_path
+
 from gibson2.tasks.sgan_ped import gen_ped_data
 from collections import defaultdict
 import pybullet as p
@@ -52,7 +53,6 @@ class SocialNavRandomTask(PointNavRandomTask):
         self.generator.set_map(floorplan)
 
         #TODO: Convert from image space to world space?
-
 
         """
         Parameters for our mechanism of preventing pedestrians to back up.
@@ -539,6 +539,12 @@ class SocialNavRandomTask(PointNavRandomTask):
                 break
         if personal_space_violation:
             self.personal_space_violation_steps += 1
+
+
+        #TODO: Add logging to collect data for fine-tuning and visualization
+        for i, ped in enumerate(self.pedestrians):
+            env.logger.log(f'Ped ID: {}, location: ({}, {})', i, ped.get_positions()[0], ped.get_positions()[1])
+
 
     def update_pos_and_stop_flags(self):
         """

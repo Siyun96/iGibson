@@ -12,6 +12,8 @@ from gibson2.sensors.vision_sensor import VisionSensor
 from gibson2.robots.robot_base import BaseRobot
 from gibson2.external.pybullet_tools.utils import stable_z_on_aabb
 
+from gibson2.utils.logger import get_logger
+
 from transforms3d.euler import euler2quat
 from collections import OrderedDict
 import argparse
@@ -38,6 +40,7 @@ class iGibsonEnv(BaseEnv):
         render_to_tensor=False,
         automatic_reset=False,
         social_nav_generator=None,
+        logger=None,
     ):
         """
         :param config_file: config_file path
@@ -58,6 +61,7 @@ class iGibsonEnv(BaseEnv):
                                          render_to_tensor=render_to_tensor)
         self.automatic_reset = automatic_reset
         self.social_nav_generator = social_nav_generator
+        self.logger = logger
 
     def load_task_setup(self):
         """
@@ -467,6 +471,10 @@ if __name__ == '__main__':
                         '-g',
                         default=None,
                         help='path to generator model to use')
+    parser.add_argument('--log-path',
+                        default='test',
+                        type=str,
+                        help='path to save actual trajectories')
     args = parser.parse_args()
 
     if args.generator is not None:
@@ -474,11 +482,13 @@ if __name__ == '__main__':
         # for now, only run inference in ig
         generator.eval()
 
+        exp_logger = get_logger(args.log_path, 'ped_trajectories')
         env = iGibsonEnv(config_file=args.config,
                         mode=args.mode,
                         action_timestep=1.0 / 10.0,
                         physics_timestep=1.0 / 40.0,
-                        social_nav_generator=generator)
+                        social_nav_generator=generator,
+                        logger=exp_logger)
 
     else:
         env = iGibsonEnv(config_file=args.config,
