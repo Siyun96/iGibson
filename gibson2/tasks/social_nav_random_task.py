@@ -20,7 +20,7 @@ class SocialNavRandomTask(PointNavRandomTask):
     The goal is to navigate to a random goal position, in the presence of pedestrians
     """
 
-    def __init__(self, env, generator=None, num_samples = 1):
+    def __init__(self, env, num_samples = 1):
         super(SocialNavRandomTask, self).__init__(env)
 
         # Detect pedestrian collision
@@ -45,13 +45,10 @@ class SocialNavRandomTask(PointNavRandomTask):
             self.history_trajs[i] = []
 
         # image of floor plan (convert from (0, 255) to (0, 1))
-        floorplan = env.scene.floor_map[0] // 255
-        print("Sanity check: floor map is an array")
-        print("Floor plan shape:", floorplan.shape)
-        print(floorplan)
-
-        self.generator.set_map(floorplan)
-
+        self.floorplan = env.scene.map_cnn[0]
+        print("Sanity check: floor map is a binary array of shape (224, 224)")
+        print("Floor plan shape:", self.floorplan.shape)
+        print(self.floorplan)
         #TODO: Convert from image space to world space?
 
         """

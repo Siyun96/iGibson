@@ -172,6 +172,7 @@ class BaseEnv(gym.Env):
                 load_room_types=self.config.get('load_room_types', None),
                 load_room_instances=self.config.get(
                     'load_room_instances', None),
+                social_nav=True,    #TODO: make part of config
             )
             # TODO: Unify the function import_scene and take out of the if-else clauses
             first_n = self.config.get('_set_first_n_objects', -1)

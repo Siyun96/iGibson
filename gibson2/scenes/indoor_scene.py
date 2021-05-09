@@ -60,7 +60,7 @@ class IndoorScene(Scene):
         self.pybullet_load_texture = pybullet_load_texture
         self.floor_heights = [0.0]
 
-    def load_trav_map(self, maps_path):
+    def load_trav_map(self, maps_path, social_nav=False):
         """
         Loads the traversability maps for all floors
 
@@ -72,6 +72,7 @@ class IndoorScene(Scene):
 
         self.floor_map = []
         self.floor_graph = []
+        self.map_cnn = []
         for floor in range(len(self.floor_heights)):
             if self.trav_map_type == 'with_obj':
                 trav_map = np.array(Image.open(
@@ -97,6 +98,14 @@ class IndoorScene(Scene):
                 self.trav_map_size = int(self.trav_map_original_size *
                                          self.trav_map_default_resolution /
                                          self.trav_map_resolution)
+            
+            if social_nav:
+                trav_map_cnn = cv2.resize(trav_map, (224, 224))
+                trav_map_cnn = cv2.erode(trav_map_cnn, np.ones(
+                    self.trav_map_erosion, self.trav_map_erosion)))
+                trav_map_cnn = trav_map_cnn // 255
+                self.map_cnn.append(trav_map_cnn)
+            
             # trav_map[obstacle_map == 0] = 0
             trav_map = cv2.resize(
                 trav_map, (self.trav_map_size, self.trav_map_size))
@@ -106,6 +115,7 @@ class IndoorScene(Scene):
 
             if self.build_graph:
                 self.build_trav_graph(maps_path, floor, trav_map)
+            
             self.floor_map.append(trav_map)
 
     # TODO: refactor into C++ for speedup

@@ -46,6 +46,7 @@ class InteractiveIndoorScene(StaticIndoorScene):
                  load_room_instances=None,
                  seg_map_resolution=0.1,
                  scene_source="IG",
+                 social_nav=False,
                  ):
         """
         :param scene_id: Scene id
@@ -112,6 +113,8 @@ class InteractiveIndoorScene(StaticIndoorScene):
         self.objects_by_name = {}
         self.objects_by_id = {}
         self.category_ids = get_ig_category_ids()
+
+        self.social_nav = social_nav
 
         # Current time string to use to save the temporal urdfs
         timestr = time.strftime("%Y%m%d-%H%M%S")
@@ -802,7 +805,7 @@ class InteractiveIndoorScene(StaticIndoorScene):
         # Load the traversability map
         maps_path = os.path.join(self.scene_dir, "layout")
         if self.build_graph:
-            self.load_trav_map(maps_path)
+            self.load_trav_map(maps_path, self.social_nav)
 
         self.visual_mesh_to_material = visual_mesh_to_material
         self.check_scene_quality(body_ids, fixed_body_ids)
