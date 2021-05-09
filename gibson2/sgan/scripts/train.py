@@ -12,6 +12,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 from sgan.data.loader import data_loader
+from sgan.data.trajectories import img_loader
 from sgan.losses import gan_g_loss, gan_d_loss, l2_loss
 from sgan.losses import displacement_error, final_displacement_error
 
@@ -111,12 +112,26 @@ def get_dtypes(args):
 def main(args):
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu_num
     train_path = get_dset_path(args.dataset_name, 'train')
+
     val_path = get_dset_path(args.dataset_name, 'val')
 
     long_dtype, float_dtype = get_dtypes(args)
 
     logger.info("Initializing train dataset")
     train_dset, train_loader = data_loader(args, train_path)
+    img_path = get_dset_path(args.dataset_name, 'map')
+
+    # Already done
+    # # all_files_raw = os.listdir(img_path)
+    # # all_files = [os.path.join(img_path, _path) for _path in all_files_raw]
+    # for name in ['eth', 'hotel', 'zara1', 'zara2']:
+    # # for name in ['zara1']:
+    #     img_real_path = img_path + '/' + name
+    #     print(img_real_path)
+    #     grid_map = img_loader(img_real_path) #TODO: placeholder
+    #     torch.save(grid_map, name + '.pt')
+
+    
     logger.info("Initializing val dataset")
     _, val_loader = data_loader(args, val_path)
 
@@ -234,7 +249,6 @@ def main(args):
             if args.timing == 1:
                 torch.cuda.synchronize()
                 t1 = time.time()
-
             # Decide whether to use the batch for stepping on discriminator or
             # generator; an iteration consists of args.d_steps steps on the
             # discriminator followed by args.g_steps steps on the generator.
@@ -362,13 +376,34 @@ def main(args):
 def discriminator_step(
     args, batch, generator, discriminator, d_loss_fn, optimizer_d
 ):
-    batch = [tensor.cuda() for tensor in batch]
+    # batch = [tensor.cuda() for tensor in batch]
+    new_batch = []
+    for i in range(0, len(batch) - 1):
+        new_batch.append(batch[i].cuda())
     (obs_traj, pred_traj_gt, obs_traj_rel, pred_traj_gt_rel, non_linear_ped,
-     loss_mask, seq_start_end) = batch
+     loss_mask, seq_start_end) = new_batch
+
+    # print("traj_shape", pred_traj_gt.shape)
+    base_path = get_dset_path('_','load')
+
+    data_name = batch[-1]
+    grid_path = os.path.join(base_path, data_name[0])
+    res = torch.load(grid_path+'.pt')
+    grid_map = res.unsqueeze(0)
+    for d_name in data_name[1:]:
+        grid_path = os.path.join(base_path, d_name)
+        res = torch.load(grid_path+'.pt')
+        grid_map = torch.cat([grid_map, res.unsqueeze(0)]) # batch*img
+
+    # print("grid_map_size", grid_map.shape)
+
+
     losses = {}
     loss = torch.zeros(1).to(pred_traj_gt)
+    goal = pred_traj_gt[-1,:,:]
+    # print("goal_shape", goal.shape)
 
-    generator_out = generator(obs_traj, obs_traj_rel, seq_start_end)
+    generator_out = generator(obs_traj, obs_traj_rel, seq_start_end, goal, grid_map.cuda())
 
     pred_traj_fake_rel = generator_out
     pred_traj_fake = relative_to_abs(pred_traj_fake_rel, obs_traj[-1])
@@ -400,9 +435,31 @@ def discriminator_step(
 def generator_step(
     args, batch, generator, discriminator, g_loss_fn, optimizer_g
 ):
-    batch = [tensor.cuda() for tensor in batch]
+    # batch = [tensor.cuda() for tensor in batch]
+    # (obs_traj, pred_traj_gt, obs_traj_rel, pred_traj_gt_rel, non_linear_ped,
+    #  loss_mask, seq_start_end, data_name) = batch
+
+    new_batch = []
+    for i in range(0, len(batch) - 1):
+        new_batch.append(batch[i].cuda())
     (obs_traj, pred_traj_gt, obs_traj_rel, pred_traj_gt_rel, non_linear_ped,
-     loss_mask, seq_start_end) = batch
+     loss_mask, seq_start_end) = new_batch
+    
+    base_path = get_dset_path('_','load')
+
+    data_name = batch[-1]
+    grid_path = os.path.join(base_path, data_name[0])
+    res = torch.load(grid_path+'.pt')
+    grid_map = res.unsqueeze(0)
+    for d_name in data_name[1:]:
+        grid_path = os.path.join(base_path, d_name)
+        res = torch.load(grid_path+'.pt')
+        grid_map = torch.cat([grid_map, res.unsqueeze(0)]) # batch*img
+        
+    # print(grid_map.shape)
+
+    # obs_traj: (obs_len, 2 peds, 2)
+    goal = pred_traj_gt[-1,:,:] #the last num_ped*2
     losses = {}
     loss = torch.zeros(1).to(pred_traj_gt)
     g_l2_loss_rel = []
@@ -410,7 +467,7 @@ def generator_step(
     loss_mask = loss_mask[:, args.obs_len:]
 
     for _ in range(args.best_k):
-        generator_out = generator(obs_traj, obs_traj_rel, seq_start_end)
+        generator_out = generator(obs_traj, obs_traj_rel, seq_start_end, goal, grid_map.cuda()) #added goal to generator
 
         pred_traj_fake_rel = generator_out
         pred_traj_fake = relative_to_abs(pred_traj_fake_rel, obs_traj[-1])
@@ -468,14 +525,36 @@ def check_accuracy(
     generator.eval()
     with torch.no_grad():
         for batch in loader:
-            batch = [tensor.cuda() for tensor in batch]
-            (obs_traj, pred_traj_gt, obs_traj_rel, pred_traj_gt_rel,
-             non_linear_ped, loss_mask, seq_start_end) = batch
+            new_batch = []
+            for i in range(0, len(batch) - 1):
+                new_batch.append(batch[i].cuda())
+            (obs_traj, pred_traj_gt, obs_traj_rel, pred_traj_gt_rel, non_linear_ped,
+            loss_mask, seq_start_end) = new_batch
+
+            base_path = get_dset_path('_','load')
+            data_name = batch[-1]
+            grid_map = []
+            for d_name in data_name:
+                grid_path = os.path.join(base_path, d_name)
+                grid_map.append(torch.load(grid_path+'.pt'))
+            
+            grid_map = torch.FloatTensor(grid_map) # batch*img
+
+            grid_path = os.path.join(base_path, data_name[0])
+            res = torch.load(grid_path+'.pt')
+            grid_map = res.unsqueeze(0)
+            for d_name in data_name[1:]:
+                grid_path = os.path.join(base_path, d_name)
+                res = torch.load(grid_path+'.pt')
+                grid_map = torch.cat([grid_map, res.unsqueeze(0)]) # batch*img
+                
+            # print(grid_map.shape)
+
             linear_ped = 1 - non_linear_ped
             loss_mask = loss_mask[:, args.obs_len:]
-
+            goal = pred_traj_gt[-1,:,:]
             pred_traj_fake_rel = generator(
-                obs_traj, obs_traj_rel, seq_start_end
+                obs_traj, obs_traj_rel, seq_start_end, goal, grid_map.cuda()
             )
             pred_traj_fake = relative_to_abs(pred_traj_fake_rel, obs_traj[-1])
 

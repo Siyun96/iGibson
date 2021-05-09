@@ -4,15 +4,70 @@ import math
 
 import numpy as np
 
+import cv2 as cv
+
 import torch
 from torch.utils.data import Dataset
 
 logger = logging.getLogger(__name__)
 
+path_map = {'biwi_eth_train.txt':'eth', 'crowds_zara02_train.txt':'zara2', 'biwi_hotel_train.txt':'hotel', \
+            'crowds_zara01_train.txt':'zara1', 'biwi_eth_val.txt':'eth', 'crowds_zara02_val.txt':'zara2', 'biwi_hotel_val.txt':'hotel', \
+            'crowds_zara01_val.txt':'zara1', 'biwi_eth_test.txt':'eth', 'crowds_zara02_test.txt':'zara2', 'biwi_hotel_test.txt':'hotel', \
+            'crowds_zara01_test.txt':'zara1'}
+
+
+def img_loader(path):
+    #/home/lyg/.../zara
+    H = np.genfromtxt(path + '_H.txt',
+                    delimiter='  ',
+                    unpack=True).transpose()
+
+    grid_map = {}
+    # grid_map['Resolution'] = 0.1
+
+    #map_center = grid_map['Size'] / 2  # hack for my dataset
+
+    # Extract static obstacles
+    obst_threshold = 200
+    static_obst_img = cv.imread(path + "_map.png", 0)
+    h = static_obst_img.shape[0]
+    w = static_obst_img.shape[1]
+    # grid_map['Size'] = np.dot(H, np.array([[h], [w], [1]]))
+    # print(grid_map['Size'])
+    grid_map['Map'] = np.zeros((h,w))
+
+    obstacles = np.zeros([0, 3])
+    for xx in range(static_obst_img.shape[0]):
+        for yy in range(static_obst_img.shape[1]):
+            if static_obst_img[xx, yy] > obst_threshold:
+                obstacles = np.append(obstacles,
+                                    np.dot(H, np.array([[xx], [yy], [1]])).transpose(),
+                                    axis=0)
+    Hinv = np.linalg.inv(H)
+
+    # Compute obstacles in 2D
+    obstacles_2d = np.zeros([obstacles.shape[0], 2])
+    obstacles_2d[:, 0] = obstacles[:, 0] / obstacles[:, 2]
+    obstacles_2d[:, 1] = obstacles[:, 1] / obstacles[:, 2]
+
+    # Get obstacle idx on map
+    obst_idx = []
+    for obst_ii in range(obstacles_2d.shape[0]):
+        idx = np.dot(Hinv, np.array([[obstacles_2d[obst_ii, 0]], [obstacles_2d[obst_ii, 1]], [1]])).transpose()
+        obst_idx.append((int(idx[0,0]/idx[0,2]),int(idx[0,1]/idx[0,2])))
+        grid_map['Map'][obst_idx[-1]] = 1
+
+
+    # print("Obstacle shape: ", grid_map['Map'].shape)
+    # print("num_obst: ", np.sum(grid_map['Map']))
+    gmap = cv.resize(grid_map['Map'], (224, 224))
+    return torch.from_numpy(gmap).type(torch.float)
+
 
 def seq_collate(data):
     (obs_seq_list, pred_seq_list, obs_seq_rel_list, pred_seq_rel_list,
-     non_linear_ped_list, loss_mask_list) = zip(*data)
+     non_linear_ped_list, loss_mask_list, data_name) = zip(*data)
 
     _len = [len(seq) for seq in obs_seq_list]
     cum_start_idx = [0] + np.cumsum(_len).tolist()
@@ -21,7 +76,14 @@ def seq_collate(data):
 
     # Data format: batch, input_size, seq_len
     # LSTM input format: seq_len, batch, input_size
+    
+
+    # print('obs_traj_output_pre', len(obs_seq_list), len(obs_seq_list[0]), len(obs_seq_list[0][0]), len(obs_seq_list[0][0][0]))
     obs_traj = torch.cat(obs_seq_list, dim=0).permute(2, 0, 1)
+    # print('obs_traj_output', obs_traj.shape)
+    res_name = []
+    for data in data_name:
+        res_name.extend(data)
     pred_traj = torch.cat(pred_seq_list, dim=0).permute(2, 0, 1)
     obs_traj_rel = torch.cat(obs_seq_rel_list, dim=0).permute(2, 0, 1)
     pred_traj_rel = torch.cat(pred_seq_rel_list, dim=0).permute(2, 0, 1)
@@ -30,7 +92,7 @@ def seq_collate(data):
     seq_start_end = torch.LongTensor(seq_start_end)
     out = [
         obs_traj, pred_traj, obs_traj_rel, pred_traj_rel, non_linear_ped,
-        loss_mask, seq_start_end
+        loss_mask, seq_start_end, res_name
     ]
 
     return tuple(out)
@@ -43,6 +105,7 @@ def read_file(_path, delim='\t'):
     elif delim == 'space':
         delim = ' '
     with open(_path, 'r') as f:
+        delim = '\t'
         for line in f:
             line = line.strip().split(delim)
             line = [float(i) for i in line]
@@ -66,6 +129,9 @@ def poly_fit(traj, traj_len, threshold):
         return 1.0
     else:
         return 0.0
+
+# def path_to_name(path):
+#     return path_map[path]
 
 
 class TrajectoryDataset(Dataset):
@@ -94,23 +160,27 @@ class TrajectoryDataset(Dataset):
         self.skip = skip
         self.seq_len = self.obs_len + self.pred_len
         self.delim = delim
+        self.data_name = {}
 
-        all_files = os.listdir(self.data_dir)
-        all_files = [os.path.join(self.data_dir, _path) for _path in all_files]
+        all_files_raw = os.listdir(self.data_dir)
+        all_files = [os.path.join(self.data_dir, _path) for _path in all_files_raw]
         num_peds_in_seq = []
         seq_list = []
+        data_names = []
         seq_list_rel = []
         loss_mask_list = []
         non_linear_ped = []
-        for path in all_files:
+        num_ped_cum = 0
+        for i, path in enumerate(all_files):
+            data_name = all_files_raw[i]
             data = read_file(path, delim)
             frames = np.unique(data[:, 0]).tolist()
             frame_data = []
             for frame in frames:
                 frame_data.append(data[frame == data[:, 0], :])
             num_sequences = int(
-                math.ceil((len(frames) - self.seq_len + 1) / skip))
-
+                math.ceil((len(frames) - self.seq_len + 1) / skip)) #seq_len = obs+pred(len)
+            
             for idx in range(0, num_sequences * self.skip + 1, skip):
                 curr_seq_data = np.concatenate(
                     frame_data[idx:idx + self.seq_len], axis=0)
@@ -146,6 +216,11 @@ class TrajectoryDataset(Dataset):
                     num_peds_considered += 1
 
                 if num_peds_considered > min_ped:
+                    start_idx = num_ped_cum
+                    num_ped_cum += num_peds_considered
+                    for p in range(0, num_peds_considered):
+                        data_names.append(path_map[data_name])
+                    # self.data_name[start_idx] = path_map[data_name]
                     non_linear_ped += _non_linear_ped
                     num_peds_in_seq.append(num_peds_considered)
                     loss_mask_list.append(curr_loss_mask[:num_peds_considered])
@@ -159,6 +234,7 @@ class TrajectoryDataset(Dataset):
         non_linear_ped = np.asarray(non_linear_ped)
 
         # Convert numpy -> Torch Tensor
+        self.data_name = data_names[:]
         self.obs_traj = torch.from_numpy(
             seq_list[:, :, :self.obs_len]).type(torch.float)
         self.pred_traj = torch.from_numpy(
@@ -175,6 +251,7 @@ class TrajectoryDataset(Dataset):
             for start, end in zip(cum_start_idx, cum_start_idx[1:])
         ]
 
+
     def __len__(self):
         return self.num_seq
 
@@ -183,6 +260,7 @@ class TrajectoryDataset(Dataset):
         out = [
             self.obs_traj[start:end, :], self.pred_traj[start:end, :],
             self.obs_traj_rel[start:end, :], self.pred_traj_rel[start:end, :],
-            self.non_linear_ped[start:end], self.loss_mask[start:end, :]
+            self.non_linear_ped[start:end], self.loss_mask[start:end, :],
+            self.data_name[start:end]
         ]
         return out

@@ -1,4 +1,9 @@
 import torch
+import torchvision.models as models
+from torch import nn
+import cv2
+import torch.nn.functional as F
+
 import torch.nn as nn
 
 
@@ -24,6 +29,25 @@ def get_noise(shape, noise_type):
         return torch.rand(*shape).sub_(0.5).mul_(2.0).cuda()
     raise ValueError('Unrecognized noise type "%s"' % noise_type)
 
+class CNN(nn.Module):
+    def __init__(self, encodingsize = 6):
+        super(CNN, self).__init__()
+        vgg16 = models.alexnet(pretrained=True)
+        layerlist = list(vgg16.children())
+        self.vgg16 = nn.Sequential(*layerlist[0][:-1]) #removed all pool including maxpool
+        self.pool_reshape = nn.AdaptiveAvgPool2d((encodingsize,encodingsize))
+        for parameter in self.vgg16.parameters():
+            parameter.requires_grad = False #TODO:check correctness/fine tune
+    def forward(self, input):
+        x = torch.stack([input, input, input], 1)
+        # print("x shape in CNN", x.shape)
+        #input dimension: batchsize*3*224*224
+        x = self.vgg16(x)
+        # print('1. ', x.shape)
+        #input dimension: batchsize*512*14*14 (inputH/16)
+        x = self.pool_reshape(x) #b*512*7*7
+        # print('x final shape',x.shape)
+        return x.view(x.shape[0], -1)
 
 class Encoder(nn.Module):
     """Encoder is part of both TrajectoryGenerator and
@@ -40,7 +64,7 @@ class Encoder(nn.Module):
         self.num_layers = num_layers
 
         self.encoder = nn.LSTM(
-            embedding_dim, h_dim, num_layers, dropout=dropout
+            embedding_dim, self.h_dim, num_layers, dropout=dropout
         )
 
         self.spatial_embedding = nn.Linear(2, embedding_dim)
@@ -82,12 +106,14 @@ class Decoder(nn.Module):
 
         self.seq_len = seq_len
         self.mlp_dim = mlp_dim
-        self.h_dim = h_dim
+        # h_dim += embedding_dim
+        self.h_dim = h_dim + embedding_dim*2
+        # self.h_dim = h_dim
         self.embedding_dim = embedding_dim
         self.pool_every_timestep = pool_every_timestep
 
         self.decoder = nn.LSTM(
-            embedding_dim, h_dim, num_layers, dropout=dropout
+            embedding_dim, self.h_dim, num_layers, dropout=dropout
         )
 
         if pool_every_timestep:
@@ -111,7 +137,7 @@ class Decoder(nn.Module):
                     grid_size=grid_size
                 )
 
-            mlp_dims = [h_dim + bottleneck_dim, mlp_dim, h_dim]
+            mlp_dims = [self.h_dim + bottleneck_dim, mlp_dim, self.h_dim]
             self.mlp = make_mlp(
                 mlp_dims,
                 activation=activation,
@@ -120,22 +146,49 @@ class Decoder(nn.Module):
             )
 
         self.spatial_embedding = nn.Linear(2, embedding_dim)
-        self.hidden2pos = nn.Linear(h_dim, 2)
+        self.image_embedding = nn.Linear(256*6*6, embedding_dim)
+        # self.goal_embedding = nn.Linear(2, h_dim)
+        self.hidden2pos = nn.Linear(self.h_dim, 2)
 
-    def forward(self, last_pos, last_pos_rel, state_tuple, seq_start_end):
+    def forward(self, last_pos, last_pos_rel, state_tuple, seq_start_end, goal, grid_map):
         """
         Inputs:
         - last_pos: Tensor of shape (batch, 2)
         - last_pos_rel: Tensor of shape (batch, 2)
         - state_tuple: (hh, ch) each tensor of shape (num_layers, batch, h_dim)
         - seq_start_end: A list of tuples which delimit sequences within batch
+        - goal: (batch, 2)
+        - grid_map: (batch, img_encoding size)
         Output:
         - pred_traj: tensor of shape (self.seq_len, batch, 2)
         """
         batch = last_pos.size(0)
         pred_traj_fake_rel = []
+        
         decoder_input = self.spatial_embedding(last_pos_rel)
+        goal_rel = goal - last_pos
+
+        goal_input = self.spatial_embedding(goal_rel) #do spatial embedding on relative goal
         decoder_input = decoder_input.view(1, batch, self.embedding_dim)
+        # print("goal input shape in decoder", goal_input.shape)
+        goal_input = goal_input.view(1, batch, self.embedding_dim)
+
+        grid_map = self.image_embedding(grid_map)
+        # print("grid map shape in decoder", grid_map.shape)
+        img_input = grid_map.view(1, batch, self.embedding_dim)
+        # print(decoder_input.shape)
+        # print(goal_input.shape)
+        # print(state_tuple[0].shape)
+        # print("==============================================")
+
+        # concat goal onto hidden noise
+        # num_layers * num_directions, batch, hidden_size
+        # batch*hidden + batch*emb
+        state_tuple_new = torch.cat([state_tuple[0], goal_input], dim = 2)
+        state_tuple_new = torch.cat([state_tuple_new, img_input], dim = 2)
+
+        state_tuple = (state_tuple_new, state_tuple[1])
+
 
         for _ in range(self.seq_len):
             output, state_tuple = self.decoder(decoder_input, state_tuple)
@@ -492,13 +545,15 @@ class TrajectoryGenerator(nn.Module):
         else:
             return False
 
-    def forward(self, obs_traj, obs_traj_rel, seq_start_end, user_noise=None):
+    def forward(self, obs_traj, obs_traj_rel, seq_start_end, goal, grid_map, user_noise=None):
         """
         Inputs:
         - obs_traj: Tensor of shape (obs_len, batch, 2)
         - obs_traj_rel: Tensor of shape (obs_len, batch, 2)
         - seq_start_end: A list of tuples which delimit sequences within batch.
         - user_noise: Generally used for inference when you want to see
+        - grid_map: grid map of the obstacles
+        - goal: (batch, 2)
         relation between different types of noise and outputs.
         Output:
         - pred_traj_rel: Tensor of shape (self.pred_len, batch, 2)
@@ -527,7 +582,8 @@ class TrajectoryGenerator(nn.Module):
         decoder_h = torch.unsqueeze(decoder_h, 0)
 
         decoder_c = torch.zeros(
-            self.num_layers, batch, self.decoder_h_dim
+            self.num_layers, batch, self.decoder_h_dim + self.embedding_dim*2 # add one dimension for the hidden goal
+            # self.num_layers, batch, self.decoder_h_dim
         ).cuda()
 
         state_tuple = (decoder_h, decoder_c)
@@ -535,15 +591,21 @@ class TrajectoryGenerator(nn.Module):
         last_pos_rel = obs_traj_rel[-1]
         # Predict Trajectory
 
+        cnn_model = CNN().cuda() #TODO: chek device
+        encoded_map = cnn_model(grid_map) #
+
         decoder_out = self.decoder(
             last_pos,
             last_pos_rel,
             state_tuple,
-            seq_start_end,
+            seq_start_end, #here
+            goal,
+            encoded_map
         )
         pred_traj_fake_rel, final_decoder_h = decoder_out
 
         return pred_traj_fake_rel
+
 
 
 class TrajectoryDiscriminator(nn.Module):
@@ -577,7 +639,7 @@ class TrajectoryDiscriminator(nn.Module):
             dropout=dropout
         )
         if d_type == 'global':
-            mlp_pool_dims = [h_dim + embedding_dim, mlp_dim, h_dim]
+            mlp_pool_dims = [h_dim + embedding_dim*2, mlp_dim, h_dim]
             self.pool_net = PoolHiddenNet(
                 embedding_dim=embedding_dim,
                 h_dim=h_dim,
