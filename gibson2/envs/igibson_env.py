@@ -479,7 +479,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.generator is not None:
-        generator = torch.load(args.generator)
+        generator = torch.load_state_dict(torch.load(args.generator))
         # for now, only run inference in ig
         generator.eval()
 
