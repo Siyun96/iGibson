@@ -17,7 +17,7 @@ import os
 # historical traj
 # output samples
 # TODO: concact goal to sgan
-def gen_ped_data(generator, ped_dict, num_samples, next_goal = [(0, 0)]):
+def gen_ped_data(generator, ped_dict, num_samples, next_goal = [(0, 0)], map = None):
     data = []
     cuda0 = torch.device('cuda:0')
     for ped in ped_dict.keys():
@@ -29,7 +29,7 @@ def gen_ped_data(generator, ped_dict, num_samples, next_goal = [(0, 0)]):
     mod_ped_pos = []
     for _ in range(num_samples):
         pred_traj_fake_rel = generator(
-            obs_traj, obs_traj_rel, seq_start_end
+            obs_traj, obs_traj_rel, seq_start_end, torch.tensor(next_goal), torch.tensor(map)
         )
         pred_traj_fake = relative_to_abs(
             pred_traj_fake_rel, obs_traj[-1]
