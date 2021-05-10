@@ -9,7 +9,7 @@ def get_logger(log_dir, name):
 
     # Log to file
     log_path = os.path.join(log_dir, f'{name}.txt')
-    file_handler = logging.FileHandler(log_path)
+    file_handler = logging.FileHandler(log_path, mode='a')
     file_handler.setLevel(logging.DEBUG)
 
     # Log to console

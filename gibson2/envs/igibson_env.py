@@ -12,6 +12,7 @@ from gibson2.sensors.vision_sensor import VisionSensor
 from gibson2.robots.robot_base import BaseRobot
 from gibson2.external.pybullet_tools.utils import stable_z_on_aabb
 
+from gibson2.sgan.sgan.models import TrajectoryGenerator
 from gibson2.utils.logger import get_logger
 import torch
 
@@ -479,7 +480,15 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.generator is not None:
-        generator = torch.load_state_dict(torch.load(args.generator))
+        generator = TrajectoryGenerator(obs_len=8, pred_len=8, mlp_dim=64,
+                encoder_h_dim=32, decoder_h_dim=32, embedding_dim=16,
+                noise_dim=(8,), noise_mix_type='global', num_layers=1,
+                pooling_type='pool_net', pool_every_timestep=0, dropout=0,
+                bottleneck_dim=32, neighborhood_size=2.0, batch_norm=0,
+                grid_size=8)
+        model_dict = torch.load(args.generator)
+        print(model_dict['args'])
+        generator.load_state_dict(model_dict['g_best_state'])
         # for now, only run inference in ig
         generator.eval()
 
