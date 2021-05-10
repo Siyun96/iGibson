@@ -13,6 +13,7 @@ from gibson2.robots.robot_base import BaseRobot
 from gibson2.external.pybullet_tools.utils import stable_z_on_aabb
 
 from gibson2.utils.logger import get_logger
+import torch
 
 from transforms3d.euler import euler2quat
 from collections import OrderedDict
