@@ -49,7 +49,7 @@ class SocialNavRandomTask(PointNavRandomTask):
             self.floorplan = env.scene.map_cnn[0]
             print("Sanity check: floor map is a binary array of shape (224, 224)")
             print("Floor plan shape:", self.floorplan.shape)
-            print(self.floorplan)
+            # print(self.floorplan)
             #TODO: Convert from image space to world space?
 
         """
@@ -405,6 +405,10 @@ class SocialNavRandomTask(PointNavRandomTask):
         :param env: environment instance
         """
         super(SocialNavRandomTask, self).step(env)
+
+        for i, ped in enumerate(self.pedestrians):
+            env.logger.info(f'Entering Step: Ped ID: {i}, location: ({ped.get_position()[0]}, {ped.get_position()[1]})')
+
         self.orca_sim.setAgentPosition(
             self.robot_orca_ped,
             tuple(env.robots[0].get_position()[0:2]))
@@ -452,14 +456,15 @@ class SocialNavRandomTask(PointNavRandomTask):
         if self.start_sgan:
 
             ped_pos_dict = gen_ped_data(self.generator, self.history_trajs, self.num_samples, ped_next_goals, self.floorplan)
-
+            # print(ped_pos_dict)
             for sample_idx in range(0, self.num_samples):
                 #TODO: check orca_ped is pedestrain id
                 for ped_id in range(0, self.num_pedestrians):
-                    assert(len(ped_pos_dict[sample_idx][ped_id]) == 2)
-                    desired_vel = ped_pos_dict[sample_idx][ped_id] - current_pos[0:2]
+                    assert(len(ped_pos_dict[sample_idx][ped_id][0]) == 2)
+                    desired_vel = ped_pos_dict[sample_idx][ped_id][0] - current_pos[0:2]
                     desired_vel = desired_vel / \
                         np.linalg.norm(desired_vel) * self.orca_max_speed
+                    env.logger.log(f'Desired vel: {desired_vel}')
                     self.orca_sim.setAgentPrefVelocity(ped_id, tuple(desired_vel))
                 
                 self.orca_sim.doStep()
@@ -541,7 +546,7 @@ class SocialNavRandomTask(PointNavRandomTask):
 
         #TODO: Add logging to collect data for fine-tuning and visualization
         for i, ped in enumerate(self.pedestrians):
-            env.logger.info(f'Ped ID: {i}, location: ({ped.get_position()[0]}, {ped.get_position()[1]})')
+            env.logger.info(f'Exiting step: Ped ID: {i}, location: ({ped.get_position()[0]}, {ped.get_position()[1]})')
 
 
     def update_pos_and_stop_flags(self):
