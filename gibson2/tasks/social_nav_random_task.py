@@ -541,7 +541,7 @@ class SocialNavRandomTask(PointNavRandomTask):
 
         #TODO: Add logging to collect data for fine-tuning and visualization
         for i, ped in enumerate(self.pedestrians):
-            env.logger.log(f'Ped ID: {}, location: ({}, {})'.format(i, ped.get_positions()[0], ped.get_positions()[1]))
+            env.logger.log(f'Ped ID: {i}, location: ({ped.get_positions()[0]}, {ped.get_positions()[1]})')
 
 
     def update_pos_and_stop_flags(self):
