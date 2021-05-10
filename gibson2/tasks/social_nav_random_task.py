@@ -45,11 +45,12 @@ class SocialNavRandomTask(PointNavRandomTask):
             self.history_trajs[i] = []
 
         # image of floor plan (convert from (0, 255) to (0, 1))
-        self.floorplan = env.scene.map_cnn[0]
-        print("Sanity check: floor map is a binary array of shape (224, 224)")
-        print("Floor plan shape:", self.floorplan.shape)
-        print(self.floorplan)
-        #TODO: Convert from image space to world space?
+        if len(env.scene.map_cnn) > 0:
+            self.floorplan = env.scene.map_cnn[0]
+            print("Sanity check: floor map is a binary array of shape (224, 224)")
+            print("Floor plan shape:", self.floorplan.shape)
+            print(self.floorplan)
+            #TODO: Convert from image space to world space?
 
         """
         Parameters for our mechanism of preventing pedestrians to back up.
