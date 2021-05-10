@@ -40,13 +40,13 @@ class CNN(nn.Module):
             parameter.requires_grad = False #TODO:check correctness/fine tune
     def forward(self, input):
         x = torch.stack([input, input, input], 1)
-        # print("x shape in CNN", x.shape)
+        print("x shape in CNN", x.shape)
         #input dimension: batchsize*3*224*224
         x = self.vgg16(x)
         # print('1. ', x.shape)
         #input dimension: batchsize*512*14*14 (inputH/16)
         x = self.pool_reshape(x) #b*512*7*7
-        # print('x final shape',x.shape)
+        print('x final shape',x.shape)
         return x.view(x.shape[0], -1)
 
 class Encoder(nn.Module):
