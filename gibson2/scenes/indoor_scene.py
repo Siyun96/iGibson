@@ -102,7 +102,7 @@ class IndoorScene(Scene):
             if social_nav:
                 trav_map_cnn = cv2.resize(trav_map, (224, 224))
                 trav_map_cnn = cv2.erode(trav_map_cnn, np.ones(
-                    self.trav_map_erosion, self.trav_map_erosion))
+                    (self.trav_map_erosion, self.trav_map_erosion)))
                 trav_map_cnn = trav_map_cnn // 255
                 self.map_cnn.append(trav_map_cnn)
             
