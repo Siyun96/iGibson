@@ -41,8 +41,8 @@ class SocialNavRandomTask(PointNavRandomTask):
         # key: ped_id
         # val: trajectory
         self.history_trajs = defaultdict(list)
-        for i in range(0, self.num_pedestrians):
-            self.history_trajs[i] = []
+        #for i in range(0, self.num_pedestrians):
+        #    self.history_trajs[i] = []
 
         # image of floor plan (convert from (0, 255) to (0, 1))
         if len(env.scene.map_cnn) > 0:
