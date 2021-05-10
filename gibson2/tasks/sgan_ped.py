@@ -21,7 +21,7 @@ def gen_ped_data(generator, ped_dict, num_samples, next_goal = [(0, 0)]):
     data = []
     cuda0 = torch.device('cuda:0')
     for ped in ped_dict.keys():
-        data.append(torch.tensor(ped_dict[ped], device = cuda0))
+        data.append(torch.tensor(ped_dict[ped][-8:], device = cuda0))
     obs_traj = torch.stack(data, dim = 1)
     obs_traj_rel = obs_traj[1:,:,:] - obs_traj[:-1,:,:]
     seq_start_end = torch.tensor([[0,len(ped_dict)]], device = cuda0)
