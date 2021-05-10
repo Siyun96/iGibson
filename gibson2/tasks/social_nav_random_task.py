@@ -464,7 +464,7 @@ class SocialNavRandomTask(PointNavRandomTask):
                     desired_vel = ped_pos_dict[sample_idx][ped_id][0] - current_pos[0:2]
                     desired_vel = desired_vel / \
                         np.linalg.norm(desired_vel) * self.orca_max_speed
-                    env.logger.log(f'Desired vel: {desired_vel}')
+                    env.logger.debug(f'Desired vel: {desired_vel}')
                     self.orca_sim.setAgentPrefVelocity(ped_id, tuple(desired_vel))
                 
                 self.orca_sim.doStep()
@@ -493,6 +493,7 @@ class SocialNavRandomTask(PointNavRandomTask):
                     break
 
         if sgan_suc:
+            env.logger.info('Using SGAN to set velocity')
             # advance pybullet pedstrian to the current time step
             self.num_steps_stop[i] = 0
             ped.set_position(pos_xyz)
@@ -501,6 +502,7 @@ class SocialNavRandomTask(PointNavRandomTask):
                 <= self.pedestrian_goal_thresh:
                 waypoints.pop(0)
         else:
+            env.logger.debug('Using ORCA to set velocity')
             for ped_id in range(0, self.num_pedestrians):
                 desired_vel = ped_next_goals[ped_id] - current_pos[0:2]
                 desired_vel = desired_vel / \
