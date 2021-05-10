@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(CppMeshRenderer)
 
-
+if(POLICY CMP0072)
+	cmake_policy(SET CMP0072 NEW)
+endif(POLICY CMP0072)
 set(USE_GLAD TRUE)
 
 if (MAC_PLATFORM)
