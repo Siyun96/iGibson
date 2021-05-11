@@ -19,18 +19,22 @@ import os
 # TODO: concact goal to sgan
 def gen_ped_data(generator, ped_dict, num_samples, next_goal = [(0, 0)], map=None):
     data = []
+    images = []
     cuda0 = torch.device('cuda:0')
     for ped in ped_dict.keys():
         data.append(torch.tensor(ped_dict[ped][-8:], device = cuda0, dtype=torch.float))
+        images.append(torch.tensor(map, dtype=torch.float, device = cuda0))
+    images = torch.stack(images, dim = 0)
     obs_traj = torch.stack(data, dim = 1)
     # print(obs_traj)
     obs_traj_rel = obs_traj[1:,:,:] - obs_traj[:-1,:,:]
     seq_start_end = torch.tensor([[0,len(ped_dict)]], device = cuda0)
     #pred_len = 1
     mod_ped_pos = []
+    num_ped = len(ped_dict.keys())
     for _ in range(num_samples):
         pred_traj_fake_rel = generator(
-            obs_traj, obs_traj_rel, seq_start_end, torch.tensor(next_goal, dtype=torch.float).cuda(), torch.tensor(map, dtype=torch.float).unsqueeze(0).cuda()
+            obs_traj, obs_traj_rel, seq_start_end, torch.tensor(next_goal, dtype=torch.float).cuda(), images
         )
         pred_traj_fake = relative_to_abs(
             pred_traj_fake_rel, obs_traj[-1]

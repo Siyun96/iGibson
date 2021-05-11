@@ -505,6 +505,7 @@ if __name__ == '__main__':
                         logger=exp_logger)
 
     else:
+        exp_logger = get_logger(args.log_path, 'ped_trajectories')
         env = iGibsonEnv(config_file=args.config,
                         mode=args.mode,
                         action_timestep=1.0 / 10.0,
