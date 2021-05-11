@@ -508,7 +508,8 @@ if __name__ == '__main__':
         env = iGibsonEnv(config_file=args.config,
                         mode=args.mode,
                         action_timestep=1.0 / 10.0,
-                        physics_timestep=1.0 / 40.0)
+                        physics_timestep=1.0 / 40.0,
+                        logger=exp_logger)
 
     step_time_list = []
     for episode in range(100):
