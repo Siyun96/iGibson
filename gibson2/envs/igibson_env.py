@@ -42,6 +42,7 @@ class iGibsonEnv(BaseEnv):
         render_to_tensor=False,
         automatic_reset=False,
         social_nav_generator=None,
+        use_orca_default=True,
         logger=None,
     ):
         """
@@ -55,6 +56,7 @@ class iGibsonEnv(BaseEnv):
         :param automatic_reset: whether to automatic reset after an episode finishes
         """
         self.social_nav_generator = social_nav_generator
+        self.use_orca_default = use_orca_default
         super(iGibsonEnv, self).__init__(config_file=config_file,
                                          scene_id=scene_id,
                                          mode=mode,
@@ -499,6 +501,7 @@ if __name__ == '__main__':
                         action_timestep=1.0 / 10.0,
                         physics_timestep=1.0 / 40.0,
                         social_nav_generator=generator,
+                        use_orca_default=False,
                         logger=exp_logger)
 
     else:

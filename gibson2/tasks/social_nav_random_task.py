@@ -38,11 +38,10 @@ class SocialNavRandomTask(PointNavRandomTask):
         self.num_samples = num_samples
         self.generator = env.social_nav_generator
         self.start_sgan = False
+        self.use_orca_default = env.use_orca_default
         # key: ped_id
         # val: trajectory
         self.history_trajs = defaultdict(list)
-        #for i in range(0, self.num_pedestrians):
-        #    self.history_trajs[i] = []
 
         # image of floor plan (convert from (0, 255) to (0, 1))
         if len(env.scene.map_cnn) > 0:
@@ -451,6 +450,9 @@ class SocialNavRandomTask(PointNavRandomTask):
             else:
                 ped_next_goals.append(next_goal)
                 self.start_sgan = True
+
+        if self.generator is None or self.use_orca_default:
+            self.start_sgan = False
 
         sgan_suc = False
         if self.start_sgan:
