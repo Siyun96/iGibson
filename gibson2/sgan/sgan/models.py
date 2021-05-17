@@ -38,6 +38,7 @@ class CNN(nn.Module):
         self.pool_reshape = nn.AdaptiveAvgPool2d((encodingsize,encodingsize))
         for parameter in self.vgg16.parameters():
             parameter.requires_grad = False #TODO:check correctness/fine tune
+
     def forward(self, input):
         x = torch.stack([input, input, input], 1)
         print("x shape in CNN", x.shape)
@@ -410,9 +411,14 @@ class TrajectoryGenerator(nn.Module):
         decoder_h_dim=128, mlp_dim=1024, num_layers=1, noise_dim=(0, ),
         noise_type='gaussian', noise_mix_type='ped', pooling_type=None,
         pool_every_timestep=True, dropout=0.0, bottleneck_dim=1024,
-        activation='relu', batch_norm=True, neighborhood_size=2.0, grid_size=8
+        activation='relu', batch_norm=True, neighborhood_size=2.0, grid_size=8,
+        model_name=None
     ):
         super(TrajectoryGenerator, self).__init__()
+        if model_name != None:
+            self.model_name = f'{model_name}_{embedding_dim}_{encoder_h_dim}_{decoder_h_dim}_{mlp_dim}'
+        else:
+            self.model_name = f'sgan_{embedding_dim}_{encoder_h_dim}_{decoder_h_dim}_{mlp_dim}'
 
         if pooling_type and pooling_type.lower() == 'none':
             pooling_type = None

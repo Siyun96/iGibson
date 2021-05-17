@@ -494,12 +494,16 @@ if __name__ == '__main__':
                 grid_size=8)
         model_dict = torch.load(args.generator)
         print(model_dict['args'])
+
         generator.load_state_dict(model_dict['g_best_state'])
         # for now, only run inference in ig
         generator.eval()
         generator.cuda()
 
         exp_logger = get_logger(args.log_path, 'ped_trajectories')
+        exp_logger.info(f'Using custom generator model {generator.model_name}')
+        exp_logger.info(model_dict['args'])
+        
         env = iGibsonEnv(config_file=args.config,
                         mode=args.mode,
                         action_timestep=1.0 / 10.0,
