@@ -144,7 +144,7 @@ class SocialNavRandomTask(PointNavRandomTask):
         self.pedestrians, self.orca_pedestrians = self.load_pedestrians(env)
         # Visualize pedestrians' next goals for debugging purposes
         # DO NOT use them during training
-        # self.pedestrian_goals = self.load_pedestrian_goals(env)
+        self.pedestrian_goals = self.load_pedestrian_goals(env)
         self.load_obstacles(env)
 
         self.personal_space_violation_steps = 0
@@ -279,6 +279,7 @@ class SocialNavRandomTask(PointNavRandomTask):
         :param env: environment instance
         """
         self.pedestrian_waypoints = []
+        self.history_trajs = defaultdict(list)
         for ped_id, (ped, orca_ped) in enumerate(zip(self.pedestrians, self.orca_pedestrians)):
             if self.offline_eval:
                 episode_index = self.episode_config.episode_index
@@ -438,8 +439,8 @@ class SocialNavRandomTask(PointNavRandomTask):
                 self.num_steps_stop[ped_id] = 0
 
             next_goal = waypoints[0]
-            # self.pedestrian_goals[i].set_position(
-            #     np.array([next_goal[0], next_goal[1], current_pos[2]]))
+            self.pedestrian_goals[i].set_position(
+                np.array([next_goal[0], next_goal[1], current_pos[2]]))
             yaw = np.arctan2(next_goal[1] - current_pos[1],
                              next_goal[0] - current_pos[0])
             ped.set_yaw(yaw)
@@ -447,6 +448,7 @@ class SocialNavRandomTask(PointNavRandomTask):
 ##################################################SHIT BELOW#######################################################################
 
             if len(self.history_trajs[ped]) < 8:
+                self.start_sgan = False
                 ped_next_goals.append(next_goal)
                 # desired_vel = next_goal - current_pos[0:2]
                 # desired_vel = desired_vel / \
