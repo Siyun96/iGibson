@@ -481,6 +481,8 @@ if __name__ == '__main__':
                         default='test',
                         type=str,
                         help='path to save actual trajectories')
+    parser.add_argument('--use_orca_default', default=False, action='store_true')
+    parser.add_argument('--use_orca_set_vel', default=False, action='store_true')
     args = parser.parse_args()
 
     if args.generator is not None:
@@ -503,8 +505,8 @@ if __name__ == '__main__':
                         action_timestep=1.0 / 10.0,
                         physics_timestep=1.0 / 40.0,
                         social_nav_generator=generator,
-                        use_orca_default=False,
-                        use_orca_set_vel=True,
+                        use_orca_default=args.use_orca_default, # False
+                        use_orca_set_vel=args.use_orca_set_vel, # True
                         logger=exp_logger)
 
     else:
