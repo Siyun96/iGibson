@@ -43,6 +43,7 @@ class iGibsonEnv(BaseEnv):
         automatic_reset=False,
         social_nav_generator=None,
         use_orca_default=True,
+        use_orca_set_vel=True,
         logger=None,
     ):
         """
@@ -57,6 +58,7 @@ class iGibsonEnv(BaseEnv):
         """
         self.social_nav_generator = social_nav_generator
         self.use_orca_default = use_orca_default
+        self.use_orca_set_vel = use_orca_set_vel
         super(iGibsonEnv, self).__init__(config_file=config_file,
                                          scene_id=scene_id,
                                          mode=mode,
@@ -502,6 +504,7 @@ if __name__ == '__main__':
                         physics_timestep=1.0 / 40.0,
                         social_nav_generator=generator,
                         use_orca_default=False,
+                        use_orca_set_vel=True,
                         logger=exp_logger)
 
     else:
