@@ -678,9 +678,13 @@ class SocialNavRandomTask(PointNavRandomTask):
                 if np.linalg.norm(next_goal - np.array(pos_xyz[:2])) \
                     <= self.pedestrian_goal_thresh:
                     waypoints.pop(0)
-            #TODO: If SGAN sample failed, what should we do here?
-            else:
-                env.logger.warning('SGAN failed to generate acceptable samples. Pedestrians stuck!')
+
+            # #TODO: If SGAN sample failed, what should we do here?
+            # else:
+            #     env.logger.warning('SGAN failed to generate acceptable samples. Pedestrians stuck!')
+
+
+
                 # # for ped_id in range(0, self.num_pedestrians):
                 # for i, (ped, orca_ped, waypoints) in \
                 #     enumerate(zip(self.pedestrians,
