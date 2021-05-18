@@ -8,6 +8,7 @@ if __name__ == '__main__':
     parser.add_argument('--dir_name', type=str, default='sgan_with_orca')
     parser.add_argument('--filename', type=str, default='ped_trajectories.txt')
     parser.add_argument('--num_ped', type=int, default=2)
+    parser.add_argument('--num_steps', type=int, default=300)
     args = parser.parse_args()
 
     step_start = re.compile('.* Entering Step: Ped ID: (\d), location: \((.*), (.*)\)')
@@ -37,7 +38,7 @@ if __name__ == '__main__':
     with open(os.path.join(args.dir_name, args.filename), 'r') as f:
         line = f.readline()
         while line:
-            if counter >= 500:
+            if counter >= args.num_steps:
                 break
             if step_start.match(line):
                 counter += 1

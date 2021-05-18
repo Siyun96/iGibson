@@ -1,0 +1,1434 @@
+[05.17.21 16:24:31] Using custom generator model sgan_16_32_32_64
+[05.17.21 16:24:31] {'dataset_name': 'zara1', 'delim': 'tab', 'loader_num_workers': 4, 'obs_len': 8, 'pred_len': 8, 'skip': 1, 'batch_size': 32, 'num_iterations': 9382, 'num_epochs': 500, 'embedding_dim': 16, 'num_layers': 1, 'dropout': 0.0, 'batch_norm': False, 'mlp_dim': 64, 'encoder_h_dim_g': 32, 'decoder_h_dim_g': 32, 'noise_dim': (8,), 'noise_type': 'gaussian', 'noise_mix_type': 'global', 'clipping_threshold_g': 1.5, 'g_learning_rate': 0.001, 'g_steps': 1, 'pooling_type': 'pool_net', 'pool_every_timestep': False, 'bottleneck_dim': 32, 'neighborhood_size': 2.0, 'grid_size': 8, 'd_type': 'local', 'encoder_h_dim_d': 64, 'd_learning_rate': 0.001, 'd_steps': 2, 'clipping_threshold_d': 0, 'l2_loss_weight': 1.0, 'best_k': 10, 'output_dir': '/home/yige/sgan/scripts', 'print_every': 50, 'checkpoint_every': 10, 'checkpoint_name': 'gan_test', 'checkpoint_start_from': None, 'restore_from_checkpoint': 0, 'num_samples_check': 5000, 'use_gpu': 1, 'timing': 0, 'gpu_num': '0'}
+[05.17.21 16:25:21] Entering Step: Ped ID: 0, location: (0.8, -1.5)
+[05.17.21 16:25:21] Entering Step: Ped ID: 1, location: (-0.2, 0.0)
+[05.17.21 16:25:21] Default to use ORCA to set velocity
+[05.17.21 16:25:21] ORCA desired velocity for ped 0: (0.0, -0.5)
+[05.17.21 16:25:21] ORCA desired velocity for ped 1: (0.3535533845424652, 0.3535533845424652)
+[05.17.21 16:25:21] Next move accepted for ped 0 at location [ 0.80000001 -1.53273535  0.        ]
+[05.17.21 16:25:21] Next move accepted for ped 1 at location [-0.18370798  0.00984399  0.        ]
+[05.17.21 16:25:21] Exiting step: Ped ID: 0, location: (0.800000011920929, -1.5327353477478027)
+[05.17.21 16:25:21] Exiting step: Ped ID: 1, location: (-0.18370798230171204, 0.009843987412750721)
+[05.17.21 16:25:21] Entering Step: Ped ID: 0, location: (0.800000011920929, -1.5327353477478027)
+[05.17.21 16:25:21] Entering Step: Ped ID: 1, location: (-0.18370798230171204, 0.009843987412750721)
+[05.17.21 16:25:21] Default to use ORCA to set velocity
+[05.17.21 16:25:21] ORCA desired velocity for ped 0: (-4.703409217654553e-09, -0.5)
+[05.17.21 16:25:21] ORCA desired velocity for ped 1: (0.3518901765346527, 0.3552088439464569)
+[05.17.21 16:25:21] Next move accepted for ped 0 at location [ 0.79923183 -1.57118154  0.        ]
+[05.17.21 16:25:21] Next move accepted for ped 1 at location [-0.16663268  0.0288022   0.        ]
+[05.17.21 16:25:21] Exiting step: Ped ID: 0, location: (0.7992318272590637, -1.5711815357208252)
+[05.17.21 16:25:21] Exiting step: Ped ID: 1, location: (-0.16663268208503723, 0.028802204877138138)
+[05.17.21 16:25:21] Entering Step: Ped ID: 0, location: (0.7992318272590637, -1.5711815357208252)
+[05.17.21 16:25:21] Entering Step: Ped ID: 1, location: (-0.16663268208503723, 0.028802204877138138)
+[05.17.21 16:25:21] Default to use ORCA to set velocity
+[05.17.21 16:25:21] ORCA desired velocity for ped 0: (0.00031256553484126925, -0.49999991059303284)
+[05.17.21 16:25:21] ORCA desired velocity for ped 1: (0.35234490036964417, 0.35475775599479675)
+[05.17.21 16:25:21] Next move accepted for ped 0 at location [ 0.7984637  -1.60962725  0.        ]
+[05.17.21 16:25:21] Next move accepted for ped 1 at location [-0.15090229  0.052045    0.        ]
+[05.17.21 16:25:21] Exiting step: Ped ID: 0, location: (0.7984637022018433, -1.6096272468566895)
+[05.17.21 16:25:21] Exiting step: Ped ID: 1, location: (-0.15090228617191315, 0.052045002579689026)
+[05.17.21 16:25:21] Entering Step: Ped ID: 0, location: (0.7984637022018433, -1.6096272468566895)
+[05.17.21 16:25:21] Entering Step: Ped ID: 1, location: (-0.15090228617191315, 0.052045002579689026)
+[05.17.21 16:25:21] Default to use ORCA to set velocity
+[05.17.21 16:25:21] ORCA desired velocity for ped 0: (0.0006453006062656641, -0.4999995827674866)
+[05.17.21 16:25:21] ORCA desired velocity for ped 1: (0.35435473918914795, 0.3527502119541168)
+[05.17.21 16:25:21] Next move accepted for ped 0 at location [ 0.79769558 -1.64807236  0.        ]
+[05.17.21 16:25:21] Next move accepted for ped 1 at location [-0.13519296  0.0754894   0.        ]
+[05.17.21 16:25:21] Exiting step: Ped ID: 0, location: (0.7976955771446228, -1.648072361946106)
+[05.17.21 16:25:21] Exiting step: Ped ID: 1, location: (-0.13519296050071716, 0.07548940181732178)
+[05.17.21 16:25:21] Entering Step: Ped ID: 0, location: (0.7976955771446228, -1.648072361946106)
+[05.17.21 16:25:21] Entering Step: Ped ID: 1, location: (-0.13519296050071716, 0.07548940181732178)
+[05.17.21 16:25:21] Default to use ORCA to set velocity
+[05.17.21 16:25:21] ORCA desired velocity for ped 0: (0.001000244403257966, -0.4999989867210388)
+[05.17.21 16:25:21] ORCA desired velocity for ped 1: (0.35653871297836304, 0.3505426347255707)
+[05.17.21 16:25:21] Next move accepted for ped 0 at location [ 0.79692745 -1.686517    0.        ]
+[05.17.21 16:25:21] Next move accepted for ped 1 at location [-0.12012373  0.09797853  0.        ]
+[05.17.21 16:25:21] Exiting step: Ped ID: 0, location: (0.7969274520874023, -1.6865170001983643)
+[05.17.21 16:25:21] Exiting step: Ped ID: 1, location: (-0.1201237291097641, 0.09797853231430054)
+[05.17.21 16:25:21] Entering Step: Ped ID: 0, location: (0.7969274520874023, -1.6865170001983643)
+[05.17.21 16:25:21] Entering Step: Ped ID: 1, location: (-0.1201237291097641, 0.09797853231430054)
+[05.17.21 16:25:21] Default to use ORCA to set velocity
+[05.17.21 16:25:21] ORCA desired velocity for ped 0: (0.0013796960702165961, -0.4999980926513672)
+[05.17.21 16:25:21] ORCA desired velocity for ped 1: (0.3587508201599121, 0.3482784032821655)
+[05.17.21 16:25:21] Next move accepted for ped 0 at location [ 0.79615933 -1.72496092  0.        ]
+[05.17.21 16:25:21] Next move accepted for ped 1 at location [-0.10562648  0.11961403  0.        ]
+[05.17.21 16:25:21] Exiting step: Ped ID: 0, location: (0.7961593270301819, -1.7249609231948853)
+[05.17.21 16:25:21] Exiting step: Ped ID: 1, location: (-0.10562647879123688, 0.11961403489112854)
+[05.17.21 16:25:21] Entering Step: Ped ID: 0, location: (0.7961593270301819, -1.7249609231948853)
+[05.17.21 16:25:21] Entering Step: Ped ID: 1, location: (-0.10562647879123688, 0.11961403489112854)
+[05.17.21 16:25:21] Default to use ORCA to set velocity
+[05.17.21 16:25:21] ORCA desired velocity for ped 0: (0.00178628321737051, -0.4999968111515045)
+[05.17.21 16:25:21] ORCA desired velocity for ped 1: (0.36099591851234436, 0.34595078229904175)
+[05.17.21 16:25:21] Next move accepted for ped 0 at location [ 0.7953912  -1.76340413  0.        ]
+[05.17.21 16:25:21] Next move accepted for ped 1 at location [-0.09168516  0.14041989  0.        ]
+[05.17.21 16:25:21] Exiting step: Ped ID: 0, location: (0.7953912019729614, -1.763404130935669)
+[05.17.21 16:25:21] Exiting step: Ped ID: 1, location: (-0.09168516099452972, 0.1404198855161667)
+[05.17.21 16:25:21] Entering Step: Ped ID: 0, location: (0.7953912019729614, -1.763404130935669)
+[05.17.21 16:25:21] Entering Step: Ped ID: 1, location: (-0.09168516099452972, 0.1404198855161667)
+[05.17.21 16:25:21] Use SGAN to generate next location
+[05.17.21 16:25:22] SGAN sample idx 0 next position for ped 0: [ 0.83912235 -1.81492305  0.        ]
+[05.17.21 16:25:22] SGAN sample idx 0 next position for ped 1: [-0.00203285  0.16691551  0.        ]
+[05.17.21 16:25:22] Using SGAN to set next location
+[05.17.21 16:25:22] Set next step ped 0 at location [ 0.83912235 -1.81492305  0.        ]
+[05.17.21 16:25:22] Set next step ped 1 at location [-0.00203285  0.16691551  0.        ]
+[05.17.21 16:25:22] Exiting step: Ped ID: 0, location: (0.8391223549842834, -1.8149230480194092)
+[05.17.21 16:25:22] Exiting step: Ped ID: 1, location: (-0.002032846212387085, 0.16691550612449646)
+[05.17.21 16:25:22] Entering Step: Ped ID: 0, location: (0.8391223549842834, -1.8149230480194092)
+[05.17.21 16:25:22] Entering Step: Ped ID: 1, location: (-0.002032846212387085, 0.16691550612449646)
+[05.17.21 16:25:22] Use SGAN to generate next location
+[05.17.21 16:25:22] SGAN sample idx 0 next position for ped 0: [ 0.89292127 -1.87712026  0.        ]
+[05.17.21 16:25:22] SGAN sample idx 0 next position for ped 1: [0.10402881 0.17323047 0.        ]
+[05.17.21 16:25:22] Using SGAN to set next location
+[05.17.21 16:25:22] Set next step ped 0 at location [ 0.89292127 -1.87712026  0.        ]
+[05.17.21 16:25:22] Set next step ped 1 at location [0.10402881 0.17323047 0.        ]
+[05.17.21 16:25:22] Exiting step: Ped ID: 0, location: (0.8929212689399719, -1.8771202564239502)
+[05.17.21 16:25:22] Exiting step: Ped ID: 1, location: (0.10402881354093552, 0.17323046922683716)
+[05.17.21 16:25:22] Entering Step: Ped ID: 0, location: (0.8929212689399719, -1.8771202564239502)
+[05.17.21 16:25:22] Entering Step: Ped ID: 1, location: (0.10402881354093552, 0.17323046922683716)
+[05.17.21 16:25:22] Use SGAN to generate next location
+[05.17.21 16:25:23] SGAN sample idx 0 next position for ped 0: [ 0.93712068 -1.94332302  0.        ]
+[05.17.21 16:25:23] SGAN sample idx 0 next position for ped 1: [0.19845629 0.19271767 0.        ]
+[05.17.21 16:25:23] Using SGAN to set next location
+[05.17.21 16:25:23] Set next step ped 0 at location [ 0.93712068 -1.94332302  0.        ]
+[05.17.21 16:25:23] Set next step ped 1 at location [0.19845629 0.19271767 0.        ]
+[05.17.21 16:25:23] Exiting step: Ped ID: 0, location: (0.9371206760406494, -1.943323016166687)
+[05.17.21 16:25:23] Exiting step: Ped ID: 1, location: (0.1984562873840332, 0.19271767139434814)
+[05.17.21 16:25:23] Entering Step: Ped ID: 0, location: (0.9371206760406494, -1.943323016166687)
+[05.17.21 16:25:23] Entering Step: Ped ID: 1, location: (0.1984562873840332, 0.19271767139434814)
+[05.17.21 16:25:23] Use SGAN to generate next location
+[05.17.21 16:25:24] SGAN sample idx 0 next position for ped 0: [ 0.96888918 -2.01109552  0.        ]
+[05.17.21 16:25:24] SGAN sample idx 0 next position for ped 1: [0.26963961 0.21591738 0.        ]
+[05.17.21 16:25:24] Using SGAN to set next location
+[05.17.21 16:25:24] Set next step ped 0 at location [ 0.96888918 -2.01109552  0.        ]
+[05.17.21 16:25:24] Set next step ped 1 at location [0.26963961 0.21591738 0.        ]
+[05.17.21 16:25:24] Exiting step: Ped ID: 0, location: (0.9688891768455505, -2.0110955238342285)
+[05.17.21 16:25:24] Exiting step: Ped ID: 1, location: (0.26963961124420166, 0.21591737866401672)
+[05.17.21 16:25:24] Entering Step: Ped ID: 0, location: (0.9688891768455505, -2.0110955238342285)
+[05.17.21 16:25:24] Entering Step: Ped ID: 1, location: (0.26963961124420166, 0.21591737866401672)
+[05.17.21 16:25:24] Use SGAN to generate next location
+[05.17.21 16:25:24] SGAN sample idx 0 next position for ped 0: [ 1.00482261 -2.07096362  0.        ]
+[05.17.21 16:25:24] SGAN sample idx 0 next position for ped 1: [0.34333718 0.25329286 0.        ]
+[05.17.21 16:25:24] Using SGAN to set next location
+[05.17.21 16:25:24] Set next step ped 0 at location [ 1.00482261 -2.07096362  0.        ]
+[05.17.21 16:25:24] Set next step ped 1 at location [0.34333718 0.25329286 0.        ]
+[05.17.21 16:25:24] Exiting step: Ped ID: 0, location: (1.0048226118087769, -2.0709636211395264)
+[05.17.21 16:25:24] Exiting step: Ped ID: 1, location: (0.34333717823028564, 0.25329285860061646)
+[05.17.21 16:25:24] Entering Step: Ped ID: 0, location: (1.0048226118087769, -2.0709636211395264)
+[05.17.21 16:25:24] Entering Step: Ped ID: 1, location: (0.34333717823028564, 0.25329285860061646)
+[05.17.21 16:25:24] Use SGAN to generate next location
+[05.17.21 16:25:25] SGAN sample idx 0 next position for ped 0: [ 1.03699839 -2.11824274  0.        ]
+[05.17.21 16:25:25] SGAN sample idx 0 next position for ped 1: [0.40727386 0.27820852 0.        ]
+[05.17.21 16:25:25] Using SGAN to set next location
+[05.17.21 16:25:25] Set next step ped 0 at location [ 1.03699839 -2.11824274  0.        ]
+[05.17.21 16:25:25] Set next step ped 1 at location [0.40727386 0.27820852 0.        ]
+[05.17.21 16:25:25] Exiting step: Ped ID: 0, location: (1.0369983911514282, -2.1182427406311035)
+[05.17.21 16:25:25] Exiting step: Ped ID: 1, location: (0.4072738587856293, 0.27820852398872375)
+[05.17.21 16:25:25] Entering Step: Ped ID: 0, location: (1.0369983911514282, -2.1182427406311035)
+[05.17.21 16:25:25] Entering Step: Ped ID: 1, location: (0.4072738587856293, 0.27820852398872375)
+[05.17.21 16:25:25] Use SGAN to generate next location
+[05.17.21 16:25:26] SGAN sample idx 0 next position for ped 0: [ 1.05171657 -2.16020036  0.        ]
+[05.17.21 16:25:26] SGAN sample idx 0 next position for ped 1: [0.4488588  0.30759048 0.        ]
+[05.17.21 16:25:26] Using SGAN to set next location
+[05.17.21 16:25:26] Set next step ped 0 at location [ 1.05171657 -2.16020036  0.        ]
+[05.17.21 16:25:26] Set next step ped 1 at location [0.4488588  0.30759048 0.        ]
+[05.17.21 16:25:26] Exiting step: Ped ID: 0, location: (1.0517165660858154, -2.160200357437134)
+[05.17.21 16:25:26] Exiting step: Ped ID: 1, location: (0.4488587975502014, 0.3075904846191406)
+[05.17.21 16:25:26] Entering Step: Ped ID: 0, location: (1.0517165660858154, -2.160200357437134)
+[05.17.21 16:25:26] Entering Step: Ped ID: 1, location: (0.4488587975502014, 0.3075904846191406)
+[05.17.21 16:25:26] Use SGAN to generate next location
+[05.17.21 16:25:27] SGAN sample idx 0 next position for ped 0: [ 1.0839901  -2.18357348  0.        ]
+[05.17.21 16:25:27] SGAN sample idx 0 next position for ped 1: [0.49664637 0.34183717 0.        ]
+[05.17.21 16:25:27] Using SGAN to set next location
+[05.17.21 16:25:27] Set next step ped 0 at location [ 1.0839901  -2.18357348  0.        ]
+[05.17.21 16:25:27] Set next step ped 1 at location [0.49664637 0.34183717 0.        ]
+[05.17.21 16:25:27] Exiting step: Ped ID: 0, location: (1.0839900970458984, -2.1835734844207764)
+[05.17.21 16:25:27] Exiting step: Ped ID: 1, location: (0.49664637446403503, 0.34183716773986816)
+[05.17.21 16:25:27] Entering Step: Ped ID: 0, location: (1.0839900970458984, -2.1835734844207764)
+[05.17.21 16:25:27] Entering Step: Ped ID: 1, location: (0.49664637446403503, 0.34183716773986816)
+[05.17.21 16:25:27] Use SGAN to generate next location
+[05.17.21 16:25:27] SGAN sample idx 0 next position for ped 0: [ 1.10583353 -2.20959949  0.        ]
+[05.17.21 16:25:27] SGAN sample idx 0 next position for ped 1: [0.52397513 0.3764115  0.        ]
+[05.17.21 16:25:27] Using SGAN to set next location
+[05.17.21 16:25:27] Set next step ped 0 at location [ 1.10583353 -2.20959949  0.        ]
+[05.17.21 16:25:27] Set next step ped 1 at location [0.52397513 0.3764115  0.        ]
+[05.17.21 16:25:27] Exiting step: Ped ID: 0, location: (1.1058335304260254, -2.209599494934082)
+[05.17.21 16:25:27] Exiting step: Ped ID: 1, location: (0.523975133895874, 0.376411497592926)
+[05.17.21 16:25:27] Entering Step: Ped ID: 0, location: (1.1058335304260254, -2.209599494934082)
+[05.17.21 16:25:27] Entering Step: Ped ID: 1, location: (0.523975133895874, 0.376411497592926)
+[05.17.21 16:25:27] Use SGAN to generate next location
+[05.17.21 16:25:28] SGAN sample idx 0 next position for ped 0: [ 1.11998606 -2.25903058  0.        ]
+[05.17.21 16:25:28] SGAN sample idx 0 next position for ped 1: [0.54833126 0.38763291 0.        ]
+[05.17.21 16:25:28] Using SGAN to set next location
+[05.17.21 16:25:28] Set next step ped 0 at location [ 1.11998606 -2.25903058  0.        ]
+[05.17.21 16:25:28] Set next step ped 1 at location [0.54833126 0.38763291 0.        ]
+[05.17.21 16:25:28] Exiting step: Ped ID: 0, location: (1.1199860572814941, -2.25903058052063)
+[05.17.21 16:25:28] Exiting step: Ped ID: 1, location: (0.5483312606811523, 0.38763290643692017)
+[05.17.21 16:25:28] Entering Step: Ped ID: 0, location: (1.1199860572814941, -2.25903058052063)
+[05.17.21 16:25:28] Entering Step: Ped ID: 1, location: (0.5483312606811523, 0.38763290643692017)
+[05.17.21 16:25:28] Use SGAN to generate next location
+[05.17.21 16:25:29] SGAN sample idx 0 next position for ped 0: [ 1.13939714 -2.28820872  0.        ]
+[05.17.21 16:25:29] SGAN sample idx 0 next position for ped 1: [0.58791608 0.42039078 0.        ]
+[05.17.21 16:25:29] Using SGAN to set next location
+[05.17.21 16:25:29] Set next step ped 0 at location [ 1.13939714 -2.28820872  0.        ]
+[05.17.21 16:25:29] Set next step ped 1 at location [0.58791608 0.42039078 0.        ]
+[05.17.21 16:25:29] Exiting step: Ped ID: 0, location: (1.139397144317627, -2.2882087230682373)
+[05.17.21 16:25:29] Exiting step: Ped ID: 1, location: (0.5879160761833191, 0.420390784740448)
+[05.17.21 16:25:29] Entering Step: Ped ID: 0, location: (1.139397144317627, -2.2882087230682373)
+[05.17.21 16:25:29] Entering Step: Ped ID: 1, location: (0.5879160761833191, 0.420390784740448)
+[05.17.21 16:25:29] Use SGAN to generate next location
+[05.17.21 16:25:30] SGAN sample idx 0 next position for ped 0: [ 1.14488089 -2.31492114  0.        ]
+[05.17.21 16:25:30] SGAN sample idx 0 next position for ped 1: [0.59424907 0.45786113 0.        ]
+[05.17.21 16:25:30] Using SGAN to set next location
+[05.17.21 16:25:30] Set next step ped 0 at location [ 1.14488089 -2.31492114  0.        ]
+[05.17.21 16:25:30] Set next step ped 1 at location [0.59424907 0.45786113 0.        ]
+[05.17.21 16:25:30] Exiting step: Ped ID: 0, location: (1.1448808908462524, -2.3149211406707764)
+[05.17.21 16:25:30] Exiting step: Ped ID: 1, location: (0.5942490696907043, 0.45786112546920776)
+[05.17.21 16:25:30] Entering Step: Ped ID: 0, location: (1.1448808908462524, -2.3149211406707764)
+[05.17.21 16:25:30] Entering Step: Ped ID: 1, location: (0.5942490696907043, 0.45786112546920776)
+[05.17.21 16:25:30] Use SGAN to generate next location
+[05.17.21 16:25:30] SGAN sample idx 0 next position for ped 0: [ 1.144683   -2.34776211  0.        ]
+[05.17.21 16:25:30] SGAN sample idx 0 next position for ped 1: [0.60002553 0.50403136 0.        ]
+[05.17.21 16:25:30] Using SGAN to set next location
+[05.17.21 16:25:30] Set next step ped 0 at location [ 1.144683   -2.34776211  0.        ]
+[05.17.21 16:25:30] Set next step ped 1 at location [0.60002553 0.50403136 0.        ]
+[05.17.21 16:25:30] Exiting step: Ped ID: 0, location: (1.1446830034255981, -2.347762107849121)
+[05.17.21 16:25:30] Exiting step: Ped ID: 1, location: (0.6000255346298218, 0.5040313601493835)
+[05.17.21 16:25:30] Entering Step: Ped ID: 0, location: (1.1446830034255981, -2.347762107849121)
+[05.17.21 16:25:30] Entering Step: Ped ID: 1, location: (0.6000255346298218, 0.5040313601493835)
+[05.17.21 16:25:30] Use SGAN to generate next location
+[05.17.21 16:25:31] SGAN sample idx 0 next position for ped 0: [ 1.1538626 -2.3792429  0.       ]
+[05.17.21 16:25:31] SGAN sample idx 0 next position for ped 1: [0.6191299 0.5289861 0.       ]
+[05.17.21 16:25:31] Using SGAN to set next location
+[05.17.21 16:25:31] Set next step ped 0 at location [ 1.1538626 -2.3792429  0.       ]
+[05.17.21 16:25:31] Set next step ped 1 at location [0.6191299 0.5289861 0.       ]
+[05.17.21 16:25:31] Exiting step: Ped ID: 0, location: (1.1538625955581665, -2.3792428970336914)
+[05.17.21 16:25:31] Exiting step: Ped ID: 1, location: (0.6191298961639404, 0.5289860963821411)
+[05.17.21 16:25:31] Entering Step: Ped ID: 0, location: (1.1538625955581665, -2.3792428970336914)
+[05.17.21 16:25:31] Entering Step: Ped ID: 1, location: (0.6191298961639404, 0.5289860963821411)
+[05.17.21 16:25:31] Use SGAN to generate next location
+[05.17.21 16:25:32] SGAN sample idx 0 next position for ped 0: [ 1.15718389 -2.38801336  0.        ]
+[05.17.21 16:25:32] SGAN sample idx 0 next position for ped 1: [0.63778061 0.57657623 0.        ]
+[05.17.21 16:25:32] Using SGAN to set next location
+[05.17.21 16:25:32] Set next step ped 0 at location [ 1.15718389 -2.38801336  0.        ]
+[05.17.21 16:25:32] Set next step ped 1 at location [0.63778061 0.57657623 0.        ]
+[05.17.21 16:25:32] Exiting step: Ped ID: 0, location: (1.1571838855743408, -2.3880133628845215)
+[05.17.21 16:25:32] Exiting step: Ped ID: 1, location: (0.6377806067466736, 0.5765762329101562)
+[05.17.21 16:25:32] Entering Step: Ped ID: 0, location: (1.1571838855743408, -2.3880133628845215)
+[05.17.21 16:25:32] Entering Step: Ped ID: 1, location: (0.6377806067466736, 0.5765762329101562)
+[05.17.21 16:25:32] Use SGAN to generate next location
+[05.17.21 16:25:33] SGAN sample idx 0 next position for ped 0: [ 1.16355479 -2.40128231  0.        ]
+[05.17.21 16:25:33] SGAN sample idx 0 next position for ped 1: [0.65362984 0.61574513 0.        ]
+[05.17.21 16:25:33] Using SGAN to set next location
+[05.17.21 16:25:33] Set next step ped 0 at location [ 1.16355479 -2.40128231  0.        ]
+[05.17.21 16:25:33] Set next step ped 1 at location [0.65362984 0.61574513 0.        ]
+[05.17.21 16:25:33] Exiting step: Ped ID: 0, location: (1.1635547876358032, -2.40128231048584)
+[05.17.21 16:25:33] Exiting step: Ped ID: 1, location: (0.6536298394203186, 0.6157451272010803)
+[05.17.21 16:25:33] Entering Step: Ped ID: 0, location: (1.1635547876358032, -2.40128231048584)
+[05.17.21 16:25:33] Entering Step: Ped ID: 1, location: (0.6536298394203186, 0.6157451272010803)
+[05.17.21 16:25:33] Use SGAN to generate next location
+[05.17.21 16:25:33] SGAN sample idx 0 next position for ped 0: [ 1.16204774 -2.40825391  0.        ]
+[05.17.21 16:25:33] SGAN sample idx 0 next position for ped 1: [0.66379195 0.66061133 0.        ]
+[05.17.21 16:25:33] Using SGAN to set next location
+[05.17.21 16:25:33] Set next step ped 0 at location [ 1.16204774 -2.40825391  0.        ]
+[05.17.21 16:25:33] Set next step ped 1 at location [0.66379195 0.66061133 0.        ]
+[05.17.21 16:25:33] Exiting step: Ped ID: 0, location: (1.1620477437973022, -2.4082539081573486)
+[05.17.21 16:25:33] Exiting step: Ped ID: 1, location: (0.6637919545173645, 0.6606113314628601)
+[05.17.21 16:25:33] Entering Step: Ped ID: 0, location: (1.1620477437973022, -2.4082539081573486)
+[05.17.21 16:25:33] Entering Step: Ped ID: 1, location: (0.6637919545173645, 0.6606113314628601)
+[05.17.21 16:25:33] Use SGAN to generate next location
+[05.17.21 16:25:34] SGAN sample idx 0 next position for ped 0: [ 1.16666627 -2.42939758  0.        ]
+[05.17.21 16:25:34] SGAN sample idx 0 next position for ped 1: [0.70258623 0.70878047 0.        ]
+[05.17.21 16:25:34] Using SGAN to set next location
+[05.17.21 16:25:34] Set next step ped 0 at location [ 1.16666627 -2.42939758  0.        ]
+[05.17.21 16:25:34] Set next step ped 1 at location [0.70258623 0.70878047 0.        ]
+[05.17.21 16:25:34] Exiting step: Ped ID: 0, location: (1.1666662693023682, -2.4293975830078125)
+[05.17.21 16:25:34] Exiting step: Ped ID: 1, location: (0.7025862336158752, 0.7087804675102234)
+[05.17.21 16:25:34] Entering Step: Ped ID: 0, location: (1.1666662693023682, -2.4293975830078125)
+[05.17.21 16:25:34] Entering Step: Ped ID: 1, location: (0.7025862336158752, 0.7087804675102234)
+[05.17.21 16:25:34] Use SGAN to generate next location
+[05.17.21 16:25:35] SGAN sample idx 0 next position for ped 0: [ 1.17157161 -2.44391799  0.        ]
+[05.17.21 16:25:35] SGAN sample idx 0 next position for ped 1: [0.75262463 0.75454158 0.        ]
+[05.17.21 16:25:35] Using SGAN to set next location
+[05.17.21 16:25:35] Set next step ped 0 at location [ 1.17157161 -2.44391799  0.        ]
+[05.17.21 16:25:35] Set next step ped 1 at location [0.75262463 0.75454158 0.        ]
+[05.17.21 16:25:35] Exiting step: Ped ID: 0, location: (1.1715716123580933, -2.443917989730835)
+[05.17.21 16:25:35] Exiting step: Ped ID: 1, location: (0.7526246309280396, 0.7545415759086609)
+[05.17.21 16:25:35] Entering Step: Ped ID: 0, location: (1.1715716123580933, -2.443917989730835)
+[05.17.21 16:25:35] Entering Step: Ped ID: 1, location: (0.7526246309280396, 0.7545415759086609)
+[05.17.21 16:25:35] Use SGAN to generate next location
+[05.17.21 16:25:35] SGAN sample idx 0 next position for ped 0: [ 1.15771079 -2.45004606  0.        ]
+[05.17.21 16:25:35] SGAN sample idx 0 next position for ped 1: [0.77797312 0.80895406 0.        ]
+[05.17.21 16:25:35] Using SGAN to set next location
+[05.17.21 16:25:35] Set next step ped 0 at location [ 1.15771079 -2.45004606  0.        ]
+[05.17.21 16:25:35] Set next step ped 1 at location [0.77797312 0.80895406 0.        ]
+[05.17.21 16:25:35] Exiting step: Ped ID: 0, location: (1.1577107906341553, -2.4500460624694824)
+[05.17.21 16:25:35] Exiting step: Ped ID: 1, location: (0.7779731154441833, 0.8089540600776672)
+[05.17.21 16:25:35] Entering Step: Ped ID: 0, location: (1.1577107906341553, -2.4500460624694824)
+[05.17.21 16:25:35] Entering Step: Ped ID: 1, location: (0.7779731154441833, 0.8089540600776672)
+[05.17.21 16:25:35] Use SGAN to generate next location
+[05.17.21 16:25:36] SGAN sample idx 0 next position for ped 0: [ 1.14226496 -2.45430255  0.        ]
+[05.17.21 16:25:36] SGAN sample idx 0 next position for ped 1: [0.8056615  0.87035447 0.        ]
+[05.17.21 16:25:36] Using SGAN to set next location
+[05.17.21 16:25:36] Set next step ped 0 at location [ 1.14226496 -2.45430255  0.        ]
+[05.17.21 16:25:36] Set next step ped 1 at location [0.8056615  0.87035447 0.        ]
+[05.17.21 16:25:36] Exiting step: Ped ID: 0, location: (1.14226496219635, -2.4543025493621826)
+[05.17.21 16:25:36] Exiting step: Ped ID: 1, location: (0.8056614995002747, 0.8703544735908508)
+[05.17.21 16:25:36] Entering Step: Ped ID: 0, location: (1.14226496219635, -2.4543025493621826)
+[05.17.21 16:25:36] Entering Step: Ped ID: 1, location: (0.8056614995002747, 0.8703544735908508)
+[05.17.21 16:25:36] Use SGAN to generate next location
+[05.17.21 16:25:37] SGAN sample idx 0 next position for ped 0: [ 1.1413275  -2.46141839  0.        ]
+[05.17.21 16:25:37] SGAN sample idx 0 next position for ped 1: [0.84554404 0.90659153 0.        ]
+[05.17.21 16:25:37] Using SGAN to set next location
+[05.17.21 16:25:37] Set next step ped 0 at location [ 1.1413275  -2.46141839  0.        ]
+[05.17.21 16:25:37] Set next step ped 1 at location [0.84554404 0.90659153 0.        ]
+[05.17.21 16:25:37] Exiting step: Ped ID: 0, location: (1.1413275003433228, -2.461418390274048)
+[05.17.21 16:25:37] Exiting step: Ped ID: 1, location: (0.8455440402030945, 0.906591534614563)
+[05.17.21 16:25:37] Entering Step: Ped ID: 0, location: (1.1413275003433228, -2.461418390274048)
+[05.17.21 16:25:37] Entering Step: Ped ID: 1, location: (0.8455440402030945, 0.906591534614563)
+[05.17.21 16:25:37] Use SGAN to generate next location
+[05.17.21 16:25:38] SGAN sample idx 0 next position for ped 0: [ 1.13346744 -2.45984602  0.        ]
+[05.17.21 16:25:38] SGAN sample idx 0 next position for ped 1: [0.88666463 0.99539888 0.        ]
+[05.17.21 16:25:38] Using SGAN to set next location
+[05.17.21 16:25:38] Set next step ped 0 at location [ 1.13346744 -2.45984602  0.        ]
+[05.17.21 16:25:38] Set next step ped 1 at location [0.88666463 0.99539888 0.        ]
+[05.17.21 16:25:38] Exiting step: Ped ID: 0, location: (1.133467435836792, -2.459846019744873)
+[05.17.21 16:25:38] Exiting step: Ped ID: 1, location: (0.886664628982544, 0.9953988790512085)
+[05.17.21 16:25:38] Entering Step: Ped ID: 0, location: (1.133467435836792, -2.459846019744873)
+[05.17.21 16:25:38] Entering Step: Ped ID: 1, location: (0.886664628982544, 0.9953988790512085)
+[05.17.21 16:25:38] Use SGAN to generate next location
+[05.17.21 16:25:38] SGAN sample idx 0 next position for ped 0: [ 1.11615062 -2.43110585  0.        ]
+[05.17.21 16:25:38] SGAN sample idx 0 next position for ped 1: [0.88558924 1.10852349 0.        ]
+[05.17.21 16:25:38] Using SGAN to set next location
+[05.17.21 16:25:38] Set next step ped 0 at location [ 1.11615062 -2.43110585  0.        ]
+[05.17.21 16:25:38] Set next step ped 1 at location [0.88558924 1.10852349 0.        ]
+[05.17.21 16:25:38] Exiting step: Ped ID: 0, location: (1.1161506175994873, -2.431105852127075)
+[05.17.21 16:25:38] Exiting step: Ped ID: 1, location: (0.8855892419815063, 1.1085234880447388)
+[05.17.21 16:25:38] Entering Step: Ped ID: 0, location: (1.1161506175994873, -2.431105852127075)
+[05.17.21 16:25:38] Entering Step: Ped ID: 1, location: (0.8855892419815063, 1.1085234880447388)
+[05.17.21 16:25:38] Use SGAN to generate next location
+[05.17.21 16:25:39] SGAN sample idx 0 next position for ped 0: [ 1.1184603  -2.42516184  0.        ]
+[05.17.21 16:25:39] SGAN sample idx 0 next position for ped 1: [0.90942907 1.18320632 0.        ]
+[05.17.21 16:25:39] Using SGAN to set next location
+[05.17.21 16:25:39] Set next step ped 0 at location [ 1.1184603  -2.42516184  0.        ]
+[05.17.21 16:25:39] Set next step ped 1 at location [0.90942907 1.18320632 0.        ]
+[05.17.21 16:25:39] Exiting step: Ped ID: 0, location: (1.1184602975845337, -2.425161838531494)
+[05.17.21 16:25:39] Exiting step: Ped ID: 1, location: (0.9094290733337402, 1.18320631980896)
+[05.17.21 16:25:39] Entering Step: Ped ID: 0, location: (1.1184602975845337, -2.425161838531494)
+[05.17.21 16:25:39] Entering Step: Ped ID: 1, location: (0.9094290733337402, 1.18320631980896)
+[05.17.21 16:25:39] Use SGAN to generate next location
+[05.17.21 16:25:40] SGAN sample idx 0 next position for ped 0: [ 1.09091306 -2.41648936  0.        ]
+[05.17.21 16:25:40] SGAN sample idx 0 next position for ped 1: [0.91182548 1.2515763  0.        ]
+[05.17.21 16:25:40] Using SGAN to set next location
+[05.17.21 16:25:40] Set next step ped 0 at location [ 1.09091306 -2.41648936  0.        ]
+[05.17.21 16:25:40] Set next step ped 1 at location [0.91182548 1.2515763  0.        ]
+[05.17.21 16:25:40] Exiting step: Ped ID: 0, location: (1.0909130573272705, -2.416489362716675)
+[05.17.21 16:25:40] Exiting step: Ped ID: 1, location: (0.9118254780769348, 1.25157630443573)
+[05.17.21 16:25:40] Entering Step: Ped ID: 0, location: (1.0909130573272705, -2.416489362716675)
+[05.17.21 16:25:40] Entering Step: Ped ID: 1, location: (0.9118254780769348, 1.25157630443573)
+[05.17.21 16:25:40] Use SGAN to generate next location
+[05.17.21 16:25:41] SGAN sample idx 0 next position for ped 0: [ 1.07320988 -2.43010759  0.        ]
+[05.17.21 16:25:41] SGAN sample idx 0 next position for ped 1: [0.93698674 1.31464505 0.        ]
+[05.17.21 16:25:41] Using SGAN to set next location
+[05.17.21 16:25:41] Set next step ped 0 at location [ 1.07320988 -2.43010759  0.        ]
+[05.17.21 16:25:41] Set next step ped 1 at location [0.93698674 1.31464505 0.        ]
+[05.17.21 16:25:41] Exiting step: Ped ID: 0, location: (1.0732098817825317, -2.430107593536377)
+[05.17.21 16:25:41] Exiting step: Ped ID: 1, location: (0.9369867444038391, 1.3146450519561768)
+[05.17.21 16:25:41] Entering Step: Ped ID: 0, location: (1.0732098817825317, -2.430107593536377)
+[05.17.21 16:25:41] Entering Step: Ped ID: 1, location: (0.9369867444038391, 1.3146450519561768)
+[05.17.21 16:25:41] Use SGAN to generate next location
+[05.17.21 16:25:41] SGAN sample idx 0 next position for ped 0: [ 1.06686461 -2.43918538  0.        ]
+[05.17.21 16:25:41] SGAN sample idx 0 next position for ped 1: [0.96133119 1.38851774 0.        ]
+[05.17.21 16:25:41] Using SGAN to set next location
+[05.17.21 16:25:41] Set next step ped 0 at location [ 1.06686461 -2.43918538  0.        ]
+[05.17.21 16:25:41] Set next step ped 1 at location [0.96133119 1.38851774 0.        ]
+[05.17.21 16:25:41] Exiting step: Ped ID: 0, location: (1.0668646097183228, -2.439185380935669)
+[05.17.21 16:25:41] Exiting step: Ped ID: 1, location: (0.9613311886787415, 1.3885177373886108)
+[05.17.21 16:25:41] Entering Step: Ped ID: 0, location: (1.0668646097183228, -2.439185380935669)
+[05.17.21 16:25:41] Entering Step: Ped ID: 1, location: (0.9613311886787415, 1.3885177373886108)
+[05.17.21 16:25:41] Use SGAN to generate next location
+[05.17.21 16:25:42] SGAN sample idx 0 next position for ped 0: [ 1.06954443 -2.45391655  0.        ]
+[05.17.21 16:25:42] SGAN sample idx 0 next position for ped 1: [0.98990393 1.44948876 0.        ]
+[05.17.21 16:25:42] Using SGAN to set next location
+[05.17.21 16:25:42] Set next step ped 0 at location [ 1.06954443 -2.45391655  0.        ]
+[05.17.21 16:25:42] Set next step ped 1 at location [0.98990393 1.44948876 0.        ]
+[05.17.21 16:25:42] Exiting step: Ped ID: 0, location: (1.0695444345474243, -2.453916549682617)
+[05.17.21 16:25:42] Exiting step: Ped ID: 1, location: (0.9899039268493652, 1.4494887590408325)
+[05.17.21 16:25:42] Entering Step: Ped ID: 0, location: (-1.1, -0.30000000000000004)
+[05.17.21 16:25:42] Entering Step: Ped ID: 1, location: (1.0, 1.9000000000000001)
+[05.17.21 16:25:42] Default to use ORCA to set velocity
+[05.17.21 16:25:42] ORCA desired velocity for ped 0: (0.3535533845424652, 0.3535533845424652)
+[05.17.21 16:25:42] ORCA desired velocity for ped 1: (-0.5, 0.0)
+[05.17.21 16:25:42] Next move accepted for ped 0 at location [-1.07593989 -0.2743862   0.        ]
+[05.17.21 16:25:42] Next move accepted for ped 1 at location [0.98923236 1.89193511 0.        ]
+[05.17.21 16:25:42] Exiting step: Ped ID: 0, location: (-1.0759398937225342, -0.2743861973285675)
+[05.17.21 16:25:42] Exiting step: Ped ID: 1, location: (0.9892323613166809, 1.891935110092163)
+[05.17.21 16:25:42] Entering Step: Ped ID: 0, location: (-1.0759398937225342, -0.2743861973285675)
+[05.17.21 16:25:42] Entering Step: Ped ID: 1, location: (0.9892323613166809, 1.891935110092163)
+[05.17.21 16:25:42] Default to use ORCA to set velocity
+[05.17.21 16:25:42] ORCA desired velocity for ped 0: (0.46053048968315125, 0.1947091817855835)
+[05.17.21 16:25:42] ORCA desired velocity for ped 1: (-0.4683757424354553, 0.17499761283397675)
+[05.17.21 16:25:42] Next move accepted for ped 0 at location [-1.04900062 -0.25002453  0.        ]
+[05.17.21 16:25:42] Next move accepted for ped 1 at location [0.9742617  1.90402937 0.        ]
+[05.17.21 16:25:42] Exiting step: Ped ID: 0, location: (-1.04900062084198, -0.2500245273113251)
+[05.17.21 16:25:42] Exiting step: Ped ID: 1, location: (0.9742617011070251, 1.904029369354248)
+[05.17.21 16:25:42] Entering Step: Ped ID: 0, location: (-1.04900062084198, -0.2500245273113251)
+[05.17.21 16:25:42] Entering Step: Ped ID: 1, location: (0.9742617011070251, 1.904029369354248)
+[05.17.21 16:25:42] Default to use ORCA to set velocity
+[05.17.21 16:25:42] ORCA desired velocity for ped 0: (0.40645959973335266, 0.29118824005126953)
+[05.17.21 16:25:42] ORCA desired velocity for ped 1: (-0.48433002829551697, 0.12419506907463074)
+[05.17.21 16:25:42] Next move accepted for ped 0 at location [-1.01842535 -0.22671904  0.        ]
+[05.17.21 16:25:42] Next move accepted for ped 1 at location [0.95241648 1.91419244 0.        ]
+[05.17.21 16:25:42] Exiting step: Ped ID: 0, location: (-1.0184253454208374, -0.22671903669834137)
+[05.17.21 16:25:42] Exiting step: Ped ID: 1, location: (0.9524164795875549, 1.9141924381256104)
+[05.17.21 16:25:42] Entering Step: Ped ID: 0, location: (-1.0184253454208374, -0.22671903669834137)
+[05.17.21 16:25:42] Entering Step: Ped ID: 1, location: (0.9524164795875549, 1.9141924381256104)
+[05.17.21 16:25:42] Default to use ORCA to set velocity
+[05.17.21 16:25:42] ORCA desired velocity for ped 0: (0.4073064923286438, 0.2900024652481079)
+[05.17.21 16:25:42] ORCA desired velocity for ped 1: (-0.48580700159072876, 0.11828593909740448)
+[05.17.21 16:25:42] Next move accepted for ped 0 at location [-0.98709404 -0.20441115  0.        ]
+[05.17.21 16:25:42] Next move accepted for ped 1 at location [0.93059295 1.92497468 0.        ]
+[05.17.21 16:25:42] Exiting step: Ped ID: 0, location: (-0.9870940446853638, -0.20441114902496338)
+[05.17.21 16:25:42] Exiting step: Ped ID: 1, location: (0.930592954158783, 1.9249746799468994)
+[05.17.21 16:25:42] Entering Step: Ped ID: 0, location: (-0.9870940446853638, -0.20441114902496338)
+[05.17.21 16:25:42] Entering Step: Ped ID: 1, location: (0.930592954158783, 1.9249746799468994)
+[05.17.21 16:25:42] Default to use ORCA to set velocity
+[05.17.21 16:25:42] ORCA desired velocity for ped 0: (0.4073064625263214, 0.2900024652481079)
+[05.17.21 16:25:42] ORCA desired velocity for ped 1: (-0.48760128021240234, 0.11065705865621567)
+[05.17.21 16:25:42] Next move accepted for ped 0 at location [-0.9557628  -0.18210326  0.        ]
+[05.17.21 16:25:42] Next move accepted for ped 1 at location [0.90962613 1.93534219 0.        ]
+[05.17.21 16:25:42] Exiting step: Ped ID: 0, location: (-0.9557628035545349, -0.1821032613515854)
+[05.17.21 16:25:42] Exiting step: Ped ID: 1, location: (0.9096261262893677, 1.9353421926498413)
+[05.17.21 16:25:42] Entering Step: Ped ID: 0, location: (-0.9557628035545349, -0.1821032613515854)
+[05.17.21 16:25:42] Entering Step: Ped ID: 1, location: (0.9096261262893677, 1.9353421926498413)
+[05.17.21 16:25:42] Default to use ORCA to set velocity
+[05.17.21 16:25:42] ORCA desired velocity for ped 0: (0.4073064923286438, 0.2900024652481079)
+[05.17.21 16:25:42] ORCA desired velocity for ped 1: (-0.4894420802593231, 0.10220794379711151)
+[05.17.21 16:25:42] Next move accepted for ped 0 at location [-0.92443156 -0.15979537  0.        ]
+[05.17.21 16:25:42] Next move accepted for ped 1 at location [0.88946307 1.94531095 0.        ]
+[05.17.21 16:25:42] Exiting step: Ped ID: 0, location: (-0.924431562423706, -0.1597953736782074)
+[05.17.21 16:25:42] Exiting step: Ped ID: 1, location: (0.8894630670547485, 1.9453109502792358)
+[05.17.21 16:25:42] Entering Step: Ped ID: 0, location: (-0.924431562423706, -0.1597953736782074)
+[05.17.21 16:25:42] Entering Step: Ped ID: 1, location: (0.8894630670547485, 1.9453109502792358)
+[05.17.21 16:25:42] Default to use ORCA to set velocity
+[05.17.21 16:25:42] ORCA desired velocity for ped 0: (0.44854411482810974, 0.2209257185459137)
+[05.17.21 16:25:42] ORCA desired velocity for ped 1: (-0.44354596734046936, 0.23079638183116913)
+[05.17.21 16:25:42] Next move accepted for ped 0 at location [-0.88992816 -0.14280109  0.        ]
+[05.17.21 16:25:42] Next move accepted for ped 1 at location [0.87007385 1.95489633 0.        ]
+[05.17.21 16:25:42] Exiting step: Ped ID: 0, location: (-0.8899281620979309, -0.14280109107494354)
+[05.17.21 16:25:42] Exiting step: Ped ID: 1, location: (0.8700738549232483, 1.954896330833435)
+[05.17.21 16:25:43] Entering Step: Ped ID: 0, location: (-0.8899281620979309, -0.14280109107494354)
+[05.17.21 16:25:43] Entering Step: Ped ID: 1, location: (0.8700738549232483, 1.954896330833435)
+[05.17.21 16:25:43] Use SGAN to generate next location
+[05.17.21 16:25:43] SGAN sample idx 0 next position for ped 0: [-0.84998482 -0.13101195  0.        ]
+[05.17.21 16:25:43] SGAN sample idx 0 next position for ped 1: [0.84993476 1.96007717 0.        ]
+[05.17.21 16:25:43] Using SGAN to set next location
+[05.17.21 16:25:43] Set next step ped 0 at location [-0.84998482 -0.13101195  0.        ]
+[05.17.21 16:25:43] Set next step ped 1 at location [0.84993476 1.96007717 0.        ]
+[05.17.21 16:25:43] Exiting step: Ped ID: 0, location: (-0.8499848246574402, -0.1310119479894638)
+[05.17.21 16:25:43] Exiting step: Ped ID: 1, location: (0.8499347567558289, 1.960077166557312)
+[05.17.21 16:25:43] Entering Step: Ped ID: 0, location: (-0.8499848246574402, -0.1310119479894638)
+[05.17.21 16:25:43] Entering Step: Ped ID: 1, location: (0.8499347567558289, 1.960077166557312)
+[05.17.21 16:25:43] Use SGAN to generate next location
+[05.17.21 16:25:44] SGAN sample idx 0 next position for ped 0: [-0.79095232 -0.11430143  0.        ]
+[05.17.21 16:25:44] SGAN sample idx 0 next position for ped 1: [0.8503828  1.97309804 0.        ]
+[05.17.21 16:25:44] Using SGAN to set next location
+[05.17.21 16:25:44] Set next step ped 0 at location [-0.79095232 -0.11430143  0.        ]
+[05.17.21 16:25:44] Set next step ped 1 at location [0.8503828  1.97309804 0.        ]
+[05.17.21 16:25:44] Exiting step: Ped ID: 0, location: (-0.7909523248672485, -0.11430142819881439)
+[05.17.21 16:25:44] Exiting step: Ped ID: 1, location: (0.8503828048706055, 1.9730980396270752)
+[05.17.21 16:25:44] Entering Step: Ped ID: 0, location: (-0.7909523248672485, -0.11430142819881439)
+[05.17.21 16:25:44] Entering Step: Ped ID: 1, location: (0.8503828048706055, 1.9730980396270752)
+[05.17.21 16:25:44] Use SGAN to generate next location
+[05.17.21 16:25:45] SGAN sample idx 0 next position for ped 0: [-0.74967784 -0.08586666  0.        ]
+[05.17.21 16:25:45] SGAN sample idx 0 next position for ped 1: [0.82637179 1.99995172 0.        ]
+[05.17.21 16:25:45] Using SGAN to set next location
+[05.17.21 16:25:45] Set next step ped 0 at location [-0.74967784 -0.08586666  0.        ]
+[05.17.21 16:25:45] Set next step ped 1 at location [0.82637179 1.99995172 0.        ]
+[05.17.21 16:25:45] Exiting step: Ped ID: 0, location: (-0.749677836894989, -0.08586665987968445)
+[05.17.21 16:25:45] Exiting step: Ped ID: 1, location: (0.8263717889785767, 1.999951720237732)
+[05.17.21 16:25:45] Entering Step: Ped ID: 0, location: (-0.749677836894989, -0.08586665987968445)
+[05.17.21 16:25:45] Entering Step: Ped ID: 1, location: (0.8263717889785767, 1.999951720237732)
+[05.17.21 16:25:45] Use SGAN to generate next location
+[05.17.21 16:25:45] SGAN sample idx 0 next position for ped 0: [-0.73804724 -0.01944837  0.        ]
+[05.17.21 16:25:45] SGAN sample idx 0 next position for ped 1: [0.79492074 2.05135345 0.        ]
+[05.17.21 16:25:45] Using SGAN to set next location
+[05.17.21 16:25:45] Set next step ped 0 at location [-0.73804724 -0.01944837  0.        ]
+[05.17.21 16:25:45] Set next step ped 1 at location [0.79492074 2.05135345 0.        ]
+[05.17.21 16:25:45] Exiting step: Ped ID: 0, location: (-0.7380472421646118, -0.01944836974143982)
+[05.17.21 16:25:45] Exiting step: Ped ID: 1, location: (0.7949207425117493, 2.0513534545898438)
+[05.17.21 16:25:46] Entering Step: Ped ID: 0, location: (-0.7380472421646118, -0.01944836974143982)
+[05.17.21 16:25:46] Entering Step: Ped ID: 1, location: (0.7949207425117493, 2.0513534545898438)
+[05.17.21 16:25:46] Use SGAN to generate next location
+[05.17.21 16:25:46] SGAN sample idx 0 next position for ped 0: [-0.72539639  0.00490294  0.        ]
+[05.17.21 16:25:46] SGAN sample idx 0 next position for ped 1: [0.77804732 2.08580899 0.        ]
+[05.17.21 16:25:46] Using SGAN to set next location
+[05.17.21 16:25:46] Set next step ped 0 at location [-0.72539639  0.00490294  0.        ]
+[05.17.21 16:25:46] Set next step ped 1 at location [0.77804732 2.08580899 0.        ]
+[05.17.21 16:25:46] Exiting step: Ped ID: 0, location: (-0.7253963947296143, 0.004902943968772888)
+[05.17.21 16:25:46] Exiting step: Ped ID: 1, location: (0.7780473232269287, 2.0858089923858643)
+[05.17.21 16:25:46] Entering Step: Ped ID: 0, location: (-0.7253963947296143, 0.004902943968772888)
+[05.17.21 16:25:46] Entering Step: Ped ID: 1, location: (0.7780473232269287, 2.0858089923858643)
+[05.17.21 16:25:46] Use SGAN to generate next location
+[05.17.21 16:25:47] SGAN sample idx 0 next position for ped 0: [-0.66613907  0.0154826   0.        ]
+[05.17.21 16:25:47] SGAN sample idx 0 next position for ped 1: [0.77966338 2.10376191 0.        ]
+[05.17.21 16:25:47] Using SGAN to set next location
+[05.17.21 16:25:47] Set next step ped 0 at location [-0.66613907  0.0154826   0.        ]
+[05.17.21 16:25:47] Set next step ped 1 at location [0.77966338 2.10376191 0.        ]
+[05.17.21 16:25:47] Exiting step: Ped ID: 0, location: (-0.6661390662193298, 0.015482597053050995)
+[05.17.21 16:25:47] Exiting step: Ped ID: 1, location: (0.7796633839607239, 2.103761911392212)
+[05.17.21 16:25:47] Entering Step: Ped ID: 0, location: (-0.6661390662193298, 0.015482597053050995)
+[05.17.21 16:25:47] Entering Step: Ped ID: 1, location: (0.7796633839607239, 2.103761911392212)
+[05.17.21 16:25:47] Use SGAN to generate next location
+[05.17.21 16:25:48] SGAN sample idx 0 next position for ped 0: [-0.59356523  0.03182639  0.        ]
+[05.17.21 16:25:48] SGAN sample idx 0 next position for ped 1: [0.75464463 2.13279152 0.        ]
+[05.17.21 16:25:48] Using SGAN to set next location
+[05.17.21 16:25:48] Set next step ped 0 at location [-0.59356523  0.03182639  0.        ]
+[05.17.21 16:25:48] Set next step ped 1 at location [0.75464463 2.13279152 0.        ]
+[05.17.21 16:25:48] Exiting step: Ped ID: 0, location: (-0.5935652256011963, 0.03182639181613922)
+[05.17.21 16:25:48] Exiting step: Ped ID: 1, location: (0.7546446323394775, 2.132791519165039)
+[05.17.21 16:25:48] Entering Step: Ped ID: 0, location: (-0.5935652256011963, 0.03182639181613922)
+[05.17.21 16:25:48] Entering Step: Ped ID: 1, location: (0.7546446323394775, 2.132791519165039)
+[05.17.21 16:25:48] Use SGAN to generate next location
+[05.17.21 16:25:48] SGAN sample idx 0 next position for ped 0: [-0.52100015  0.0192502   0.        ]
+[05.17.21 16:25:48] SGAN sample idx 0 next position for ped 1: [0.72587121 2.14383197 0.        ]
+[05.17.21 16:25:48] Using SGAN to set next location
+[05.17.21 16:25:48] Set next step ped 0 at location [-0.52100015  0.0192502   0.        ]
+[05.17.21 16:25:48] Set next step ped 1 at location [0.72587121 2.14383197 0.        ]
+[05.17.21 16:25:48] Exiting step: Ped ID: 0, location: (-0.5210001468658447, 0.01925019919872284)
+[05.17.21 16:25:48] Exiting step: Ped ID: 1, location: (0.725871205329895, 2.143831968307495)
+[05.17.21 16:25:48] Entering Step: Ped ID: 0, location: (-0.5210001468658447, 0.01925019919872284)
+[05.17.21 16:25:48] Entering Step: Ped ID: 1, location: (0.725871205329895, 2.143831968307495)
+[05.17.21 16:25:48] Use SGAN to generate next location
+[05.17.21 16:25:49] SGAN sample idx 0 next position for ped 0: [-0.45082578  0.02213296  0.        ]
+[05.17.21 16:25:49] SGAN sample idx 0 next position for ped 1: [0.71683741 2.15735149 0.        ]
+[05.17.21 16:25:49] Using SGAN to set next location
+[05.17.21 16:25:49] Set next step ped 0 at location [-0.45082578  0.02213296  0.        ]
+[05.17.21 16:25:49] Set next step ped 1 at location [0.71683741 2.15735149 0.        ]
+[05.17.21 16:25:49] Exiting step: Ped ID: 0, location: (-0.4508257806301117, 0.022132955491542816)
+[05.17.21 16:25:49] Exiting step: Ped ID: 1, location: (0.7168374061584473, 2.157351493835449)
+[05.17.21 16:25:49] Entering Step: Ped ID: 0, location: (-0.4508257806301117, 0.022132955491542816)
+[05.17.21 16:25:49] Entering Step: Ped ID: 1, location: (0.7168374061584473, 2.157351493835449)
+[05.17.21 16:25:49] Use SGAN to generate next location
+[05.17.21 16:25:50] SGAN sample idx 0 next position for ped 0: [-0.38527924  0.0294686   0.        ]
+[05.17.21 16:25:50] SGAN sample idx 0 next position for ped 1: [0.71108437 2.17701221 0.        ]
+[05.17.21 16:25:50] Using SGAN to set next location
+[05.17.21 16:25:50] Set next step ped 0 at location [-0.38527924  0.0294686   0.        ]
+[05.17.21 16:25:50] Set next step ped 1 at location [0.71108437 2.17701221 0.        ]
+[05.17.21 16:25:50] Exiting step: Ped ID: 0, location: (-0.38527923822402954, 0.029468603432178497)
+[05.17.21 16:25:50] Exiting step: Ped ID: 1, location: (0.7110843658447266, 2.1770122051239014)
+[05.17.21 16:25:50] Entering Step: Ped ID: 0, location: (-0.38527923822402954, 0.029468603432178497)
+[05.17.21 16:25:50] Entering Step: Ped ID: 1, location: (0.7110843658447266, 2.1770122051239014)
+[05.17.21 16:25:50] Use SGAN to generate next location
+[05.17.21 16:25:51] SGAN sample idx 0 next position for ped 0: [-0.32569337  0.03541969  0.        ]
+[05.17.21 16:25:51] SGAN sample idx 0 next position for ped 1: [0.7098828 2.1916678 0.       ]
+[05.17.21 16:25:51] Using SGAN to set next location
+[05.17.21 16:25:51] Set next step ped 0 at location [-0.32569337  0.03541969  0.        ]
+[05.17.21 16:25:51] Set next step ped 1 at location [0.7098828 2.1916678 0.       ]
+[05.17.21 16:25:51] Exiting step: Ped ID: 0, location: (-0.32569336891174316, 0.03541968762874603)
+[05.17.21 16:25:51] Exiting step: Ped ID: 1, location: (0.7098827958106995, 2.1916677951812744)
+[05.17.21 16:25:51] Entering Step: Ped ID: 0, location: (-0.32569336891174316, 0.03541968762874603)
+[05.17.21 16:25:51] Entering Step: Ped ID: 1, location: (0.7098827958106995, 2.1916677951812744)
+[05.17.21 16:25:51] Use SGAN to generate next location
+[05.17.21 16:25:51] SGAN sample idx 0 next position for ped 0: [-0.26683176  0.0370656   0.        ]
+[05.17.21 16:25:51] SGAN sample idx 0 next position for ped 1: [0.72145474 2.20386219 0.        ]
+[05.17.21 16:25:51] Using SGAN to set next location
+[05.17.21 16:25:51] Set next step ped 0 at location [-0.26683176  0.0370656   0.        ]
+[05.17.21 16:25:51] Set next step ped 1 at location [0.72145474 2.20386219 0.        ]
+[05.17.21 16:25:51] Exiting step: Ped ID: 0, location: (-0.26683175563812256, 0.037065595388412476)
+[05.17.21 16:25:51] Exiting step: Ped ID: 1, location: (0.7214547395706177, 2.203862190246582)
+[05.17.21 16:25:51] Entering Step: Ped ID: 0, location: (-0.26683175563812256, 0.037065595388412476)
+[05.17.21 16:25:51] Entering Step: Ped ID: 1, location: (0.7214547395706177, 2.203862190246582)
+[05.17.21 16:25:51] Use SGAN to generate next location
+[05.17.21 16:25:52] SGAN sample idx 0 next position for ped 0: [-0.21190163  0.04124866  0.        ]
+[05.17.21 16:25:52] SGAN sample idx 0 next position for ped 1: [0.73930925 2.21345377 0.        ]
+[05.17.21 16:25:52] Using SGAN to set next location
+[05.17.21 16:25:52] Set next step ped 0 at location [-0.21190163  0.04124866  0.        ]
+[05.17.21 16:25:52] Set next step ped 1 at location [0.73930925 2.21345377 0.        ]
+[05.17.21 16:25:52] Exiting step: Ped ID: 0, location: (-0.21190163493156433, 0.04124865680932999)
+[05.17.21 16:25:52] Exiting step: Ped ID: 1, location: (0.7393092513084412, 2.213453769683838)
+[05.17.21 16:25:52] Entering Step: Ped ID: 0, location: (-0.21190163493156433, 0.04124865680932999)
+[05.17.21 16:25:52] Entering Step: Ped ID: 1, location: (0.7393092513084412, 2.213453769683838)
+[05.17.21 16:25:52] Use SGAN to generate next location
+[05.17.21 16:25:53] SGAN sample idx 0 next position for ped 0: [-0.16049176  0.02139819  0.        ]
+[05.17.21 16:25:53] SGAN sample idx 0 next position for ped 1: [0.76017791 2.19848919 0.        ]
+[05.17.21 16:25:53] Using SGAN to set next location
+[05.17.21 16:25:53] Set next step ped 0 at location [-0.16049176  0.02139819  0.        ]
+[05.17.21 16:25:53] Set next step ped 1 at location [0.76017791 2.19848919 0.        ]
+[05.17.21 16:25:53] Exiting step: Ped ID: 0, location: (-0.16049176454544067, 0.021398194134235382)
+[05.17.21 16:25:53] Exiting step: Ped ID: 1, location: (0.7601779103279114, 2.198489189147949)
+[05.17.21 16:25:53] Entering Step: Ped ID: 0, location: (-0.16049176454544067, 0.021398194134235382)
+[05.17.21 16:25:53] Entering Step: Ped ID: 1, location: (0.7601779103279114, 2.198489189147949)
+[05.17.21 16:25:53] Use SGAN to generate next location
+[05.17.21 16:25:54] SGAN sample idx 0 next position for ped 0: [-0.10479772 -0.00310709  0.        ]
+[05.17.21 16:25:54] SGAN sample idx 0 next position for ped 1: [0.75882971 2.18994784 0.        ]
+[05.17.21 16:25:54] Using SGAN to set next location
+[05.17.21 16:25:54] Set next step ped 0 at location [-0.10479772 -0.00310709  0.        ]
+[05.17.21 16:25:54] Set next step ped 1 at location [0.75882971 2.18994784 0.        ]
+[05.17.21 16:25:54] Exiting step: Ped ID: 0, location: (-0.10479772090911865, -0.0031070858240127563)
+[05.17.21 16:25:54] Exiting step: Ped ID: 1, location: (0.7588297128677368, 2.1899478435516357)
+[05.17.21 16:25:54] Entering Step: Ped ID: 0, location: (-0.10479772090911865, -0.0031070858240127563)
+[05.17.21 16:25:54] Entering Step: Ped ID: 1, location: (0.7588297128677368, 2.1899478435516357)
+[05.17.21 16:25:54] Use SGAN to generate next location
+[05.17.21 16:25:54] SGAN sample idx 0 next position for ped 0: [-0.04921919 -0.02480852  0.        ]
+[05.17.21 16:25:54] SGAN sample idx 0 next position for ped 1: [0.75782597 2.19167328 0.        ]
+[05.17.21 16:25:54] Using SGAN to set next location
+[05.17.21 16:25:54] Set next step ped 0 at location [-0.04921919 -0.02480852  0.        ]
+[05.17.21 16:25:54] Set next step ped 1 at location [0.75782597 2.19167328 0.        ]
+[05.17.21 16:25:54] Exiting step: Ped ID: 0, location: (-0.04921918734908104, -0.024808518588542938)
+[05.17.21 16:25:54] Exiting step: Ped ID: 1, location: (0.7578259706497192, 2.1916732788085938)
+[05.17.21 16:25:54] Entering Step: Ped ID: 0, location: (-0.04921918734908104, -0.024808518588542938)
+[05.17.21 16:25:54] Entering Step: Ped ID: 1, location: (0.7578259706497192, 2.1916732788085938)
+[05.17.21 16:25:54] Use SGAN to generate next location
+[05.17.21 16:25:55] SGAN sample idx 0 next position for ped 0: [ 0.00751184 -0.02784462  0.        ]
+[05.17.21 16:25:55] SGAN sample idx 0 next position for ped 1: [0.76173139 2.20702291 0.        ]
+[05.17.21 16:25:55] Using SGAN to set next location
+[05.17.21 16:25:55] Set next step ped 0 at location [ 0.00751184 -0.02784462  0.        ]
+[05.17.21 16:25:55] Set next step ped 1 at location [0.76173139 2.20702291 0.        ]
+[05.17.21 16:25:55] Exiting step: Ped ID: 0, location: (0.007511842995882034, -0.0278446227312088)
+[05.17.21 16:25:55] Exiting step: Ped ID: 1, location: (0.7617313861846924, 2.2070229053497314)
+[05.17.21 16:25:55] Entering Step: Ped ID: 0, location: (0.007511842995882034, -0.0278446227312088)
+[05.17.21 16:25:55] Entering Step: Ped ID: 1, location: (0.7617313861846924, 2.2070229053497314)
+[05.17.21 16:25:55] Use SGAN to generate next location
+[05.17.21 16:25:56] SGAN sample idx 0 next position for ped 0: [ 0.05079333 -0.03572323  0.        ]
+[05.17.21 16:25:56] SGAN sample idx 0 next position for ped 1: [0.75857496 2.21523643 0.        ]
+[05.17.21 16:25:56] Using SGAN to set next location
+[05.17.21 16:25:56] Set next step ped 0 at location [ 0.05079333 -0.03572323  0.        ]
+[05.17.21 16:25:56] Set next step ped 1 at location [0.75857496 2.21523643 0.        ]
+[05.17.21 16:25:56] Exiting step: Ped ID: 0, location: (0.05079333111643791, -0.035723231732845306)
+[05.17.21 16:25:56] Exiting step: Ped ID: 1, location: (0.7585749626159668, 2.2152364253997803)
+[05.17.21 16:25:56] Entering Step: Ped ID: 0, location: (0.05079333111643791, -0.035723231732845306)
+[05.17.21 16:25:56] Entering Step: Ped ID: 1, location: (0.7585749626159668, 2.2152364253997803)
+[05.17.21 16:25:56] Use SGAN to generate next location
+[05.17.21 16:25:57] SGAN sample idx 0 next position for ped 0: [ 0.08489563 -0.00888596  0.        ]
+[05.17.21 16:25:57] SGAN sample idx 0 next position for ped 1: [0.75992417 2.23925042 0.        ]
+[05.17.21 16:25:57] Using SGAN to set next location
+[05.17.21 16:25:57] Set next step ped 0 at location [ 0.08489563 -0.00888596  0.        ]
+[05.17.21 16:25:57] Set next step ped 1 at location [0.75992417 2.23925042 0.        ]
+[05.17.21 16:25:57] Exiting step: Ped ID: 0, location: (0.08489562571048737, -0.008885964751243591)
+[05.17.21 16:25:57] Exiting step: Ped ID: 1, location: (0.7599241733551025, 2.239250421524048)
+[05.17.21 16:25:57] Entering Step: Ped ID: 0, location: (0.08489562571048737, -0.008885964751243591)
+[05.17.21 16:25:57] Entering Step: Ped ID: 1, location: (0.7599241733551025, 2.239250421524048)
+[05.17.21 16:25:57] Use SGAN to generate next location
+[05.17.21 16:25:57] SGAN sample idx 0 next position for ped 0: [ 0.12036222 -0.00281044  0.        ]
+[05.17.21 16:25:57] SGAN sample idx 0 next position for ped 1: [0.75878513 2.24905443 0.        ]
+[05.17.21 16:25:57] Using SGAN to set next location
+[05.17.21 16:25:57] Set next step ped 0 at location [ 0.12036222 -0.00281044  0.        ]
+[05.17.21 16:25:57] Set next step ped 1 at location [0.75878513 2.24905443 0.        ]
+[05.17.21 16:25:57] Exiting step: Ped ID: 0, location: (0.12036222219467163, -0.002810440957546234)
+[05.17.21 16:25:57] Exiting step: Ped ID: 1, location: (0.7587851285934448, 2.249054431915283)
+[05.17.21 16:25:57] Entering Step: Ped ID: 0, location: (0.12036222219467163, -0.002810440957546234)
+[05.17.21 16:25:57] Entering Step: Ped ID: 1, location: (0.7587851285934448, 2.249054431915283)
+[05.17.21 16:25:57] Use SGAN to generate next location
+[05.17.21 16:25:58] SGAN sample idx 0 next position for ped 0: [ 0.14923283 -0.01036344  0.        ]
+[05.17.21 16:25:58] SGAN sample idx 0 next position for ped 1: [0.75311852 2.24133086 0.        ]
+[05.17.21 16:25:58] Using SGAN to set next location
+[05.17.21 16:25:58] Set next step ped 0 at location [ 0.14923283 -0.01036344  0.        ]
+[05.17.21 16:25:58] Set next step ped 1 at location [0.75311852 2.24133086 0.        ]
+[05.17.21 16:25:58] Exiting step: Ped ID: 0, location: (0.14923283457756042, -0.010363444685935974)
+[05.17.21 16:25:58] Exiting step: Ped ID: 1, location: (0.7531185150146484, 2.241330862045288)
+[05.17.21 16:25:58] Entering Step: Ped ID: 0, location: (0.14923283457756042, -0.010363444685935974)
+[05.17.21 16:25:58] Entering Step: Ped ID: 1, location: (0.7531185150146484, 2.241330862045288)
+[05.17.21 16:25:58] Use SGAN to generate next location
+[05.17.21 16:25:59] SGAN sample idx 0 next position for ped 0: [ 0.1781339 -0.0149165  0.       ]
+[05.17.21 16:25:59] SGAN sample idx 0 next position for ped 1: [0.74805039 2.23364782 0.        ]
+[05.17.21 16:25:59] Using SGAN to set next location
+[05.17.21 16:25:59] Set next step ped 0 at location [ 0.1781339 -0.0149165  0.       ]
+[05.17.21 16:25:59] Set next step ped 1 at location [0.74805039 2.23364782 0.        ]
+[05.17.21 16:25:59] Exiting step: Ped ID: 0, location: (0.17813390493392944, -0.014916501939296722)
+[05.17.21 16:25:59] Exiting step: Ped ID: 1, location: (0.7480503916740417, 2.2336478233337402)
+[05.17.21 16:25:59] Entering Step: Ped ID: 0, location: (0.17813390493392944, -0.014916501939296722)
+[05.17.21 16:25:59] Entering Step: Ped ID: 1, location: (0.7480503916740417, 2.2336478233337402)
+[05.17.21 16:25:59] Use SGAN to generate next location
+[05.17.21 16:26:00] SGAN sample idx 0 next position for ped 0: [ 0.21378297 -0.01917832  0.        ]
+[05.17.21 16:26:00] SGAN sample idx 0 next position for ped 1: [0.75781918 2.22806954 0.        ]
+[05.17.21 16:26:00] Using SGAN to set next location
+[05.17.21 16:26:00] Set next step ped 0 at location [ 0.21378297 -0.01917832  0.        ]
+[05.17.21 16:26:00] Set next step ped 1 at location [0.75781918 2.22806954 0.        ]
+[05.17.21 16:26:00] Exiting step: Ped ID: 0, location: (0.21378296613693237, -0.019178323447704315)
+[05.17.21 16:26:00] Exiting step: Ped ID: 1, location: (0.7578191757202148, 2.228069543838501)
+[05.17.21 16:26:00] Entering Step: Ped ID: 0, location: (0.21378296613693237, -0.019178323447704315)
+[05.17.21 16:26:00] Entering Step: Ped ID: 1, location: (0.7578191757202148, 2.228069543838501)
+[05.17.21 16:26:00] Use SGAN to generate next location
+[05.17.21 16:26:00] SGAN sample idx 0 next position for ped 0: [ 0.24697843 -0.00422022  0.        ]
+[05.17.21 16:26:00] SGAN sample idx 0 next position for ped 1: [0.77148831 2.24394107 0.        ]
+[05.17.21 16:26:00] Using SGAN to set next location
+[05.17.21 16:26:00] Set next step ped 0 at location [ 0.24697843 -0.00422022  0.        ]
+[05.17.21 16:26:00] Set next step ped 1 at location [0.77148831 2.24394107 0.        ]
+[05.17.21 16:26:00] Exiting step: Ped ID: 0, location: (0.24697843194007874, -0.00422021746635437)
+[05.17.21 16:26:00] Exiting step: Ped ID: 1, location: (0.7714883089065552, 2.243941068649292)
+[05.17.21 16:26:00] Entering Step: Ped ID: 0, location: (0.24697843194007874, -0.00422021746635437)
+[05.17.21 16:26:00] Entering Step: Ped ID: 1, location: (0.7714883089065552, 2.243941068649292)
+[05.17.21 16:26:00] Use SGAN to generate next location
+[05.17.21 16:26:01] SGAN sample idx 0 next position for ped 0: [0.27001396 0.01063672 0.        ]
+[05.17.21 16:26:01] SGAN sample idx 0 next position for ped 1: [0.78250098 2.26142597 0.        ]
+[05.17.21 16:26:01] Using SGAN to set next location
+[05.17.21 16:26:01] Set next step ped 0 at location [0.27001396 0.01063672 0.        ]
+[05.17.21 16:26:01] Set next step ped 1 at location [0.78250098 2.26142597 0.        ]
+[05.17.21 16:26:01] Exiting step: Ped ID: 0, location: (0.2700139582157135, 0.010636724531650543)
+[05.17.21 16:26:01] Exiting step: Ped ID: 1, location: (0.7825009822845459, 2.2614259719848633)
+[05.17.21 16:26:01] Entering Step: Ped ID: 0, location: (0.2700139582157135, 0.010636724531650543)
+[05.17.21 16:26:01] Entering Step: Ped ID: 1, location: (0.7825009822845459, 2.2614259719848633)
+[05.17.21 16:26:01] Use SGAN to generate next location
+[05.17.21 16:26:02] SGAN sample idx 0 next position for ped 0: [0.28246182 0.01705963 0.        ]
+[05.17.21 16:26:02] SGAN sample idx 0 next position for ped 1: [0.79436749 2.26119995 0.        ]
+[05.17.21 16:26:02] Using SGAN to set next location
+[05.17.21 16:26:02] Set next step ped 0 at location [0.28246182 0.01705963 0.        ]
+[05.17.21 16:26:02] Set next step ped 1 at location [0.79436749 2.26119995 0.        ]
+[05.17.21 16:26:02] Exiting step: Ped ID: 0, location: (0.28246182203292847, 0.017059631645679474)
+[05.17.21 16:26:02] Exiting step: Ped ID: 1, location: (0.7943674921989441, 2.261199951171875)
+[05.17.21 16:26:02] Entering Step: Ped ID: 0, location: (0.28246182203292847, 0.017059631645679474)
+[05.17.21 16:26:02] Entering Step: Ped ID: 1, location: (0.7943674921989441, 2.261199951171875)
+[05.17.21 16:26:02] Use SGAN to generate next location
+[05.17.21 16:26:02] SGAN sample idx 0 next position for ped 0: [0.2880179  0.01997696 0.        ]
+[05.17.21 16:26:02] SGAN sample idx 0 next position for ped 1: [0.79992902 2.25204563 0.        ]
+[05.17.21 16:26:02] Using SGAN to set next location
+[05.17.21 16:26:02] Set next step ped 0 at location [0.2880179  0.01997696 0.        ]
+[05.17.21 16:26:02] Set next step ped 1 at location [0.79992902 2.25204563 0.        ]
+[05.17.21 16:26:02] Exiting step: Ped ID: 0, location: (0.2880178987979889, 0.019976958632469177)
+[05.17.21 16:26:02] Exiting step: Ped ID: 1, location: (0.7999290227890015, 2.2520456314086914)
+[05.17.21 16:26:02] Entering Step: Ped ID: 0, location: (0.2880178987979889, 0.019976958632469177)
+[05.17.21 16:26:02] Entering Step: Ped ID: 1, location: (0.7999290227890015, 2.2520456314086914)
+[05.17.21 16:26:02] Use SGAN to generate next location
+[05.17.21 16:26:03] SGAN sample idx 0 next position for ped 0: [0.28818145 0.02335413 0.        ]
+[05.17.21 16:26:03] SGAN sample idx 0 next position for ped 1: [0.79634762 2.24289894 0.        ]
+[05.17.21 16:26:03] Using SGAN to set next location
+[05.17.21 16:26:03] Set next step ped 0 at location [0.28818145 0.02335413 0.        ]
+[05.17.21 16:26:03] Set next step ped 1 at location [0.79634762 2.24289894 0.        ]
+[05.17.21 16:26:03] Exiting step: Ped ID: 0, location: (0.28818145394325256, 0.023354128003120422)
+[05.17.21 16:26:03] Exiting step: Ped ID: 1, location: (0.7963476181030273, 2.242898941040039)
+[05.17.21 16:26:03] Entering Step: Ped ID: 0, location: (0.28818145394325256, 0.023354128003120422)
+[05.17.21 16:26:03] Entering Step: Ped ID: 1, location: (0.7963476181030273, 2.242898941040039)
+[05.17.21 16:26:03] Use SGAN to generate next location
+[05.17.21 16:26:04] SGAN sample idx 0 next position for ped 0: [0.28450584 0.01589197 0.        ]
+[05.17.21 16:26:04] SGAN sample idx 0 next position for ped 1: [0.77591449 2.23475456 0.        ]
+[05.17.21 16:26:04] Using SGAN to set next location
+[05.17.21 16:26:04] Set next step ped 0 at location [0.28450584 0.01589197 0.        ]
+[05.17.21 16:26:04] Set next step ped 1 at location [0.77591449 2.23475456 0.        ]
+[05.17.21 16:26:04] Exiting step: Ped ID: 0, location: (0.28450584411621094, 0.015891969203948975)
+[05.17.21 16:26:04] Exiting step: Ped ID: 1, location: (0.7759144902229309, 2.2347545623779297)
+[05.17.21 16:26:04] Entering Step: Ped ID: 0, location: (0.28450584411621094, 0.015891969203948975)
+[05.17.21 16:26:04] Entering Step: Ped ID: 1, location: (0.7759144902229309, 2.2347545623779297)
+[05.17.21 16:26:04] Use SGAN to generate next location
+[05.17.21 16:26:05] SGAN sample idx 0 next position for ped 0: [0.28414077 0.00838048 0.        ]
+[05.17.21 16:26:05] SGAN sample idx 0 next position for ped 1: [0.76010787 2.23051071 0.        ]
+[05.17.21 16:26:05] Using SGAN to set next location
+[05.17.21 16:26:05] Set next step ped 0 at location [0.28414077 0.00838048 0.        ]
+[05.17.21 16:26:05] Set next step ped 1 at location [0.76010787 2.23051071 0.        ]
+[05.17.21 16:26:05] Exiting step: Ped ID: 0, location: (0.28414076566696167, 0.008380480110645294)
+[05.17.21 16:26:05] Exiting step: Ped ID: 1, location: (0.7601078748703003, 2.230510711669922)
+[05.17.21 16:26:05] Entering Step: Ped ID: 0, location: (0.28414076566696167, 0.008380480110645294)
+[05.17.21 16:26:05] Entering Step: Ped ID: 1, location: (0.7601078748703003, 2.230510711669922)
+[05.17.21 16:26:05] Use SGAN to generate next location
+[05.17.21 16:26:05] SGAN sample idx 0 next position for ped 0: [ 0.29316166 -0.01087928  0.        ]
+[05.17.21 16:26:05] SGAN sample idx 0 next position for ped 1: [0.75298834 2.22222233 0.        ]
+[05.17.21 16:26:05] Using SGAN to set next location
+[05.17.21 16:26:05] Set next step ped 0 at location [ 0.29316166 -0.01087928  0.        ]
+[05.17.21 16:26:05] Set next step ped 1 at location [0.75298834 2.22222233 0.        ]
+[05.17.21 16:26:05] Exiting step: Ped ID: 0, location: (0.29316166043281555, -0.010879278182983398)
+[05.17.21 16:26:05] Exiting step: Ped ID: 1, location: (0.752988338470459, 2.222222328186035)
+[05.17.21 16:26:05] Entering Step: Ped ID: 0, location: (0.29316166043281555, -0.010879278182983398)
+[05.17.21 16:26:05] Entering Step: Ped ID: 1, location: (0.752988338470459, 2.222222328186035)
+[05.17.21 16:26:05] Use SGAN to generate next location
+[05.17.21 16:26:06] SGAN sample idx 0 next position for ped 0: [0.28736773 0.01586579 0.        ]
+[05.17.21 16:26:06] SGAN sample idx 0 next position for ped 1: [0.74197155 2.24127579 0.        ]
+[05.17.21 16:26:06] Using SGAN to set next location
+[05.17.21 16:26:06] Set next step ped 0 at location [0.28736773 0.01586579 0.        ]
+[05.17.21 16:26:06] Set next step ped 1 at location [0.74197155 2.24127579 0.        ]
+[05.17.21 16:26:06] Exiting step: Ped ID: 0, location: (0.28736773133277893, 0.015865787863731384)
+[05.17.21 16:26:06] Exiting step: Ped ID: 1, location: (0.7419715523719788, 2.2412757873535156)
+[05.17.21 16:26:06] Entering Step: Ped ID: 0, location: (0.28736773133277893, 0.015865787863731384)
+[05.17.21 16:26:06] Entering Step: Ped ID: 1, location: (0.7419715523719788, 2.2412757873535156)
+[05.17.21 16:26:06] Use SGAN to generate next location
+[05.17.21 16:26:07] SGAN sample idx 0 next position for ped 0: [0.2936846  0.01313142 0.        ]
+[05.17.21 16:26:07] SGAN sample idx 0 next position for ped 1: [0.74734902 2.2355988  0.        ]
+[05.17.21 16:26:07] Using SGAN to set next location
+[05.17.21 16:26:07] Set next step ped 0 at location [0.2936846  0.01313142 0.        ]
+[05.17.21 16:26:07] Set next step ped 1 at location [0.74734902 2.2355988  0.        ]
+[05.17.21 16:26:07] Exiting step: Ped ID: 0, location: (0.29368460178375244, 0.01313142478466034)
+[05.17.21 16:26:07] Exiting step: Ped ID: 1, location: (0.7473490238189697, 2.2355988025665283)
+[05.17.21 16:26:07] Entering Step: Ped ID: 0, location: (0.29368460178375244, 0.01313142478466034)
+[05.17.21 16:26:07] Entering Step: Ped ID: 1, location: (0.7473490238189697, 2.2355988025665283)
+[05.17.21 16:26:07] Use SGAN to generate next location
+[05.17.21 16:26:07] SGAN sample idx 0 next position for ped 0: [0.30564934 0.0106503  0.        ]
+[05.17.21 16:26:07] SGAN sample idx 0 next position for ped 1: [0.75880206 2.22183847 0.        ]
+[05.17.21 16:26:07] Using SGAN to set next location
+[05.17.21 16:26:07] Set next step ped 0 at location [0.30564934 0.0106503  0.        ]
+[05.17.21 16:26:07] Set next step ped 1 at location [0.75880206 2.22183847 0.        ]
+[05.17.21 16:26:07] Exiting step: Ped ID: 0, location: (0.3056493401527405, 0.010650299489498138)
+[05.17.21 16:26:07] Exiting step: Ped ID: 1, location: (0.758802056312561, 2.2218384742736816)
+[05.17.21 16:26:08] Entering Step: Ped ID: 0, location: (0.3056493401527405, 0.010650299489498138)
+[05.17.21 16:26:08] Entering Step: Ped ID: 1, location: (0.758802056312561, 2.2218384742736816)
+[05.17.21 16:26:08] Use SGAN to generate next location
+[05.17.21 16:26:08] SGAN sample idx 0 next position for ped 0: [0.31753236 0.01029197 0.        ]
+[05.17.21 16:26:08] SGAN sample idx 0 next position for ped 1: [0.77308625 2.20607448 0.        ]
+[05.17.21 16:26:08] Using SGAN to set next location
+[05.17.21 16:26:08] Set next step ped 0 at location [0.31753236 0.01029197 0.        ]
+[05.17.21 16:26:08] Set next step ped 1 at location [0.77308625 2.20607448 0.        ]
+[05.17.21 16:26:08] Exiting step: Ped ID: 0, location: (0.31753236055374146, 0.010291971266269684)
+[05.17.21 16:26:08] Exiting step: Ped ID: 1, location: (0.7730862498283386, 2.2060744762420654)
+[05.17.21 16:26:08] Entering Step: Ped ID: 0, location: (0.31753236055374146, 0.010291971266269684)
+[05.17.21 16:26:08] Entering Step: Ped ID: 1, location: (0.7730862498283386, 2.2060744762420654)
+[05.17.21 16:26:08] Use SGAN to generate next location
+[05.17.21 16:26:09] SGAN sample idx 0 next position for ped 0: [0.31217954 0.01701083 0.        ]
+[05.17.21 16:26:09] SGAN sample idx 0 next position for ped 1: [0.76190925 2.20412683 0.        ]
+[05.17.21 16:26:09] Using SGAN to set next location
+[05.17.21 16:26:09] Set next step ped 0 at location [0.31217954 0.01701083 0.        ]
+[05.17.21 16:26:09] Set next step ped 1 at location [0.76190925 2.20412683 0.        ]
+[05.17.21 16:26:09] Exiting step: Ped ID: 0, location: (0.3121795356273651, 0.017010830342769623)
+[05.17.21 16:26:09] Exiting step: Ped ID: 1, location: (0.7619092464447021, 2.2041268348693848)
+[05.17.21 16:26:09] Entering Step: Ped ID: 0, location: (0.3121795356273651, 0.017010830342769623)
+[05.17.21 16:26:09] Entering Step: Ped ID: 1, location: (0.7619092464447021, 2.2041268348693848)
+[05.17.21 16:26:09] Use SGAN to generate next location
+[05.17.21 16:26:10] SGAN sample idx 0 next position for ped 0: [0.31703153 0.00434872 0.        ]
+[05.17.21 16:26:10] SGAN sample idx 0 next position for ped 1: [0.77032495 2.1890974  0.        ]
+[05.17.21 16:26:10] Using SGAN to set next location
+[05.17.21 16:26:10] Set next step ped 0 at location [0.31703153 0.00434872 0.        ]
+[05.17.21 16:26:10] Set next step ped 1 at location [0.77032495 2.1890974  0.        ]
+[05.17.21 16:26:10] Exiting step: Ped ID: 0, location: (0.31703153252601624, 0.004348717629909515)
+[05.17.21 16:26:10] Exiting step: Ped ID: 1, location: (0.7703249454498291, 2.1890974044799805)
+[05.17.21 16:26:10] Entering Step: Ped ID: 0, location: (0.31703153252601624, 0.004348717629909515)
+[05.17.21 16:26:10] Entering Step: Ped ID: 1, location: (0.7703249454498291, 2.1890974044799805)
+[05.17.21 16:26:10] Use SGAN to generate next location
+[05.17.21 16:26:10] SGAN sample idx 0 next position for ped 0: [0.33564579 0.00177938 0.        ]
+[05.17.21 16:26:10] SGAN sample idx 0 next position for ped 1: [0.78736115 2.18019032 0.        ]
+[05.17.21 16:26:10] Using SGAN to set next location
+[05.17.21 16:26:10] Set next step ped 0 at location [0.33564579 0.00177938 0.        ]
+[05.17.21 16:26:10] Set next step ped 1 at location [0.78736115 2.18019032 0.        ]
+[05.17.21 16:26:10] Exiting step: Ped ID: 0, location: (0.33564579486846924, 0.0017793774604797363)
+[05.17.21 16:26:10] Exiting step: Ped ID: 1, location: (0.7873611450195312, 2.180190324783325)
+[05.17.21 16:26:10] Entering Step: Ped ID: 0, location: (0.33564579486846924, 0.0017793774604797363)
+[05.17.21 16:26:10] Entering Step: Ped ID: 1, location: (0.7873611450195312, 2.180190324783325)
+[05.17.21 16:26:10] Use SGAN to generate next location
+[05.17.21 16:26:11] SGAN sample idx 0 next position for ped 0: [ 0.33836114 -0.00829731  0.        ]
+[05.17.21 16:26:11] SGAN sample idx 0 next position for ped 1: [0.78992039 2.16757369 0.        ]
+[05.17.21 16:26:11] Using SGAN to set next location
+[05.17.21 16:26:11] Set next step ped 0 at location [ 0.33836114 -0.00829731  0.        ]
+[05.17.21 16:26:11] Set next step ped 1 at location [0.78992039 2.16757369 0.        ]
+[05.17.21 16:26:11] Exiting step: Ped ID: 0, location: (0.33836114406585693, -0.008297309279441833)
+[05.17.21 16:26:11] Exiting step: Ped ID: 1, location: (0.7899203896522522, 2.1675736904144287)
+[05.17.21 16:26:11] Entering Step: Ped ID: 0, location: (0.33836114406585693, -0.008297309279441833)
+[05.17.21 16:26:11] Entering Step: Ped ID: 1, location: (0.7899203896522522, 2.1675736904144287)
+[05.17.21 16:26:11] Use SGAN to generate next location
+[05.17.21 16:26:12] SGAN sample idx 0 next position for ped 0: [ 0.34046194 -0.00412185  0.        ]
+[05.17.21 16:26:12] SGAN sample idx 0 next position for ped 1: [0.78467929 2.1675272  0.        ]
+[05.17.21 16:26:12] Using SGAN to set next location
+[05.17.21 16:26:12] Set next step ped 0 at location [ 0.34046194 -0.00412185  0.        ]
+[05.17.21 16:26:12] Set next step ped 1 at location [0.78467929 2.1675272  0.        ]
+[05.17.21 16:26:12] Exiting step: Ped ID: 0, location: (0.34046193957328796, -0.004121847450733185)
+[05.17.21 16:26:12] Exiting step: Ped ID: 1, location: (0.7846792936325073, 2.167527198791504)
+[05.17.21 16:26:12] Entering Step: Ped ID: 0, location: (0.34046193957328796, -0.004121847450733185)
+[05.17.21 16:26:12] Entering Step: Ped ID: 1, location: (0.7846792936325073, 2.167527198791504)
+[05.17.21 16:26:12] Use SGAN to generate next location
+[05.17.21 16:26:13] SGAN sample idx 0 next position for ped 0: [ 0.35117173 -0.00869124  0.        ]
+[05.17.21 16:26:13] SGAN sample idx 0 next position for ped 1: [0.79411399 2.15908766 0.        ]
+[05.17.21 16:26:13] Using SGAN to set next location
+[05.17.21 16:26:13] Set next step ped 0 at location [ 0.35117173 -0.00869124  0.        ]
+[05.17.21 16:26:13] Set next step ped 1 at location [0.79411399 2.15908766 0.        ]
+[05.17.21 16:26:13] Exiting step: Ped ID: 0, location: (0.35117173194885254, -0.008691243827342987)
+[05.17.21 16:26:13] Exiting step: Ped ID: 1, location: (0.7941139936447144, 2.159087657928467)
+[05.17.21 16:26:13] Entering Step: Ped ID: 0, location: (0.35117173194885254, -0.008691243827342987)
+[05.17.21 16:26:13] Entering Step: Ped ID: 1, location: (0.7941139936447144, 2.159087657928467)
+[05.17.21 16:26:13] Use SGAN to generate next location
+[05.17.21 16:26:13] SGAN sample idx 0 next position for ped 0: [0.34873247 0.00366919 0.        ]
+[05.17.21 16:26:13] SGAN sample idx 0 next position for ped 1: [0.79321527 2.15808606 0.        ]
+[05.17.21 16:26:13] Using SGAN to set next location
+[05.17.21 16:26:13] Set next step ped 0 at location [0.34873247 0.00366919 0.        ]
+[05.17.21 16:26:13] Set next step ped 1 at location [0.79321527 2.15808606 0.        ]
+[05.17.21 16:26:13] Exiting step: Ped ID: 0, location: (0.34873247146606445, 0.0036691874265670776)
+[05.17.21 16:26:13] Exiting step: Ped ID: 1, location: (0.793215274810791, 2.158086061477661)
+[05.17.21 16:26:13] Entering Step: Ped ID: 0, location: (0.34873247146606445, 0.0036691874265670776)
+[05.17.21 16:26:13] Entering Step: Ped ID: 1, location: (0.793215274810791, 2.158086061477661)
+[05.17.21 16:26:13] Use SGAN to generate next location
+[05.17.21 16:26:14] SGAN sample idx 0 next position for ped 0: [0.34022987 0.03233702 0.        ]
+[05.17.21 16:26:14] SGAN sample idx 0 next position for ped 1: [0.78392309 2.1764853  0.        ]
+[05.17.21 16:26:14] Using SGAN to set next location
+[05.17.21 16:26:14] Set next step ped 0 at location [0.34022987 0.03233702 0.        ]
+[05.17.21 16:26:14] Set next step ped 1 at location [0.78392309 2.1764853  0.        ]
+[05.17.21 16:26:14] Exiting step: Ped ID: 0, location: (0.340229868888855, 0.032337017357349396)
+[05.17.21 16:26:14] Exiting step: Ped ID: 1, location: (0.7839230895042419, 2.176485300064087)
+[05.17.21 16:26:14] Entering Step: Ped ID: 0, location: (0.340229868888855, 0.032337017357349396)
+[05.17.21 16:26:14] Entering Step: Ped ID: 1, location: (0.7839230895042419, 2.176485300064087)
+[05.17.21 16:26:14] Use SGAN to generate next location
+[05.17.21 16:26:15] SGAN sample idx 0 next position for ped 0: [0.31171119 0.06739327 0.        ]
+[05.17.21 16:26:15] SGAN sample idx 0 next position for ped 1: [0.76528251 2.19524169 0.        ]
+[05.17.21 16:26:15] Using SGAN to set next location
+[05.17.21 16:26:15] Set next step ped 0 at location [0.31171119 0.06739327 0.        ]
+[05.17.21 16:26:15] Set next step ped 1 at location [0.76528251 2.19524169 0.        ]
+[05.17.21 16:26:15] Exiting step: Ped ID: 0, location: (0.3117111921310425, 0.06739326566457748)
+[05.17.21 16:26:15] Exiting step: Ped ID: 1, location: (0.7652825117111206, 2.195241689682007)
+[05.17.21 16:26:15] Entering Step: Ped ID: 0, location: (0.3117111921310425, 0.06739326566457748)
+[05.17.21 16:26:15] Entering Step: Ped ID: 1, location: (0.7652825117111206, 2.195241689682007)
+[05.17.21 16:26:15] Use SGAN to generate next location
+[05.17.21 16:26:16] SGAN sample idx 0 next position for ped 0: [0.30078274 0.0746772  0.        ]
+[05.17.21 16:26:16] SGAN sample idx 0 next position for ped 1: [0.76173824 2.19830132 0.        ]
+[05.17.21 16:26:16] Using SGAN to set next location
+[05.17.21 16:26:16] Set next step ped 0 at location [0.30078274 0.0746772  0.        ]
+[05.17.21 16:26:16] Set next step ped 1 at location [0.76173824 2.19830132 0.        ]
+[05.17.21 16:26:16] Exiting step: Ped ID: 0, location: (0.3007827401161194, 0.07467719912528992)
+[05.17.21 16:26:16] Exiting step: Ped ID: 1, location: (0.7617382407188416, 2.198301315307617)
+[05.17.21 16:26:16] Entering Step: Ped ID: 0, location: (0.3007827401161194, 0.07467719912528992)
+[05.17.21 16:26:16] Entering Step: Ped ID: 1, location: (0.7617382407188416, 2.198301315307617)
+[05.17.21 16:26:16] Use SGAN to generate next location
+[05.17.21 16:26:16] SGAN sample idx 0 next position for ped 0: [0.31099576 0.06953785 0.        ]
+[05.17.21 16:26:16] SGAN sample idx 0 next position for ped 1: [0.77346295 2.19437027 0.        ]
+[05.17.21 16:26:16] Using SGAN to set next location
+[05.17.21 16:26:16] Set next step ped 0 at location [0.31099576 0.06953785 0.        ]
+[05.17.21 16:26:16] Set next step ped 1 at location [0.77346295 2.19437027 0.        ]
+[05.17.21 16:26:16] Exiting step: Ped ID: 0, location: (0.31099575757980347, 0.06953784823417664)
+[05.17.21 16:26:16] Exiting step: Ped ID: 1, location: (0.7734629511833191, 2.1943702697753906)
+[05.17.21 16:26:16] Entering Step: Ped ID: 0, location: (0.31099575757980347, 0.06953784823417664)
+[05.17.21 16:26:16] Entering Step: Ped ID: 1, location: (0.7734629511833191, 2.1943702697753906)
+[05.17.21 16:26:16] Use SGAN to generate next location
+[05.17.21 16:26:17] SGAN sample idx 0 next position for ped 0: [0.31818098 0.06810851 0.        ]
+[05.17.21 16:26:17] SGAN sample idx 0 next position for ped 1: [0.77011442 2.1976347  0.        ]
+[05.17.21 16:26:17] Using SGAN to set next location
+[05.17.21 16:26:17] Set next step ped 0 at location [0.31818098 0.06810851 0.        ]
+[05.17.21 16:26:17] Set next step ped 1 at location [0.77011442 2.1976347  0.        ]
+[05.17.21 16:26:17] Exiting step: Ped ID: 0, location: (0.31818097829818726, 0.06810850650072098)
+[05.17.21 16:26:17] Exiting step: Ped ID: 1, location: (0.7701144218444824, 2.197634696960449)
+[05.17.21 16:26:17] Entering Step: Ped ID: 0, location: (0.31818097829818726, 0.06810850650072098)
+[05.17.21 16:26:17] Entering Step: Ped ID: 1, location: (0.7701144218444824, 2.197634696960449)
+[05.17.21 16:26:17] Use SGAN to generate next location
+[05.17.21 16:26:18] SGAN sample idx 0 next position for ped 0: [0.33194378 0.06451546 0.        ]
+[05.17.21 16:26:18] SGAN sample idx 0 next position for ped 1: [0.77955097 2.1983335  0.        ]
+[05.17.21 16:26:18] Using SGAN to set next location
+[05.17.21 16:26:18] Set next step ped 0 at location [0.33194378 0.06451546 0.        ]
+[05.17.21 16:26:18] Set next step ped 1 at location [0.77955097 2.1983335  0.        ]
+[05.17.21 16:26:18] Exiting step: Ped ID: 0, location: (0.3319437801837921, 0.06451545655727386)
+[05.17.21 16:26:18] Exiting step: Ped ID: 1, location: (0.7795509696006775, 2.198333501815796)
+[05.17.21 16:26:18] Entering Step: Ped ID: 0, location: (0.3319437801837921, 0.06451545655727386)
+[05.17.21 16:26:18] Entering Step: Ped ID: 1, location: (0.7795509696006775, 2.198333501815796)
+[05.17.21 16:26:18] Use SGAN to generate next location
+[05.17.21 16:26:19] SGAN sample idx 0 next position for ped 0: [0.33731696 0.07891164 0.        ]
+[05.17.21 16:26:19] SGAN sample idx 0 next position for ped 1: [0.78569591 2.20895004 0.        ]
+[05.17.21 16:26:19] Using SGAN to set next location
+[05.17.21 16:26:19] Set next step ped 0 at location [0.33731696 0.07891164 0.        ]
+[05.17.21 16:26:19] Set next step ped 1 at location [0.78569591 2.20895004 0.        ]
+[05.17.21 16:26:19] Exiting step: Ped ID: 0, location: (0.33731696009635925, 0.07891163975000381)
+[05.17.21 16:26:19] Exiting step: Ped ID: 1, location: (0.7856959104537964, 2.2089500427246094)
+[05.17.21 16:26:19] Entering Step: Ped ID: 0, location: (0.33731696009635925, 0.07891163975000381)
+[05.17.21 16:26:19] Entering Step: Ped ID: 1, location: (0.7856959104537964, 2.2089500427246094)
+[05.17.21 16:26:19] Use SGAN to generate next location
+[05.17.21 16:26:19] SGAN sample idx 0 next position for ped 0: [0.34010434 0.08035494 0.        ]
+[05.17.21 16:26:19] SGAN sample idx 0 next position for ped 1: [0.79233789 2.20491648 0.        ]
+[05.17.21 16:26:19] Using SGAN to set next location
+[05.17.21 16:26:19] Set next step ped 0 at location [0.34010434 0.08035494 0.        ]
+[05.17.21 16:26:19] Set next step ped 1 at location [0.79233789 2.20491648 0.        ]
+[05.17.21 16:26:19] Exiting step: Ped ID: 0, location: (0.340104341506958, 0.08035494387149811)
+[05.17.21 16:26:19] Exiting step: Ped ID: 1, location: (0.7923378944396973, 2.204916477203369)
+[05.17.21 16:26:19] Entering Step: Ped ID: 0, location: (0.340104341506958, 0.08035494387149811)
+[05.17.21 16:26:19] Entering Step: Ped ID: 1, location: (0.7923378944396973, 2.204916477203369)
+[05.17.21 16:26:19] Use SGAN to generate next location
+[05.17.21 16:26:20] SGAN sample idx 0 next position for ped 0: [0.3477006  0.07165095 0.        ]
+[05.17.21 16:26:20] SGAN sample idx 0 next position for ped 1: [0.80375421 2.19315338 0.        ]
+[05.17.21 16:26:20] Using SGAN to set next location
+[05.17.21 16:26:20] Set next step ped 0 at location [0.3477006  0.07165095 0.        ]
+[05.17.21 16:26:20] Set next step ped 1 at location [0.80375421 2.19315338 0.        ]
+[05.17.21 16:26:20] Exiting step: Ped ID: 0, location: (0.3477005958557129, 0.07165095210075378)
+[05.17.21 16:26:20] Exiting step: Ped ID: 1, location: (0.8037542104721069, 2.1931533813476562)
+[05.17.21 16:26:20] Entering Step: Ped ID: 0, location: (0.3477005958557129, 0.07165095210075378)
+[05.17.21 16:26:20] Entering Step: Ped ID: 1, location: (0.8037542104721069, 2.1931533813476562)
+[05.17.21 16:26:20] Use SGAN to generate next location
+[05.17.21 16:26:21] SGAN sample idx 0 next position for ped 0: [0.35154867 0.04904416 0.        ]
+[05.17.21 16:26:21] SGAN sample idx 0 next position for ped 1: [0.80722415 2.17562366 0.        ]
+[05.17.21 16:26:21] Using SGAN to set next location
+[05.17.21 16:26:21] Set next step ped 0 at location [0.35154867 0.04904416 0.        ]
+[05.17.21 16:26:21] Set next step ped 1 at location [0.80722415 2.17562366 0.        ]
+[05.17.21 16:26:21] Exiting step: Ped ID: 0, location: (0.3515486717224121, 0.0490441620349884)
+[05.17.21 16:26:21] Exiting step: Ped ID: 1, location: (0.8072241544723511, 2.175623655319214)
+[05.17.21 16:26:21] Entering Step: Ped ID: 0, location: (0.3515486717224121, 0.0490441620349884)
+[05.17.21 16:26:21] Entering Step: Ped ID: 1, location: (0.8072241544723511, 2.175623655319214)
+[05.17.21 16:26:21] Use SGAN to generate next location
+[05.17.21 16:26:21] SGAN sample idx 0 next position for ped 0: [0.35376087 0.02126481 0.        ]
+[05.17.21 16:26:21] SGAN sample idx 0 next position for ped 1: [0.79858935 2.15841484 0.        ]
+[05.17.21 16:26:21] Using SGAN to set next location
+[05.17.21 16:26:21] Set next step ped 0 at location [0.35376087 0.02126481 0.        ]
+[05.17.21 16:26:21] Set next step ped 1 at location [0.79858935 2.15841484 0.        ]
+[05.17.21 16:26:21] Exiting step: Ped ID: 0, location: (0.35376086831092834, 0.021264806389808655)
+[05.17.21 16:26:21] Exiting step: Ped ID: 1, location: (0.7985893487930298, 2.158414840698242)
+[05.17.21 16:26:22] Entering Step: Ped ID: 0, location: (0.35376086831092834, 0.021264806389808655)
+[05.17.21 16:26:22] Entering Step: Ped ID: 1, location: (0.7985893487930298, 2.158414840698242)
+[05.17.21 16:26:22] Use SGAN to generate next location
+[05.17.21 16:26:22] SGAN sample idx 0 next position for ped 0: [0.35610166 0.02435111 0.        ]
+[05.17.21 16:26:22] SGAN sample idx 0 next position for ped 1: [0.78358459 2.16520071 0.        ]
+[05.17.21 16:26:22] Using SGAN to set next location
+[05.17.21 16:26:22] Set next step ped 0 at location [0.35610166 0.02435111 0.        ]
+[05.17.21 16:26:22] Set next step ped 1 at location [0.78358459 2.16520071 0.        ]
+[05.17.21 16:26:22] Exiting step: Ped ID: 0, location: (0.3561016619205475, 0.02435111254453659)
+[05.17.21 16:26:22] Exiting step: Ped ID: 1, location: (0.7835845947265625, 2.165200710296631)
+[05.17.21 16:26:22] Entering Step: Ped ID: 0, location: (0.3561016619205475, 0.02435111254453659)
+[05.17.21 16:26:22] Entering Step: Ped ID: 1, location: (0.7835845947265625, 2.165200710296631)
+[05.17.21 16:26:22] Use SGAN to generate next location
+[05.17.21 16:26:23] SGAN sample idx 0 next position for ped 0: [0.36895803 0.01141888 0.        ]
+[05.17.21 16:26:23] SGAN sample idx 0 next position for ped 1: [0.78834623 2.15113711 0.        ]
+[05.17.21 16:26:23] Using SGAN to set next location
+[05.17.21 16:26:23] Set next step ped 0 at location [0.36895803 0.01141888 0.        ]
+[05.17.21 16:26:23] Set next step ped 1 at location [0.78834623 2.15113711 0.        ]
+[05.17.21 16:26:23] Exiting step: Ped ID: 0, location: (0.3689580261707306, 0.01141887903213501)
+[05.17.21 16:26:23] Exiting step: Ped ID: 1, location: (0.7883462309837341, 2.151137113571167)
+[05.17.21 16:26:23] Entering Step: Ped ID: 0, location: (0.3689580261707306, 0.01141887903213501)
+[05.17.21 16:26:23] Entering Step: Ped ID: 1, location: (0.7883462309837341, 2.151137113571167)
+[05.17.21 16:26:23] Use SGAN to generate next location
+[05.17.21 16:26:24] SGAN sample idx 0 next position for ped 0: [0.37914681 0.01990089 0.        ]
+[05.17.21 16:26:24] SGAN sample idx 0 next position for ped 1: [0.80197078 2.1490519  0.        ]
+[05.17.21 16:26:24] Using SGAN to set next location
+[05.17.21 16:26:24] Set next step ped 0 at location [0.37914681 0.01990089 0.        ]
+[05.17.21 16:26:24] Set next step ped 1 at location [0.80197078 2.1490519  0.        ]
+[05.17.21 16:26:24] Exiting step: Ped ID: 0, location: (0.3791468143463135, 0.019900888204574585)
+[05.17.21 16:26:24] Exiting step: Ped ID: 1, location: (0.8019707798957825, 2.1490519046783447)
+[05.17.21 16:26:24] Entering Step: Ped ID: 0, location: (0.3791468143463135, 0.019900888204574585)
+[05.17.21 16:26:24] Entering Step: Ped ID: 1, location: (0.8019707798957825, 2.1490519046783447)
+[05.17.21 16:26:24] Use SGAN to generate next location
+[05.17.21 16:26:24] SGAN sample idx 0 next position for ped 0: [0.37470913 0.01821002 0.        ]
+[05.17.21 16:26:24] SGAN sample idx 0 next position for ped 1: [0.78577781 2.14961505 0.        ]
+[05.17.21 16:26:24] Using SGAN to set next location
+[05.17.21 16:26:24] Set next step ped 0 at location [0.37470913 0.01821002 0.        ]
+[05.17.21 16:26:24] Set next step ped 1 at location [0.78577781 2.14961505 0.        ]
+[05.17.21 16:26:24] Exiting step: Ped ID: 0, location: (0.3747091293334961, 0.018210016191005707)
+[05.17.21 16:26:24] Exiting step: Ped ID: 1, location: (0.7857778072357178, 2.1496150493621826)
+[05.17.21 16:26:24] Entering Step: Ped ID: 0, location: (0.3747091293334961, 0.018210016191005707)
+[05.17.21 16:26:24] Entering Step: Ped ID: 1, location: (0.7857778072357178, 2.1496150493621826)
+[05.17.21 16:26:24] Use SGAN to generate next location
+[05.17.21 16:26:25] SGAN sample idx 0 next position for ped 0: [0.37975997 0.01647891 0.        ]
+[05.17.21 16:26:25] SGAN sample idx 0 next position for ped 1: [0.78795558 2.1472013  0.        ]
+[05.17.21 16:26:25] Using SGAN to set next location
+[05.17.21 16:26:25] Set next step ped 0 at location [0.37975997 0.01647891 0.        ]
+[05.17.21 16:26:25] Set next step ped 1 at location [0.78795558 2.1472013  0.        ]
+[05.17.21 16:26:25] Exiting step: Ped ID: 0, location: (0.3797599673271179, 0.01647891104221344)
+[05.17.21 16:26:25] Exiting step: Ped ID: 1, location: (0.7879555821418762, 2.1472012996673584)
+[05.17.21 16:26:25] Entering Step: Ped ID: 0, location: (0.3797599673271179, 0.01647891104221344)
+[05.17.21 16:26:25] Entering Step: Ped ID: 1, location: (0.7879555821418762, 2.1472012996673584)
+[05.17.21 16:26:25] Use SGAN to generate next location
+[05.17.21 16:26:26] SGAN sample idx 0 next position for ped 0: [0.37482664 0.03265155 0.        ]
+[05.17.21 16:26:26] SGAN sample idx 0 next position for ped 1: [0.77715373 2.15957355 0.        ]
+[05.17.21 16:26:26] Using SGAN to set next location
+[05.17.21 16:26:26] Set next step ped 0 at location [0.37482664 0.03265155 0.        ]
+[05.17.21 16:26:26] Set next step ped 1 at location [0.77715373 2.15957355 0.        ]
+[05.17.21 16:26:26] Exiting step: Ped ID: 0, location: (0.3748266398906708, 0.03265155106782913)
+[05.17.21 16:26:26] Exiting step: Ped ID: 1, location: (0.777153730392456, 2.159573554992676)
+[05.17.21 16:26:26] Entering Step: Ped ID: 0, location: (0.3748266398906708, 0.03265155106782913)
+[05.17.21 16:26:26] Entering Step: Ped ID: 1, location: (0.777153730392456, 2.159573554992676)
+[05.17.21 16:26:26] Use SGAN to generate next location
+[05.17.21 16:26:26] SGAN sample idx 0 next position for ped 0: [0.37502682 0.04617531 0.        ]
+[05.17.21 16:26:26] SGAN sample idx 0 next position for ped 1: [0.78486472 2.16919494 0.        ]
+[05.17.21 16:26:26] Using SGAN to set next location
+[05.17.21 16:26:26] Set next step ped 0 at location [0.37502682 0.04617531 0.        ]
+[05.17.21 16:26:26] Set next step ped 1 at location [0.78486472 2.16919494 0.        ]
+[05.17.21 16:26:26] Exiting step: Ped ID: 0, location: (0.3750268220901489, 0.046175308525562286)
+[05.17.21 16:26:26] Exiting step: Ped ID: 1, location: (0.7848647236824036, 2.1691949367523193)
+[05.17.21 16:26:27] Entering Step: Ped ID: 0, location: (0.3750268220901489, 0.046175308525562286)
+[05.17.21 16:26:27] Entering Step: Ped ID: 1, location: (0.7848647236824036, 2.1691949367523193)
+[05.17.21 16:26:27] Use SGAN to generate next location
+[05.17.21 16:26:27] SGAN sample idx 0 next position for ped 0: [0.37462026 0.04224421 0.        ]
+[05.17.21 16:26:27] SGAN sample idx 0 next position for ped 1: [0.78943199 2.16520905 0.        ]
+[05.17.21 16:26:27] Using SGAN to set next location
+[05.17.21 16:26:27] Set next step ped 0 at location [0.37462026 0.04224421 0.        ]
+[05.17.21 16:26:27] Set next step ped 1 at location [0.78943199 2.16520905 0.        ]
+[05.17.21 16:26:27] Exiting step: Ped ID: 0, location: (0.374620258808136, 0.042244210839271545)
+[05.17.21 16:26:27] Exiting step: Ped ID: 1, location: (0.7894319891929626, 2.1652090549468994)
+[05.17.21 16:26:27] Entering Step: Ped ID: 0, location: (0.374620258808136, 0.042244210839271545)
+[05.17.21 16:26:27] Entering Step: Ped ID: 1, location: (0.7894319891929626, 2.1652090549468994)
+[05.17.21 16:26:27] Use SGAN to generate next location
+[05.17.21 16:26:28] SGAN sample idx 0 next position for ped 0: [0.36952117 0.05397782 0.        ]
+[05.17.21 16:26:28] SGAN sample idx 0 next position for ped 1: [0.79391682 2.17031908 0.        ]
+[05.17.21 16:26:28] Using SGAN to set next location
+[05.17.21 16:26:28] Set next step ped 0 at location [0.36952117 0.05397782 0.        ]
+[05.17.21 16:26:28] Set next step ped 1 at location [0.79391682 2.17031908 0.        ]
+[05.17.21 16:26:28] Exiting step: Ped ID: 0, location: (0.3695211708545685, 0.05397782474756241)
+[05.17.21 16:26:28] Exiting step: Ped ID: 1, location: (0.7939168214797974, 2.170319080352783)
+[05.17.21 16:26:28] Entering Step: Ped ID: 0, location: (0.3695211708545685, 0.05397782474756241)
+[05.17.21 16:26:28] Entering Step: Ped ID: 1, location: (0.7939168214797974, 2.170319080352783)
+[05.17.21 16:26:28] Use SGAN to generate next location
+[05.17.21 16:26:29] SGAN sample idx 0 next position for ped 0: [0.3644166  0.05728905 0.        ]
+[05.17.21 16:26:29] SGAN sample idx 0 next position for ped 1: [0.79130048 2.17385793 0.        ]
+[05.17.21 16:26:29] Using SGAN to set next location
+[05.17.21 16:26:29] Set next step ped 0 at location [0.3644166  0.05728905 0.        ]
+[05.17.21 16:26:29] Set next step ped 1 at location [0.79130048 2.17385793 0.        ]
+[05.17.21 16:26:29] Exiting step: Ped ID: 0, location: (0.36441659927368164, 0.05728904902935028)
+[05.17.21 16:26:29] Exiting step: Ped ID: 1, location: (0.7913004755973816, 2.1738579273223877)
+[05.17.21 16:26:29] Entering Step: Ped ID: 0, location: (0.36441659927368164, 0.05728904902935028)
+[05.17.21 16:26:29] Entering Step: Ped ID: 1, location: (0.7913004755973816, 2.1738579273223877)
+[05.17.21 16:26:29] Use SGAN to generate next location
+[05.17.21 16:26:29] SGAN sample idx 0 next position for ped 0: [0.352741   0.05407666 0.        ]
+[05.17.21 16:26:29] SGAN sample idx 0 next position for ped 1: [0.77567208 2.17328095 0.        ]
+[05.17.21 16:26:29] Using SGAN to set next location
+[05.17.21 16:26:29] Set next step ped 0 at location [0.352741   0.05407666 0.        ]
+[05.17.21 16:26:29] Set next step ped 1 at location [0.77567208 2.17328095 0.        ]
+[05.17.21 16:26:29] Exiting step: Ped ID: 0, location: (0.352741003036499, 0.0540766641497612)
+[05.17.21 16:26:29] Exiting step: Ped ID: 1, location: (0.7756720781326294, 2.173280954360962)
+[05.17.21 16:26:29] Entering Step: Ped ID: 0, location: (0.352741003036499, 0.0540766641497612)
+[05.17.21 16:26:29] Entering Step: Ped ID: 1, location: (0.7756720781326294, 2.173280954360962)
+[05.17.21 16:26:29] Use SGAN to generate next location
+[05.17.21 16:26:30] SGAN sample idx 0 next position for ped 0: [0.35546011 0.06255974 0.        ]
+[05.17.21 16:26:30] SGAN sample idx 0 next position for ped 1: [0.77692068 2.17759967 0.        ]
+[05.17.21 16:26:30] Using SGAN to set next location
+[05.17.21 16:26:30] Set next step ped 0 at location [0.35546011 0.06255974 0.        ]
+[05.17.21 16:26:30] Set next step ped 1 at location [0.77692068 2.17759967 0.        ]
+[05.17.21 16:26:30] Exiting step: Ped ID: 0, location: (0.35546010732650757, 0.06255973875522614)
+[05.17.21 16:26:30] Exiting step: Ped ID: 1, location: (0.7769206762313843, 2.1775996685028076)
+[05.17.21 16:26:30] Entering Step: Ped ID: 0, location: (0.35546010732650757, 0.06255973875522614)
+[05.17.21 16:26:30] Entering Step: Ped ID: 1, location: (0.7769206762313843, 2.1775996685028076)
+[05.17.21 16:26:30] Use SGAN to generate next location
+[05.17.21 16:26:31] SGAN sample idx 0 next position for ped 0: [0.36515632 0.04822271 0.        ]
+[05.17.21 16:26:31] SGAN sample idx 0 next position for ped 1: [0.79023385 2.16579556 0.        ]
+[05.17.21 16:26:31] Using SGAN to set next location
+[05.17.21 16:26:31] Set next step ped 0 at location [0.36515632 0.04822271 0.        ]
+[05.17.21 16:26:31] Set next step ped 1 at location [0.79023385 2.16579556 0.        ]
+[05.17.21 16:26:31] Exiting step: Ped ID: 0, location: (0.3651563227176666, 0.04822271317243576)
+[05.17.21 16:26:31] Exiting step: Ped ID: 1, location: (0.790233850479126, 2.1657955646514893)
+[05.17.21 16:26:31] Entering Step: Ped ID: 0, location: (0.3651563227176666, 0.04822271317243576)
+[05.17.21 16:26:31] Entering Step: Ped ID: 1, location: (0.790233850479126, 2.1657955646514893)
+[05.17.21 16:26:31] Use SGAN to generate next location
+[05.17.21 16:26:32] SGAN sample idx 0 next position for ped 0: [0.3666628  0.04640118 0.        ]
+[05.17.21 16:26:32] SGAN sample idx 0 next position for ped 1: [0.79035622 2.16010857 0.        ]
+[05.17.21 16:26:32] Using SGAN to set next location
+[05.17.21 16:26:32] Set next step ped 0 at location [0.3666628  0.04640118 0.        ]
+[05.17.21 16:26:32] Set next step ped 1 at location [0.79035622 2.16010857 0.        ]
+[05.17.21 16:26:32] Exiting step: Ped ID: 0, location: (0.36666280031204224, 0.04640118032693863)
+[05.17.21 16:26:32] Exiting step: Ped ID: 1, location: (0.7903562188148499, 2.1601085662841797)
+[05.17.21 16:26:32] Entering Step: Ped ID: 0, location: (0.36666280031204224, 0.04640118032693863)
+[05.17.21 16:26:32] Entering Step: Ped ID: 1, location: (0.7903562188148499, 2.1601085662841797)
+[05.17.21 16:26:32] Use SGAN to generate next location
+[05.17.21 16:26:32] SGAN sample idx 0 next position for ped 0: [0.36018437 0.06549215 0.        ]
+[05.17.21 16:26:32] SGAN sample idx 0 next position for ped 1: [0.78399324 2.1734376  0.        ]
+[05.17.21 16:26:32] Using SGAN to set next location
+[05.17.21 16:26:32] Set next step ped 0 at location [0.36018437 0.06549215 0.        ]
+[05.17.21 16:26:32] Set next step ped 1 at location [0.78399324 2.1734376  0.        ]
+[05.17.21 16:26:32] Exiting step: Ped ID: 0, location: (0.36018437147140503, 0.06549214571714401)
+[05.17.21 16:26:32] Exiting step: Ped ID: 1, location: (0.7839932441711426, 2.1734375953674316)
+[05.17.21 16:26:33] Entering Step: Ped ID: 0, location: (0.36018437147140503, 0.06549214571714401)
+[05.17.21 16:26:33] Entering Step: Ped ID: 1, location: (0.7839932441711426, 2.1734375953674316)
+[05.17.21 16:26:33] Use SGAN to generate next location
+[05.17.21 16:26:33] SGAN sample idx 0 next position for ped 0: [0.36317605 0.07569137 0.        ]
+[05.17.21 16:26:33] SGAN sample idx 0 next position for ped 1: [0.78848267 2.18072653 0.        ]
+[05.17.21 16:26:33] Using SGAN to set next location
+[05.17.21 16:26:33] Set next step ped 0 at location [0.36317605 0.07569137 0.        ]
+[05.17.21 16:26:33] Set next step ped 1 at location [0.78848267 2.18072653 0.        ]
+[05.17.21 16:26:33] Exiting step: Ped ID: 0, location: (0.36317604780197144, 0.07569137215614319)
+[05.17.21 16:26:33] Exiting step: Ped ID: 1, location: (0.788482666015625, 2.1807265281677246)
+[05.17.21 16:26:33] Entering Step: Ped ID: 0, location: (0.36317604780197144, 0.07569137215614319)
+[05.17.21 16:26:33] Entering Step: Ped ID: 1, location: (0.788482666015625, 2.1807265281677246)
+[05.17.21 16:26:33] Use SGAN to generate next location
+[05.17.21 16:26:34] SGAN sample idx 0 next position for ped 0: [0.36107278 0.0827712  0.        ]
+[05.17.21 16:26:34] SGAN sample idx 0 next position for ped 1: [0.78775525 2.18297434 0.        ]
+[05.17.21 16:26:34] Using SGAN to set next location
+[05.17.21 16:26:34] Set next step ped 0 at location [0.36107278 0.0827712  0.        ]
+[05.17.21 16:26:34] Set next step ped 1 at location [0.78775525 2.18297434 0.        ]
+[05.17.21 16:26:34] Exiting step: Ped ID: 0, location: (0.3610727787017822, 0.08277120441198349)
+[05.17.21 16:26:34] Exiting step: Ped ID: 1, location: (0.7877552509307861, 2.182974338531494)
+[05.17.21 16:26:34] Entering Step: Ped ID: 0, location: (0.3610727787017822, 0.08277120441198349)
+[05.17.21 16:26:34] Entering Step: Ped ID: 1, location: (0.7877552509307861, 2.182974338531494)
+[05.17.21 16:26:34] Use SGAN to generate next location
+[05.17.21 16:26:35] SGAN sample idx 0 next position for ped 0: [0.36251858 0.08144311 0.        ]
+[05.17.21 16:26:35] SGAN sample idx 0 next position for ped 1: [0.79870611 2.17413092 0.        ]
+[05.17.21 16:26:35] Using SGAN to set next location
+[05.17.21 16:26:35] Set next step ped 0 at location [0.36251858 0.08144311 0.        ]
+[05.17.21 16:26:35] Set next step ped 1 at location [0.79870611 2.17413092 0.        ]
+[05.17.21 16:26:35] Exiting step: Ped ID: 0, location: (0.3625185787677765, 0.08144310861825943)
+[05.17.21 16:26:35] Exiting step: Ped ID: 1, location: (0.7987061142921448, 2.174130916595459)
+[05.17.21 16:26:35] Entering Step: Ped ID: 0, location: (0.3625185787677765, 0.08144310861825943)
+[05.17.21 16:26:35] Entering Step: Ped ID: 1, location: (0.7987061142921448, 2.174130916595459)
+[05.17.21 16:26:35] Use SGAN to generate next location
+[05.17.21 16:26:35] SGAN sample idx 0 next position for ped 0: [0.35519481 0.06812964 0.        ]
+[05.17.21 16:26:35] SGAN sample idx 0 next position for ped 1: [0.78867316 2.1640296  0.        ]
+[05.17.21 16:26:35] Using SGAN to set next location
+[05.17.21 16:26:35] Set next step ped 0 at location [0.35519481 0.06812964 0.        ]
+[05.17.21 16:26:35] Set next step ped 1 at location [0.78867316 2.1640296  0.        ]
+[05.17.21 16:26:35] Exiting step: Ped ID: 0, location: (0.3551948070526123, 0.06812964379787445)
+[05.17.21 16:26:35] Exiting step: Ped ID: 1, location: (0.7886731624603271, 2.164029598236084)
+[05.17.21 16:26:35] Entering Step: Ped ID: 0, location: (0.3551948070526123, 0.06812964379787445)
+[05.17.21 16:26:35] Entering Step: Ped ID: 1, location: (0.7886731624603271, 2.164029598236084)
+[05.17.21 16:26:35] Use SGAN to generate next location
+[05.17.21 16:26:36] SGAN sample idx 0 next position for ped 0: [0.35393965 0.06466264 0.        ]
+[05.17.21 16:26:36] SGAN sample idx 0 next position for ped 1: [0.77718669 2.16978431 0.        ]
+[05.17.21 16:26:36] Using SGAN to set next location
+[05.17.21 16:26:36] Set next step ped 0 at location [0.35393965 0.06466264 0.        ]
+[05.17.21 16:26:36] Set next step ped 1 at location [0.77718669 2.16978431 0.        ]
+[05.17.21 16:26:36] Exiting step: Ped ID: 0, location: (0.35393965244293213, 0.0646626353263855)
+[05.17.21 16:26:36] Exiting step: Ped ID: 1, location: (0.7771866917610168, 2.1697843074798584)
+[05.17.21 16:26:36] Entering Step: Ped ID: 0, location: (0.35393965244293213, 0.0646626353263855)
+[05.17.21 16:26:36] Entering Step: Ped ID: 1, location: (0.7771866917610168, 2.1697843074798584)
+[05.17.21 16:26:36] Use SGAN to generate next location
+[05.17.21 16:26:37] SGAN sample idx 0 next position for ped 0: [0.36077258 0.06857974 0.        ]
+[05.17.21 16:26:37] SGAN sample idx 0 next position for ped 1: [0.77802408 2.18002009 0.        ]
+[05.17.21 16:26:37] Using SGAN to set next location
+[05.17.21 16:26:37] Set next step ped 0 at location [0.36077258 0.06857974 0.        ]
+[05.17.21 16:26:37] Set next step ped 1 at location [0.77802408 2.18002009 0.        ]
+[05.17.21 16:26:37] Exiting step: Ped ID: 0, location: (0.36077257990837097, 0.06857974082231522)
+[05.17.21 16:26:37] Exiting step: Ped ID: 1, location: (0.7780240774154663, 2.1800200939178467)
+[05.17.21 16:26:37] Entering Step: Ped ID: 0, location: (0.36077257990837097, 0.06857974082231522)
+[05.17.21 16:26:37] Entering Step: Ped ID: 1, location: (0.7780240774154663, 2.1800200939178467)
+[05.17.21 16:26:37] Use SGAN to generate next location
+[05.17.21 16:26:38] SGAN sample idx 0 next position for ped 0: [0.36417529 0.07714961 0.        ]
+[05.17.21 16:26:38] SGAN sample idx 0 next position for ped 1: [0.77831829 2.19154406 0.        ]
+[05.17.21 16:26:38] Using SGAN to set next location
+[05.17.21 16:26:38] Set next step ped 0 at location [0.36417529 0.07714961 0.        ]
+[05.17.21 16:26:38] Set next step ped 1 at location [0.77831829 2.19154406 0.        ]
+[05.17.21 16:26:38] Exiting step: Ped ID: 0, location: (0.36417528986930847, 0.07714960724115372)
+[05.17.21 16:26:38] Exiting step: Ped ID: 1, location: (0.7783182859420776, 2.1915440559387207)
+[05.17.21 16:26:38] Entering Step: Ped ID: 0, location: (0.36417528986930847, 0.07714960724115372)
+[05.17.21 16:26:38] Entering Step: Ped ID: 1, location: (0.7783182859420776, 2.1915440559387207)
+[05.17.21 16:26:38] Use SGAN to generate next location
+[05.17.21 16:26:39] SGAN sample idx 0 next position for ped 0: [0.37015194 0.07546652 0.        ]
+[05.17.21 16:26:39] SGAN sample idx 0 next position for ped 1: [0.78456318 2.18693995 0.        ]
+[05.17.21 16:26:39] Using SGAN to set next location
+[05.17.21 16:26:39] Set next step ped 0 at location [0.37015194 0.07546652 0.        ]
+[05.17.21 16:26:39] Set next step ped 1 at location [0.78456318 2.18693995 0.        ]
+[05.17.21 16:26:39] Exiting step: Ped ID: 0, location: (0.37015193700790405, 0.07546652108430862)
+[05.17.21 16:26:39] Exiting step: Ped ID: 1, location: (0.7845631837844849, 2.1869399547576904)
+[05.17.21 16:26:39] Entering Step: Ped ID: 0, location: (0.37015193700790405, 0.07546652108430862)
+[05.17.21 16:26:39] Entering Step: Ped ID: 1, location: (0.7845631837844849, 2.1869399547576904)
+[05.17.21 16:26:39] Use SGAN to generate next location
+[05.17.21 16:26:39] SGAN sample idx 0 next position for ped 0: [0.36563829 0.07763514 0.        ]
+[05.17.21 16:26:39] SGAN sample idx 0 next position for ped 1: [0.78287828 2.18098474 0.        ]
+[05.17.21 16:26:39] Using SGAN to set next location
+[05.17.21 16:26:39] Set next step ped 0 at location [0.36563829 0.07763514 0.        ]
+[05.17.21 16:26:39] Set next step ped 1 at location [0.78287828 2.18098474 0.        ]
+[05.17.21 16:26:39] Exiting step: Ped ID: 0, location: (0.36563828587532043, 0.07763513922691345)
+[05.17.21 16:26:39] Exiting step: Ped ID: 1, location: (0.7828782796859741, 2.1809847354888916)
+[05.17.21 16:26:39] Entering Step: Ped ID: 0, location: (0.36563828587532043, 0.07763513922691345)
+[05.17.21 16:26:39] Entering Step: Ped ID: 1, location: (0.7828782796859741, 2.1809847354888916)
+[05.17.21 16:26:39] Use SGAN to generate next location
+[05.17.21 16:26:40] SGAN sample idx 0 next position for ped 0: [0.36321944 0.0561792  0.        ]
+[05.17.21 16:26:40] SGAN sample idx 0 next position for ped 1: [0.78391916 2.15972733 0.        ]
+[05.17.21 16:26:40] Using SGAN to set next location
+[05.17.21 16:26:40] Set next step ped 0 at location [0.36321944 0.0561792  0.        ]
+[05.17.21 16:26:40] Set next step ped 1 at location [0.78391916 2.15972733 0.        ]
+[05.17.21 16:26:40] Exiting step: Ped ID: 0, location: (0.3632194399833679, 0.05617920309305191)
+[05.17.21 16:26:40] Exiting step: Ped ID: 1, location: (0.7839191555976868, 2.1597273349761963)
+[05.17.21 16:26:40] Entering Step: Ped ID: 0, location: (0.3632194399833679, 0.05617920309305191)
+[05.17.21 16:26:40] Entering Step: Ped ID: 1, location: (0.7839191555976868, 2.1597273349761963)
+[05.17.21 16:26:40] Use SGAN to generate next location
+[05.17.21 16:26:41] SGAN sample idx 0 next position for ped 0: [0.36104533 0.07755426 0.        ]
+[05.17.21 16:26:41] SGAN sample idx 0 next position for ped 1: [0.78449607 2.17793369 0.        ]
+[05.17.21 16:26:41] Using SGAN to set next location
+[05.17.21 16:26:41] Set next step ped 0 at location [0.36104533 0.07755426 0.        ]
+[05.17.21 16:26:41] Set next step ped 1 at location [0.78449607 2.17793369 0.        ]
+[05.17.21 16:26:41] Exiting step: Ped ID: 0, location: (0.36104533076286316, 0.07755425572395325)
+[05.17.21 16:26:41] Exiting step: Ped ID: 1, location: (0.7844960689544678, 2.177933692932129)
+[05.17.21 16:26:41] Entering Step: Ped ID: 0, location: (0.36104533076286316, 0.07755425572395325)
+[05.17.21 16:26:41] Entering Step: Ped ID: 1, location: (0.7844960689544678, 2.177933692932129)
+[05.17.21 16:26:41] Use SGAN to generate next location
+[05.17.21 16:26:42] SGAN sample idx 0 next position for ped 0: [0.35621959 0.07295885 0.        ]
+[05.17.21 16:26:42] SGAN sample idx 0 next position for ped 1: [0.77414346 2.18625689 0.        ]
+[05.17.21 16:26:42] Using SGAN to set next location
+[05.17.21 16:26:42] Set next step ped 0 at location [0.35621959 0.07295885 0.        ]
+[05.17.21 16:26:42] Set next step ped 1 at location [0.77414346 2.18625689 0.        ]
+[05.17.21 16:26:42] Exiting step: Ped ID: 0, location: (0.3562195897102356, 0.07295884937047958)
+[05.17.21 16:26:42] Exiting step: Ped ID: 1, location: (0.7741434574127197, 2.1862568855285645)
+[05.17.21 16:26:42] Entering Step: Ped ID: 0, location: (0.3562195897102356, 0.07295884937047958)
+[05.17.21 16:26:42] Entering Step: Ped ID: 1, location: (0.7741434574127197, 2.1862568855285645)
+[05.17.21 16:26:42] Use SGAN to generate next location
+[05.17.21 16:26:42] SGAN sample idx 0 next position for ped 0: [0.35606241 0.07059662 0.        ]
+[05.17.21 16:26:42] SGAN sample idx 0 next position for ped 1: [0.7646656  2.19133615 0.        ]
+[05.17.21 16:26:42] Using SGAN to set next location
+[05.17.21 16:26:42] Set next step ped 0 at location [0.35606241 0.07059662 0.        ]
+[05.17.21 16:26:42] Set next step ped 1 at location [0.7646656  2.19133615 0.        ]
+[05.17.21 16:26:42] Exiting step: Ped ID: 0, location: (0.3560624122619629, 0.0705966204404831)
+[05.17.21 16:26:42] Exiting step: Ped ID: 1, location: (0.7646656036376953, 2.191336154937744)
+[05.17.21 16:26:42] Entering Step: Ped ID: 0, location: (0.3560624122619629, 0.0705966204404831)
+[05.17.21 16:26:42] Entering Step: Ped ID: 1, location: (0.7646656036376953, 2.191336154937744)
+[05.17.21 16:26:42] Use SGAN to generate next location
+[05.17.21 16:26:43] SGAN sample idx 0 next position for ped 0: [0.3424485  0.08892615 0.        ]
+[05.17.21 16:26:43] SGAN sample idx 0 next position for ped 1: [0.75147319 2.20640159 0.        ]
+[05.17.21 16:26:43] Using SGAN to set next location
+[05.17.21 16:26:43] Set next step ped 0 at location [0.3424485  0.08892615 0.        ]
+[05.17.21 16:26:43] Set next step ped 1 at location [0.75147319 2.20640159 0.        ]
+[05.17.21 16:26:43] Exiting step: Ped ID: 0, location: (0.34244850277900696, 0.08892615139484406)
+[05.17.21 16:26:43] Exiting step: Ped ID: 1, location: (0.7514731884002686, 2.2064015865325928)
+[05.17.21 16:26:43] Entering Step: Ped ID: 0, location: (0.34244850277900696, 0.08892615139484406)
+[05.17.21 16:26:43] Entering Step: Ped ID: 1, location: (0.7514731884002686, 2.2064015865325928)
+[05.17.21 16:26:43] Use SGAN to generate next location
+[05.17.21 16:26:44] SGAN sample idx 0 next position for ped 0: [0.33879742 0.09213224 0.        ]
+[05.17.21 16:26:44] SGAN sample idx 0 next position for ped 1: [0.75041533 2.20558619 0.        ]
+[05.17.21 16:26:44] Using SGAN to set next location
+[05.17.21 16:26:44] Set next step ped 0 at location [0.33879742 0.09213224 0.        ]
+[05.17.21 16:26:44] Set next step ped 1 at location [0.75041533 2.20558619 0.        ]
+[05.17.21 16:26:44] Exiting step: Ped ID: 0, location: (0.3387974202632904, 0.09213224053382874)
+[05.17.21 16:26:44] Exiting step: Ped ID: 1, location: (0.7504153251647949, 2.2055861949920654)
+[05.17.21 16:26:44] Entering Step: Ped ID: 0, location: (0.3387974202632904, 0.09213224053382874)
+[05.17.21 16:26:44] Entering Step: Ped ID: 1, location: (0.7504153251647949, 2.2055861949920654)
+[05.17.21 16:26:44] Use SGAN to generate next location
+[05.17.21 16:26:44] SGAN sample idx 0 next position for ped 0: [0.34498048 0.08994094 0.        ]
+[05.17.21 16:26:44] SGAN sample idx 0 next position for ped 1: [0.76124668 2.19702768 0.        ]
+[05.17.21 16:26:44] Using SGAN to set next location
+[05.17.21 16:26:44] Set next step ped 0 at location [0.34498048 0.08994094 0.        ]
+[05.17.21 16:26:44] Set next step ped 1 at location [0.76124668 2.19702768 0.        ]
+[05.17.21 16:26:44] Exiting step: Ped ID: 0, location: (0.34498047828674316, 0.08994093537330627)
+[05.17.21 16:26:44] Exiting step: Ped ID: 1, location: (0.7612466812133789, 2.1970276832580566)
+[05.17.21 16:26:44] Entering Step: Ped ID: 0, location: (0.34498047828674316, 0.08994093537330627)
+[05.17.21 16:26:44] Entering Step: Ped ID: 1, location: (0.7612466812133789, 2.1970276832580566)
+[05.17.21 16:26:44] Use SGAN to generate next location
+[05.17.21 16:26:45] SGAN sample idx 0 next position for ped 0: [0.35632154 0.10886609 0.        ]
+[05.17.21 16:26:45] SGAN sample idx 0 next position for ped 1: [0.776932   2.21135497 0.        ]
+[05.17.21 16:26:45] Using SGAN to set next location
+[05.17.21 16:26:45] Set next step ped 0 at location [0.35632154 0.10886609 0.        ]
+[05.17.21 16:26:45] Set next step ped 1 at location [0.776932   2.21135497 0.        ]
+[05.17.21 16:26:45] Exiting step: Ped ID: 0, location: (0.3563215434551239, 0.10886608809232712)
+[05.17.21 16:26:45] Exiting step: Ped ID: 1, location: (0.7769320011138916, 2.211354970932007)
+[05.17.21 16:26:45] Entering Step: Ped ID: 0, location: (0.3563215434551239, 0.10886608809232712)
+[05.17.21 16:26:45] Entering Step: Ped ID: 1, location: (0.7769320011138916, 2.211354970932007)
+[05.17.21 16:26:45] Use SGAN to generate next location
+[05.17.21 16:26:46] SGAN sample idx 0 next position for ped 0: [0.35838437 0.11093211 0.        ]
+[05.17.21 16:26:46] SGAN sample idx 0 next position for ped 1: [0.78117877 2.21743178 0.        ]
+[05.17.21 16:26:46] Using SGAN to set next location
+[05.17.21 16:26:46] Set next step ped 0 at location [0.35838437 0.11093211 0.        ]
+[05.17.21 16:26:46] Set next step ped 1 at location [0.78117877 2.21743178 0.        ]
+[05.17.21 16:26:46] Exiting step: Ped ID: 0, location: (0.358384370803833, 0.1109321117401123)
+[05.17.21 16:26:46] Exiting step: Ped ID: 1, location: (0.7811787724494934, 2.2174317836761475)
+[05.17.21 16:26:46] Entering Step: Ped ID: 0, location: (0.358384370803833, 0.1109321117401123)
+[05.17.21 16:26:46] Entering Step: Ped ID: 1, location: (0.7811787724494934, 2.2174317836761475)
+[05.17.21 16:26:46] Use SGAN to generate next location
+[05.17.21 16:26:46] SGAN sample idx 0 next position for ped 0: [0.36328563 0.10675902 0.        ]
+[05.17.21 16:26:46] SGAN sample idx 0 next position for ped 1: [0.78281051 2.21930075 0.        ]
+[05.17.21 16:26:46] Using SGAN to set next location
+[05.17.21 16:26:46] Set next step ped 0 at location [0.36328563 0.10675902 0.        ]
+[05.17.21 16:26:46] Set next step ped 1 at location [0.78281051 2.21930075 0.        ]
+[05.17.21 16:26:46] Exiting step: Ped ID: 0, location: (0.363285630941391, 0.10675901919603348)
+[05.17.21 16:26:46] Exiting step: Ped ID: 1, location: (0.7828105092048645, 2.2193007469177246)
+[05.17.21 16:26:47] Entering Step: Ped ID: 0, location: (0.363285630941391, 0.10675901919603348)
+[05.17.21 16:26:47] Entering Step: Ped ID: 1, location: (0.7828105092048645, 2.2193007469177246)
+[05.17.21 16:26:47] Use SGAN to generate next location
+[05.17.21 16:26:47] SGAN sample idx 0 next position for ped 0: [0.3605516  0.12744939 0.        ]
+[05.17.21 16:26:47] SGAN sample idx 0 next position for ped 1: [0.78441131 2.23494482 0.        ]
+[05.17.21 16:26:47] Using SGAN to set next location
+[05.17.21 16:26:47] Set next step ped 0 at location [0.3605516  0.12744939 0.        ]
+[05.17.21 16:26:47] Set next step ped 1 at location [0.78441131 2.23494482 0.        ]
+[05.17.21 16:26:47] Exiting step: Ped ID: 0, location: (0.3605515956878662, 0.1274493932723999)
+[05.17.21 16:26:47] Exiting step: Ped ID: 1, location: (0.7844113111495972, 2.2349448204040527)
+[05.17.21 16:26:47] Entering Step: Ped ID: 0, location: (0.3605515956878662, 0.1274493932723999)
+[05.17.21 16:26:47] Entering Step: Ped ID: 1, location: (0.7844113111495972, 2.2349448204040527)
+[05.17.21 16:26:47] Use SGAN to generate next location
+[05.17.21 16:26:48] SGAN sample idx 0 next position for ped 0: [0.36005563 0.13302007 0.        ]
+[05.17.21 16:26:48] SGAN sample idx 0 next position for ped 1: [0.78415799 2.24159741 0.        ]
+[05.17.21 16:26:48] Using SGAN to set next location
+[05.17.21 16:26:48] Set next step ped 0 at location [0.36005563 0.13302007 0.        ]
+[05.17.21 16:26:48] Set next step ped 1 at location [0.78415799 2.24159741 0.        ]
+[05.17.21 16:26:48] Exiting step: Ped ID: 0, location: (0.3600556254386902, 0.1330200731754303)
+[05.17.21 16:26:48] Exiting step: Ped ID: 1, location: (0.7841579914093018, 2.2415974140167236)
+[05.17.21 16:26:48] Entering Step: Ped ID: 0, location: (0.3600556254386902, 0.1330200731754303)
+[05.17.21 16:26:48] Entering Step: Ped ID: 1, location: (0.7841579914093018, 2.2415974140167236)
+[05.17.21 16:26:48] Use SGAN to generate next location
+[05.17.21 16:26:49] SGAN sample idx 0 next position for ped 0: [0.36203721 0.14708051 0.        ]
+[05.17.21 16:26:49] SGAN sample idx 0 next position for ped 1: [0.78850663 2.25231147 0.        ]
+[05.17.21 16:26:49] Using SGAN to set next location
+[05.17.21 16:26:49] Set next step ped 0 at location [0.36203721 0.14708051 0.        ]
+[05.17.21 16:26:49] Set next step ped 1 at location [0.78850663 2.25231147 0.        ]
+[05.17.21 16:26:49] Exiting step: Ped ID: 0, location: (0.36203721165657043, 0.14708051085472107)
+[05.17.21 16:26:49] Exiting step: Ped ID: 1, location: (0.7885066270828247, 2.2523114681243896)
+[05.17.21 16:26:49] Entering Step: Ped ID: 0, location: (0.36203721165657043, 0.14708051085472107)
+[05.17.21 16:26:49] Entering Step: Ped ID: 1, location: (0.7885066270828247, 2.2523114681243896)
+[05.17.21 16:26:49] Use SGAN to generate next location
+[05.17.21 16:26:49] SGAN sample idx 0 next position for ped 0: [0.36537927 0.14292111 0.        ]
+[05.17.21 16:26:49] SGAN sample idx 0 next position for ped 1: [0.79222721 2.24985671 0.        ]
+[05.17.21 16:26:49] Using SGAN to set next location
+[05.17.21 16:26:49] Set next step ped 0 at location [0.36537927 0.14292111 0.        ]
+[05.17.21 16:26:49] Set next step ped 1 at location [0.79222721 2.24985671 0.        ]
+[05.17.21 16:26:49] Exiting step: Ped ID: 0, location: (0.365379273891449, 0.1429211050271988)
+[05.17.21 16:26:49] Exiting step: Ped ID: 1, location: (0.7922272086143494, 2.24985671043396)
+[05.17.21 16:26:49] Entering Step: Ped ID: 0, location: (0.365379273891449, 0.1429211050271988)
+[05.17.21 16:26:49] Entering Step: Ped ID: 1, location: (0.7922272086143494, 2.24985671043396)
+[05.17.21 16:26:49] Use SGAN to generate next location
+[05.17.21 16:26:50] SGAN sample idx 0 next position for ped 0: [0.36933896 0.13934049 0.        ]
+[05.17.21 16:26:50] SGAN sample idx 0 next position for ped 1: [0.79533863 2.248353   0.        ]
+[05.17.21 16:26:50] Using SGAN to set next location
+[05.17.21 16:26:50] Set next step ped 0 at location [0.36933896 0.13934049 0.        ]
+[05.17.21 16:26:50] Set next step ped 1 at location [0.79533863 2.248353   0.        ]
+[05.17.21 16:26:50] Exiting step: Ped ID: 0, location: (0.3693389594554901, 0.13934049010276794)
+[05.17.21 16:26:50] Exiting step: Ped ID: 1, location: (0.7953386306762695, 2.2483530044555664)
+[05.17.21 16:26:50] Entering Step: Ped ID: 0, location: (0.3693389594554901, 0.13934049010276794)
+[05.17.21 16:26:50] Entering Step: Ped ID: 1, location: (0.7953386306762695, 2.2483530044555664)
+[05.17.21 16:26:50] Use SGAN to generate next location
+[05.17.21 16:26:51] SGAN sample idx 0 next position for ped 0: [0.37258723 0.13123806 0.        ]
+[05.17.21 16:26:51] SGAN sample idx 0 next position for ped 1: [0.80079144 2.24217463 0.        ]
+[05.17.21 16:26:51] Using SGAN to set next location
+[05.17.21 16:26:51] Set next step ped 0 at location [0.37258723 0.13123806 0.        ]
+[05.17.21 16:26:51] Set next step ped 1 at location [0.80079144 2.24217463 0.        ]
+[05.17.21 16:26:51] Exiting step: Ped ID: 0, location: (0.3725872337818146, 0.13123805820941925)
+[05.17.21 16:26:51] Exiting step: Ped ID: 1, location: (0.8007914423942566, 2.2421746253967285)
+[05.17.21 16:26:51] Entering Step: Ped ID: 0, location: (-0.1, 2.4000000000000004)
+[05.17.21 16:26:51] Entering Step: Ped ID: 1, location: (-0.9, 2.5)
+[05.17.21 16:26:51] Default to use ORCA to set velocity
+[05.17.21 16:26:51] ORCA desired velocity for ped 0: (0.3535533845424652, -0.3535533845424652)
+[05.17.21 16:26:51] ORCA desired velocity for ped 1: (0.3535533845424652, -0.3535533845424652)
+[05.17.21 16:26:51] Next move rejected for ped 0
+[05.17.21 16:26:51] Next move rejected for ped 1
+[05.17.21 16:26:51] Exiting step: Ped ID: 0, location: (-0.1, 2.4000000000000004)
+[05.17.21 16:26:51] Exiting step: Ped ID: 1, location: (-0.9, 2.5)
+[05.17.21 16:26:51] Entering Step: Ped ID: 0, location: (-0.1, 2.4000000000000004)
+[05.17.21 16:26:51] Entering Step: Ped ID: 1, location: (-0.9, 2.5)
+[05.17.21 16:26:51] Default to use ORCA to set velocity
+[05.17.21 16:26:51] ORCA desired velocity for ped 0: (0.3535533845424652, -0.3535533845424652)
+[05.17.21 16:26:51] ORCA desired velocity for ped 1: (0.3535533845424652, -0.3535533845424652)
+[05.17.21 16:26:51] Next move accepted for ped 0 at location [-0.09842262  2.39948726  0.        ]
+[05.17.21 16:26:51] Next move accepted for ped 1 at location [-0.89999998  2.5         0.        ]
+[05.17.21 16:26:51] Exiting step: Ped ID: 0, location: (-0.09842262417078018, 2.399487257003784)
+[05.17.21 16:26:51] Exiting step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Entering Step: Ped ID: 0, location: (-0.09842262417078018, 2.399487257003784)
+[05.17.21 16:26:51] Entering Step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Default to use ORCA to set velocity
+[05.17.21 16:26:51] ORCA desired velocity for ped 0: (0.44696468114852905, -0.2241039276123047)
+[05.17.21 16:26:51] ORCA desired velocity for ped 1: (0.4472135901451111, -0.22360682487487793)
+[05.17.21 16:26:51] Next move accepted for ped 0 at location [-0.09687731  2.39899397  0.        ]
+[05.17.21 16:26:51] Next move accepted for ped 1 at location [-0.89999998  2.5         0.        ]
+[05.17.21 16:26:51] Exiting step: Ped ID: 0, location: (-0.09687730669975281, 2.398993968963623)
+[05.17.21 16:26:51] Exiting step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Entering Step: Ped ID: 0, location: (-0.09687730669975281, 2.398993968963623)
+[05.17.21 16:26:51] Entering Step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Default to use ORCA to set velocity
+[05.17.21 16:26:51] ORCA desired velocity for ped 0: (0.3993538022041321, -0.300859659910202)
+[05.17.21 16:26:51] ORCA desired velocity for ped 1: (0.3904343843460083, -0.31234753131866455)
+[05.17.21 16:26:51] Next move accepted for ped 0 at location [-0.09536359  2.39851952  0.        ]
+[05.17.21 16:26:51] Next move accepted for ped 1 at location [-0.89999998  2.5         0.        ]
+[05.17.21 16:26:51] Exiting step: Ped ID: 0, location: (-0.09536359459161758, 2.398519515991211)
+[05.17.21 16:26:51] Exiting step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Entering Step: Ped ID: 0, location: (-0.09536359459161758, 2.398519515991211)
+[05.17.21 16:26:51] Entering Step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Default to use ORCA to set velocity
+[05.17.21 16:26:51] ORCA desired velocity for ped 0: (0.39903056621551514, -0.3012882471084595)
+[05.17.21 16:26:51] ORCA desired velocity for ped 1: (0.3904343843460083, -0.31234753131866455)
+[05.17.21 16:26:51] Next move accepted for ped 0 at location [-0.09388103  2.39806318  0.        ]
+[05.17.21 16:26:51] Next move accepted for ped 1 at location [-0.89999998  2.5         0.        ]
+[05.17.21 16:26:51] Exiting step: Ped ID: 0, location: (-0.0938810333609581, 2.3980631828308105)
+[05.17.21 16:26:51] Exiting step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Entering Step: Ped ID: 0, location: (-0.0938810333609581, 2.3980631828308105)
+[05.17.21 16:26:51] Entering Step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Default to use ORCA to set velocity
+[05.17.21 16:26:51] ORCA desired velocity for ped 0: (0.3987075388431549, -0.30171558260917664)
+[05.17.21 16:26:51] ORCA desired velocity for ped 1: (0.3904343843460083, -0.31234753131866455)
+[05.17.21 16:26:51] Next move accepted for ped 0 at location [-0.09242917  2.39762425  0.        ]
+[05.17.21 16:26:51] Next move accepted for ped 1 at location [-0.89999998  2.5         0.        ]
+[05.17.21 16:26:51] Exiting step: Ped ID: 0, location: (-0.09242916852235794, 2.3976242542266846)
+[05.17.21 16:26:51] Exiting step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Entering Step: Ped ID: 0, location: (-0.09242916852235794, 2.3976242542266846)
+[05.17.21 16:26:51] Entering Step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Default to use ORCA to set velocity
+[05.17.21 16:26:51] ORCA desired velocity for ped 0: (0.39838504791259766, -0.3021412789821625)
+[05.17.21 16:26:51] ORCA desired velocity for ped 1: (0.3904343843460083, -0.31234753131866455)
+[05.17.21 16:26:51] Next move accepted for ped 0 at location [-0.09100755  2.39720201  0.        ]
+[05.17.21 16:26:51] Next move accepted for ped 1 at location [-0.89999998  2.5         0.        ]
+[05.17.21 16:26:51] Exiting step: Ped ID: 0, location: (-0.0910075455904007, 2.3972020149230957)
+[05.17.21 16:26:51] Exiting step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Entering Step: Ped ID: 0, location: (-0.0910075455904007, 2.3972020149230957)
+[05.17.21 16:26:51] Entering Step: Ped ID: 1, location: (-0.8999999761581421, 2.5)
+[05.17.21 16:26:51] Use SGAN to generate next location
+[05.17.21 16:26:52] SGAN sample idx 0 next position for ped 0: [-0.05369248  2.40174723  0.        ]
+[05.17.21 16:26:52] SGAN sample idx 0 next position for ped 1: [-0.84952676  2.5013895   0.        ]
+[05.17.21 16:26:52] Using SGAN to set next location
+[05.17.21 16:26:52] Set next step ped 0 at location [-0.05369248  2.40174723  0.        ]
+[05.17.21 16:26:52] Set next step ped 1 at location [-0.84952676  2.5013895   0.        ]
+[05.17.21 16:26:52] Exiting step: Ped ID: 0, location: (-0.05369248241186142, 2.401747226715088)
+[05.17.21 16:26:52] Exiting step: Ped ID: 1, location: (-0.8495267629623413, 2.501389503479004)
+[05.17.21 16:26:52] Entering Step: Ped ID: 0, location: (-0.05369248241186142, 2.401747226715088)
+[05.17.21 16:26:52] Entering Step: Ped ID: 1, location: (-0.8495267629623413, 2.501389503479004)
+[05.17.21 16:26:52] Use SGAN to generate next location
+[05.17.21 16:26:53] SGAN sample idx 0 next position for ped 0: [-0.00885477  2.40387511  0.        ]
+[05.17.21 16:26:53] SGAN sample idx 0 next position for ped 1: [-0.78432614  2.49685621  0.        ]
+[05.17.21 16:26:53] Using SGAN to set next location
+[05.17.21 16:26:53] Set next step ped 0 at location [-0.00885477  2.40387511  0.        ]
+[05.17.21 16:26:53] Set next step ped 1 at location [-0.78432614  2.49685621  0.        ]
+[05.17.21 16:26:53] Exiting step: Ped ID: 0, location: (-0.008854765444993973, 2.4038751125335693)
+[05.17.21 16:26:53] Exiting step: Ped ID: 1, location: (-0.7843261361122131, 2.496856212615967)
+[05.17.21 16:26:53] Entering Step: Ped ID: 0, location: (-0.008854765444993973, 2.4038751125335693)
+[05.17.21 16:26:53] Entering Step: Ped ID: 1, location: (-0.7843261361122131, 2.496856212615967)
+[05.17.21 16:26:53] Use SGAN to generate next location
