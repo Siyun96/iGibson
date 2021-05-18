@@ -401,6 +401,7 @@ class SocialNavRandomTask(PointNavRandomTask):
         return waypoints
 
     def step(self, env):
+        threshold = 1.6
         """
         Perform task-specific step: move the pedestrians based on ORCA while
         disallowing backing up
@@ -508,6 +509,17 @@ class SocialNavRandomTask(PointNavRandomTask):
         elif self.use_orca_set_vel and self.start_sgan:
             sgan_suc = False
             env.logger.info('Use SGAN to generate preferred velocity')
+
+            # Address the issue of waypoint too close
+            for i, (ped, orca_ped, waypoints) in \
+                            enumerate(zip(self.pedestrians,
+                                        self.orca_pedestrians,
+                                        self.pedestrian_waypoints)):
+                current_pos = np.array(ped.get_position())
+                if np.linalg.norm(waypoints[0] - current_pos[0:2]) < threshold:
+                    waypoints.pop(0)
+                    ped_next_goals[i] = waypoints[0]
+
             ped_pos_dict = gen_ped_data(self.generator, self.history_trajs, self.num_samples, ped_next_goals, self.floorplan)
             # print(ped_pos_dict)
             for sample_idx in range(0, self.num_samples):
@@ -618,6 +630,17 @@ class SocialNavRandomTask(PointNavRandomTask):
         elif not self.use_orca_set_vel and self.start_sgan:
             sgan_suc = False
             env.logger.info('Use SGAN to generate next location')
+            
+            # Address the issue of waypoint too close
+            for i, (ped, orca_ped, waypoints) in \
+                            enumerate(zip(self.pedestrians,
+                                        self.orca_pedestrians,
+                                        self.pedestrian_waypoints)):
+                current_pos = np.array(ped.get_position())
+                if np.linalg.norm(waypoints[0] - current_pos[0:2]) < threshold:
+                    waypoints.pop(0)
+                    ped_next_goals[i] = waypoints[0]
+
             ped_pos_dict = gen_ped_data(self.generator, self.history_trajs, self.num_samples, ped_next_goals, self.floorplan)
             # print(ped_pos_dict)
 

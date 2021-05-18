@@ -36,7 +36,7 @@ class iGibsonEnv(BaseEnv):
         config_file,
         scene_id=None,
         mode='headless',
-        action_timestep=1 / 13.0,
+        action_timestep=1 / 2.5,
         physics_timestep=1 / 240.0,
         device_idx=0,
         render_to_tensor=False,
@@ -506,7 +506,7 @@ if __name__ == '__main__':
         
         env = iGibsonEnv(config_file=args.config,
                         mode=args.mode,
-                        action_timestep=1.0 / 13.0,
+                        action_timestep=1.0 / 2.5,
                         physics_timestep=1.0 / 40.0,
                         social_nav_generator=generator,
                         use_orca_default=args.use_orca_default, # False
@@ -517,7 +517,7 @@ if __name__ == '__main__':
         exp_logger = get_logger(args.log_path, 'ped_trajectories')
         env = iGibsonEnv(config_file=args.config,
                         mode=args.mode,
-                        action_timestep=1.0 / 13.0,
+                        action_timestep=1.0 / 2.5,
                         physics_timestep=1.0 / 40.0,
                         logger=exp_logger)
 
