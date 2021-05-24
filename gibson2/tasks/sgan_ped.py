@@ -31,7 +31,6 @@ def gen_ped_data(generator, ped_dict, num_samples, next_goal = [(0, 0)], map=Non
     seq_start_end = torch.tensor([[0,len(ped_dict)]], device = cuda0)
     #pred_len = 1
     mod_ped_pos = []
-    num_ped = len(ped_dict.keys())
     for _ in range(num_samples):
         pred_traj_fake_rel = generator(
             obs_traj, obs_traj_rel, seq_start_end, torch.tensor(next_goal, dtype=torch.float).cuda(), images

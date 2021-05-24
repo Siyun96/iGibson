@@ -1,11 +1,12 @@
 import os
 import re
 import argparse
+import matplotlib.pyplot as plt
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dir_name', type=str, default='sgan')
+    parser.add_argument('--dir_name', type=str, default='comparison_log_new')
     parser.add_argument('--filename', type=str, default='ped_trajectories.txt')
     parser.add_argument('--num_ped', type=int, default=2)
     parser.add_argument('--num_steps', type=int, default=100)
@@ -94,3 +95,18 @@ if __name__ == '__main__':
         for t in range(len(ped_pos_dict[i])):
             print(ped_pos_dict[i][t], desired_velocity[i][t], move_success[i][t])
         print('\n\n')
+    
+    colors = ['blue', 'red']
+    
+    for t in range(len(ped_pos_dict[0])-4):
+        k = t + 4
+        plt.figure()
+        plt.xlim(-3,3)
+        plt.ylim(-3,3)
+        for j in range(t,k-1):
+            for i in range(args.num_ped):
+                plt.plot(ped_pos_dict[i][j][0], ped_pos_dict[i][j][1], ".", color = colors[i])
+            for i in range(args.num_ped):
+                plt.plot(ped_pos_dict[i][k-1][0], ped_pos_dict[i][k-1][1], "*", color = colors[i])
+        plt.savefig("pass_door_sgan_imgs/" + '{:04d}'.format(t) +".png")
+        plt.close()
