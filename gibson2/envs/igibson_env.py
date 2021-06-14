@@ -36,7 +36,7 @@ class iGibsonEnv(BaseEnv):
         config_file,
         scene_id=None,
         mode='headless',
-        action_timestep=1 / 2.5,
+        action_timestep=1 / 4.5,
         physics_timestep=1 / 240.0,
         device_idx=0,
         render_to_tensor=False,
@@ -74,9 +74,12 @@ class iGibsonEnv(BaseEnv):
         Load task setup
         """
         self.initial_pos_z_offset = self.config.get(
-            'initial_pos_z_offset', 0.1)
+            'initial_pos_z_offset', 0.3)
+        print(self.initial_pos_z_offset)
         # s = 0.5 * G * (t ** 2)
         drop_distance = 0.5 * 9.8 * (self.action_timestep ** 2)
+        print(drop_distance)
+        # TODO: check validity
         assert drop_distance < self.initial_pos_z_offset, \
             'initial_pos_z_offset is too small for collision checking'
 
@@ -323,6 +326,18 @@ class iGibsonEnv(BaseEnv):
         if done and self.automatic_reset:
             info['last_observation'] = state
             state = self.reset()
+        
+        # for evaluate goals only
+        # done = False
+
+        # reached = 0
+        # for i in range(0,self.task.num_pedestrians):
+        #     if self.task.goal_num[i] >= 5:
+        #         reached += 1
+
+        # if reached == self.task.num_pedestrians:
+        #     done = True
+        #     print("goal result **************************************************", reached, self.task.goal_num, self.task.reach_num)
 
         return state, reward, done, info
 
@@ -506,7 +521,7 @@ if __name__ == '__main__':
         
         env = iGibsonEnv(config_file=args.config,
                         mode=args.mode,
-                        action_timestep=1.0 / 2.5,
+                        action_timestep=1.0 / 4.5,
                         physics_timestep=1.0 / 40.0,
                         social_nav_generator=generator,
                         use_orca_default=args.use_orca_default, # False
@@ -517,21 +532,24 @@ if __name__ == '__main__':
         exp_logger = get_logger(args.log_path, 'ped_trajectories')
         env = iGibsonEnv(config_file=args.config,
                         mode=args.mode,
-                        action_timestep=1.0 / 2.5,
+                        action_timestep=1.0 / 4.5,
                         physics_timestep=1.0 / 40.0,
                         logger=exp_logger)
 
     step_time_list = []
-    for episode in range(100):
+    for episode in range(1):
         print('Episode: {}'.format(episode))
         start = time.time()
         env.reset()
-        for _ in range(100):  # 10 seconds
+        for _ in range(100):
+        # while True:  # 10 seconds
             action = env.action_space.sample()
             state, reward, done, _ = env.step(action)
             print('reward', reward)
-            if done:
-                break
+            # if done:
+            #     break
         print('Episode finished after {} timesteps, took {} seconds.'.format(
             env.current_step, time.time() - start))
+        print("goals", env.task.goals)
+        print("starts", env.task.starts)
     env.close()

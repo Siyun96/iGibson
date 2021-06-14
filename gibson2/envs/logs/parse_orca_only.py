@@ -1,6 +1,9 @@
 import os
 import re
 import argparse
+import matplotlib.pyplot as plt
+import torch
+import matplotlib.image as mpimg
 
 
 if __name__ == '__main__':
@@ -73,3 +76,22 @@ if __name__ == '__main__':
         for t in range(len(ped_pos_dict[i])):
             print(ped_pos_dict[i][t], desired_velocity[i][t], move_success[i][t])
         print('\n\n')
+
+        colors = ['blue', 'red']
+    
+    mymap = mpimg.imread('/home/yige/iGibson/gibson2/envs/floorplan.png')
+    print(mymap)
+    for t in range(len(ped_pos_dict[0])-4):
+        k = t + 4
+        plt.figure()
+        plt.xlim(400,800)
+        plt.ylim(400,800) 
+        plt.imshow(mymap[:,:])
+        # plt.gca().xaxis.set_major_locator(MaxNLocator(prune='upper'))
+        for j in range(t,k-1):
+            for i in range(args.num_ped):
+                plt.plot(ped_pos_dict[i][j][0]*100+500, ped_pos_dict[i][j][1]*100+500, ".", color = colors[i])
+            for i in range(args.num_ped):
+                plt.plot(ped_pos_dict[i][k-1][0]*100+500, ped_pos_dict[i][k-1][1]*100+500, "*", color = colors[i])
+        plt.savefig("map_door_orca01_imgs/" + '{:04d}'.format(t) +".png")
+        plt.close()

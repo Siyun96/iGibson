@@ -126,7 +126,9 @@ class InteractiveIndoorScene(StaticIndoorScene):
 
         # Load room semantic and instance segmentation map
         self.load_room_sem_ins_seg_map(seg_map_resolution)
-
+        # print("wtf????????????????????????????????????????????????????????/")
+        # print(not_load_object_categories)
+        # return
         # Decide which room(s) and object categories to load
         self.filter_rooms_and_object_categories(
             load_object_categories, not_load_object_categories,
@@ -155,7 +157,7 @@ class InteractiveIndoorScene(StaticIndoorScene):
                     in_rooms = in_rooms.split(',')
 
                 # Find the urdf file that defines this object
-                if category in ["walls", "floors", "ceilings"]:
+                if category in ["walls", "floors"]:
                     model_path = self.scene_dir
                     filename = os.path.join(
                         model_path, "urdf", model + "_" + category + ".urdf")
@@ -164,7 +166,7 @@ class InteractiveIndoorScene(StaticIndoorScene):
                 else:
                     # This object does not belong to one of the selected object categories, skip
                     if self.not_load_object_categories is not None and \
-                            category in self.not_load_object_categories:
+                            (category in self.not_load_object_categories or category == 'ceilings'):
                         continue
                     if self.load_object_categories is not None and \
                             category not in self.load_object_categories:

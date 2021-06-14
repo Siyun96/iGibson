@@ -9,6 +9,7 @@ from gibson2.utils.utils import l2_distance, get_transform_from_xyz_rpy, quatXYZ
 from gibson2.utils.assets_utils import get_scene_path, get_texture_file, get_ig_scene_path
 import pybullet_data
 import pybullet as p
+import torch
 import os
 from gibson2.scenes.scene_base import Scene
 
@@ -24,7 +25,7 @@ class IndoorScene(Scene):
                  trav_map_resolution=0.1,
                  trav_map_default_resolution=0.01,
                  trav_map_erosion=2,
-                 trav_map_type='with_obj',
+                 trav_map_type='no_obj',
                  build_graph=True,
                  num_waypoints=10,
                  waypoint_resolution=0.2,

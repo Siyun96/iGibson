@@ -7,10 +7,13 @@ from gibson2.utils.utils import l2_distance
 from gibson2.sgan.sgan.models import TrajectoryGenerator
 # from gibson2.sgan.sgan.utils import relative_to_abs, get_dset_path
 from gibson2.utils.logger import get_logger
+import matplotlib.pyplot as plt
+import torch
 
 from gibson2.tasks.sgan_ped import gen_ped_data
 from collections import defaultdict
 import pybullet as p
+from scipy import ndimage
 import numpy as np
 import rvo2
 
@@ -30,6 +33,10 @@ class SocialNavRandomTask(PointNavRandomTask):
         # Decide on how many pedestrians to load based on scene size
         # Each pixel is 0.01 square meter
         num_sqrt_meter = env.scene.floor_map[0].nonzero()[0].shape[0] / 100.0
+        torch.save(env.scene.floor_map[0], 'map.pt')
+        # plt.figure()
+        # plt.imshow(env.scene.floor_map[0])
+        # plt.savefig(str(env.scene.trav_map_resolution)+" "+str(env.scene.trav_map_size)+".png")
         self.num_sqrt_meter_per_ped = self.config.get(
             'num_sqrt_meter_per_ped', 8)
         self.num_pedestrians = max(2, int(
@@ -131,6 +138,8 @@ class SocialNavRandomTask(PointNavRandomTask):
         self.time_horizon_obst = self.config.get('orca_time_horizon_obst', 2.0)
         self.orca_radius = self.config.get('orca_radius', 0.5)
         self.orca_max_speed = self.config.get('orca_max_speed', 0.5)
+        
+        self.orca_radius = 0.0
 
         self.orca_sim = rvo2.PyRVOSimulator(
             env.action_timestep,
@@ -283,6 +292,7 @@ class SocialNavRandomTask(PointNavRandomTask):
         :param env: environment instance
         """
         experiment = True
+        # Door example
         initial_poses = [np.array([0.9, 0.2, 0.0]), np.array([0.3, 2.2, 0.0])]
         target_poses = [np.array([0.3, 2.2]), np.array([0.8,-0.3])]
         self.pedestrian_waypoints = []
