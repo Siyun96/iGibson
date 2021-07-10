@@ -483,7 +483,7 @@ class SocialNavRandomTask(PointNavRandomTask):
                              next_goal[0] - current_pos[0])
             ped.set_yaw(yaw)
 
-##################################################SHIT BELOW#######################################################################
+##################################################CHANGES BELOW#######################################################################
 
             if len(self.history_trajs[ped]) < 8:
                 self.start_sgan = False
@@ -695,7 +695,7 @@ class SocialNavRandomTask(PointNavRandomTask):
                     waypoints.pop(0)
         else:
             assert("Undefined behavior!")
-       ###########SHIT ABOVE###########################################
+       ###########CHANGES ABOVE###########################################
 
         # Detect robot's personal space violation
         personal_space_violation = False
